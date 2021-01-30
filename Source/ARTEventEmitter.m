@@ -138,8 +138,13 @@
         NSAssert(false, @"timer is already running");
     }
     _timerIsRunning = true;
+
+    __weak ARTEventListener *weakSelf = self;
     _work = artDispatchScheduled(_timeoutDeadline, [_eventHandler queue], ^{
-        [self timeout];
+        ARTEventListener *strongSelf = weakSelf;
+        if (strongSelf != nil) {
+            [strongSelf timeout];
+        }
     });
 }
 
@@ -147,6 +152,7 @@
     artDispatchCancel(_work);
     _timerIsRunning = false;
     _timeoutBlock = nil;
+    _work = nil;
 }
 
 - (void)restartTimer {
