@@ -571,6 +571,12 @@
 		D7534C321D79E5C20054C182 /* Ably.h in Headers */ = {isa = PBXBuildFile; fileRef = D7534C311D79E5C20054C182 /* Ably.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D7588AF31BFF91B800BB8279 /* ARTURLSessionServerTrust.h in Headers */ = {isa = PBXBuildFile; fileRef = D7588AF11BFF91B800BB8279 /* ARTURLSessionServerTrust.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		D7588AF41BFF91B800BB8279 /* ARTURLSessionServerTrust.m in Sources */ = {isa = PBXBuildFile; fileRef = D7588AF21BFF91B800BB8279 /* ARTURLSessionServerTrust.m */; };
+		D759B4E62554079400EA3EF9 /* OrderedSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D759B4E52554079400EA3EF9 /* OrderedSet.swift */; };
+		D759B4E72554079400EA3EF9 /* OrderedSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D759B4E52554079400EA3EF9 /* OrderedSet.swift */; };
+		D759B4E82554079400EA3EF9 /* OrderedSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D759B4E52554079400EA3EF9 /* OrderedSet.swift */; };
+		D759B4EF2554080A00EA3EF9 /* OrderedSetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D759B4EE2554080A00EA3EF9 /* OrderedSetTests.swift */; };
+		D759B4F02554080A00EA3EF9 /* OrderedSetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D759B4EE2554080A00EA3EF9 /* OrderedSetTests.swift */; };
+		D759B4F12554080A00EA3EF9 /* OrderedSetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D759B4EE2554080A00EA3EF9 /* OrderedSetTests.swift */; };
 		D75A3F1B1DDE5B62002A4AAD /* ARTGCD.h in Headers */ = {isa = PBXBuildFile; fileRef = D75A3F191DDE5B62002A4AAD /* ARTGCD.h */; };
 		D75A3F1C1DDE5B62002A4AAD /* ARTGCD.m in Sources */ = {isa = PBXBuildFile; fileRef = D75A3F1A1DDE5B62002A4AAD /* ARTGCD.m */; };
 		D75B861621BB48C900FD8DD2 /* Aspects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D75B861521BB48C900FD8DD2 /* Aspects.framework */; };
@@ -991,6 +997,8 @@
 		D7534C311D79E5C20054C182 /* Ably.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ably.h; sourceTree = "<group>"; };
 		D7588AF11BFF91B800BB8279 /* ARTURLSessionServerTrust.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARTURLSessionServerTrust.h; sourceTree = "<group>"; };
 		D7588AF21BFF91B800BB8279 /* ARTURLSessionServerTrust.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARTURLSessionServerTrust.m; sourceTree = "<group>"; };
+		D759B4E52554079400EA3EF9 /* OrderedSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedSet.swift; sourceTree = "<group>"; };
+		D759B4EE2554080A00EA3EF9 /* OrderedSetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedSetTests.swift; sourceTree = "<group>"; };
 		D75A3F191DDE5B62002A4AAD /* ARTGCD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARTGCD.h; path = Private/ARTGCD.h; sourceTree = "<group>"; };
 		D75A3F1A1DDE5B62002A4AAD /* ARTGCD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ARTGCD.m; path = Private/ARTGCD.m; sourceTree = "<group>"; };
 		D75B85F921BAF8F900FD8DD2 /* Ably.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Ably.xcconfig; sourceTree = "<group>"; };
@@ -1217,18 +1225,15 @@
 			children = (
 				856AAC9A1B6E326E00B07119 /* ably-common */,
 				856AAC951B6E30C800B07119 /* AblySpec-Bridging-Header.h */,
+				856AAC8E1B6E304B00B07119 /* Info-iOS.plist */,
+				D7093C0E219E2DB200723F17 /* Info-macOS.plist */,
+				D7093C64219EE1AE00723F17 /* Info-tvOS.plist */,
 				560579D824AF1BA900A4D03D /* ARTDefaultTests.swift */,
 				D7C1B8761BBEA81A0087B55F /* Auth.swift */,
 				EB7913A71C6E54C3000ABF9B /* Crypto.swift */,
 				56190953238C3D3200A862A6 /* CryptoTest.m */,
 				D798554723EB96C000946BE2 /* DeltaCodec.swift */,
-				856AAC8E1B6E304B00B07119 /* Info-iOS.plist */,
-				D7093C0E219E2DB200723F17 /* Info-macOS.plist */,
-				D7093C64219EE1AE00723F17 /* Info-tvOS.plist */,
 				D7093CA8219EFA8A00723F17 /* MockDeviceStorage.swift */,
-				D780846C1C68B3E50083009D /* NSObject+TestSuite.h */,
-				D780846D1C68B3E50083009D /* NSObject+TestSuite.m */,
-				D714A63D1C74D4B2002F2CA0 /* NSObject+TestSuite.swift */,
 				EB1B53F822F85CE4006A59AC /* ObjectLifetimes.swift */,
 				D7FC1ECA209CEA2E001E4153 /* Push.swift */,
 				D7DF73831EA5FE620013CD36 /* PushActivationStateMachine.swift */,
@@ -1247,8 +1252,7 @@
 				853ED7C31B7A1A3C006F1C6F /* RestClientStats.swift */,
 				D74CBC09212EC02C00D090E4 /* RestPaginated.swift */,
 				851674EE1B7BA5CD00D35169 /* Stats.swift */,
-				856AAC961B6E30C800B07119 /* TestUtilities.swift */,
-				EB1AE0CD1C5C3A4900D62250 /* Utilities.swift */,
+				D759B4ED255407A500EA3EF9 /* Utilities */,
 			);
 			path = Spec;
 			sourceTree = "<group>";
@@ -1538,6 +1542,20 @@
 				D70C36C2233E6831002FD6E3 /* ARTFormEncode.m */,
 			);
 			name = HTTP;
+			sourceTree = "<group>";
+		};
+		D759B4ED255407A500EA3EF9 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				D780846C1C68B3E50083009D /* NSObject+TestSuite.h */,
+				D780846D1C68B3E50083009D /* NSObject+TestSuite.m */,
+				D714A63D1C74D4B2002F2CA0 /* NSObject+TestSuite.swift */,
+				D759B4E52554079400EA3EF9 /* OrderedSet.swift */,
+				D759B4EE2554080A00EA3EF9 /* OrderedSetTests.swift */,
+				EB1AE0CD1C5C3A4900D62250 /* Utilities.swift */,
+				856AAC961B6E30C800B07119 /* TestUtilities.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		D7B6218D1E4A6DC000684474 /* Push */ = {
@@ -2313,9 +2331,11 @@
 				EB1B53F922F85CE4006A59AC /* ObjectLifetimes.swift in Sources */,
 				D7DF73851EA600240013CD36 /* PushActivationStateMachine.swift in Sources */,
 				D7FC1ECB209CEA2E001E4153 /* Push.swift in Sources */,
+				D759B4E62554079400EA3EF9 /* OrderedSet.swift in Sources */,
 				D714A63E1C74D4B2002F2CA0 /* NSObject+TestSuite.swift in Sources */,
 				856AAC971B6E30C800B07119 /* TestUtilities.swift in Sources */,
 				D72768211C9C19040022F8B2 /* RestClientPresence.swift in Sources */,
+				D759B4EF2554080A00EA3EF9 /* OrderedSetTests.swift in Sources */,
 				D780846E1C68B3E50083009D /* NSObject+TestSuite.m in Sources */,
 				D7093CA9219EFA8A00723F17 /* MockDeviceStorage.swift in Sources */,
 				D7CEF1321C8DD3BC004FB242 /* RealtimeClientPresence.swift in Sources */,
@@ -2437,6 +2457,7 @@
 				D7093C1F219E466E00723F17 /* RestClientStats.swift in Sources */,
 				D7093C1A219E465C00723F17 /* NSObject+TestSuite.m in Sources */,
 				D7093C1E219E466900723F17 /* RestClient.swift in Sources */,
+				D759B4E72554079400EA3EF9 /* OrderedSet.swift in Sources */,
 				D7093C2B219E466E00723F17 /* Crypto.swift in Sources */,
 				D7093C20219E466E00723F17 /* RestClientChannel.swift in Sources */,
 				EB1B53FA22F85CE4006A59AC /* ObjectLifetimes.swift in Sources */,
@@ -2444,6 +2465,7 @@
 				D798554923EB96C000946BE2 /* DeltaCodec.swift in Sources */,
 				D7093C21219E466E00723F17 /* RestClientChannels.swift in Sources */,
 				D7093C26219E466E00723F17 /* RealtimeClientChannel.swift in Sources */,
+				D759B4F02554080A00EA3EF9 /* OrderedSetTests.swift in Sources */,
 				D7093C22219E466E00723F17 /* RestClientPresence.swift in Sources */,
 				56190955238C3D3200A862A6 /* CryptoTest.m in Sources */,
 				D7093C1D219E466600723F17 /* Auth.swift in Sources */,
@@ -2467,6 +2489,7 @@
 				D7093C7E219EE26400723F17 /* RealtimeClientChannels.swift in Sources */,
 				D7093C79219EE26400723F17 /* RestClientPresence.swift in Sources */,
 				D7093C78219EE26400723F17 /* RestClientChannels.swift in Sources */,
+				D759B4E82554079400EA3EF9 /* OrderedSet.swift in Sources */,
 				D7093C76219EE26400723F17 /* RestClientStats.swift in Sources */,
 				D7093C82219EE26400723F17 /* Crypto.swift in Sources */,
 				EB1B53FB22F85CE4006A59AC /* ObjectLifetimes.swift in Sources */,
@@ -2474,6 +2497,7 @@
 				D798554A23EB96C000946BE2 /* DeltaCodec.swift in Sources */,
 				D7093C74219EE26400723F17 /* Auth.swift in Sources */,
 				D7093C72219EE25B00723F17 /* NSObject+TestSuite.swift in Sources */,
+				D759B4F12554080A00EA3EF9 /* OrderedSetTests.swift in Sources */,
 				D7093C7B219EE26400723F17 /* RealtimeClient.swift in Sources */,
 				56190956238C3D3200A862A6 /* CryptoTest.m in Sources */,
 				D7093C7A219EE26400723F17 /* RestPaginated.swift in Sources */,

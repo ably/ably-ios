@@ -276,7 +276,8 @@ class RealtimeClientConnection: QuickSpec {
                     let client = ARTRealtime(options: options)
                     defer { client.dispose(); client.close() }
                     let connection = client.connection
-                    var events: [ARTRealtimeConnectionState] = []
+                    var previousStates = OrderedSet<ARTRealtimeConnectionState>()
+                    var currentStates = OrderedSet<ARTRealtimeConnectionState>()
 
                     waitUntil(timeout: testTimeout) { done in
                         var alreadyDisconnected = false
@@ -284,13 +285,10 @@ class RealtimeClientConnection: QuickSpec {
 
                         connection.on { stateChange in
                             let stateChange = stateChange!
-                            let state = stateChange.current
+                            previousStates.append(stateChange.previous)
+                            currentStates.append(stateChange.current)
                             let errorInfo = stateChange.reason
-                            switch state {
-                            case .connecting:
-                                if !alreadyDisconnected {
-                                    events += [state]
-                                }
+                            switch stateChange.current {
                             case .connected:
                                 if alreadyClosed {
                                     delay(0) {
@@ -299,25 +297,18 @@ class RealtimeClientConnection: QuickSpec {
                                 } else if alreadyDisconnected {
                                     client.close()
                                 } else {
-                                    events += [state]
                                     delay(0) {
                                         client.internal.onDisconnected()
                                     }
                                 }
                             case .disconnected:
-                                events += [state]
                                 alreadyDisconnected = true
                             case .suspended:
-                                events += [state]
                                 client.internal.onError(AblyTests.newErrorProtocolMessage())
-                            case .closing:
-                                events += [state]
                             case .closed:
-                                events += [state]
                                 alreadyClosed = true
                                 client.connect()
                             case .failed:
-                                events += [state]
                                 expect(errorInfo).toNot(beNil(), description: "Error is nil")
                                 connection.off()
                                 done()
@@ -325,23 +316,31 @@ class RealtimeClientConnection: QuickSpec {
                                 break
                             }
                         }
-                        events += [connection.state]
+
+                        currentStates.append(connection.state)
                         connection.connect()
                     }
 
-                    if events.count != 8 {
-                        fail("Missing some states, got \(events)")
+                    if currentStates.count != 8 {
+                        fail("Missing some states, got \(currentStates)")
                         return
                     }
 
-                    expect(events[0].rawValue).to(equal(ARTRealtimeConnectionState.initialized.rawValue), description: "Should be INITIALIZED state")
-                    expect(events[1].rawValue).to(equal(ARTRealtimeConnectionState.connecting.rawValue), description: "Should be CONNECTING state")
-                    expect(events[2].rawValue).to(equal(ARTRealtimeConnectionState.connected.rawValue), description: "Should be CONNECTED state")
-                    expect(events[3].rawValue).to(equal(ARTRealtimeConnectionState.disconnected.rawValue), description: "Should be DISCONNECTED state")
-                    expect(events[4].rawValue).to(equal(ARTRealtimeConnectionState.closing.rawValue), description: "Should be CLOSING state")
-                    expect(events[5].rawValue).to(equal(ARTRealtimeConnectionState.closed.rawValue), description: "Should be CLOSED state")
-                    expect(events[6].rawValue).to(equal(ARTRealtimeConnectionState.suspended.rawValue), description: "Should be SUSPENDED state")
-                    expect(events[7].rawValue).to(equal(ARTRealtimeConnectionState.failed.rawValue), description: "Should be FAILED state")
+                    expect(currentStates[0]).to(equal(.initialized), description: "Should be INITIALIZED state")
+                    expect(currentStates[1]).to(equal(.connecting), description: "Should be CONNECTING state")
+                    expect(previousStates[0]).to(equal(.initialized), description: "Should be INITIALIZED state")
+                    expect(currentStates[2]).to(equal(.connected), description: "Should be CONNECTED state")
+                    expect(previousStates[1]).to(equal(.connecting), description: "Should be CONNECTING state")
+                    expect(currentStates[3]).to(equal(.disconnected), description: "Should be DISCONNECTED state")
+                    expect(previousStates[2]).to(equal(.connected), description: "Should be CONNECTED state")
+                    expect(currentStates[4]).to(equal(.closing), description: "Should be CLOSING state")
+                    expect(previousStates[3]).to(equal(.disconnected), description: "Should be DISCONNECTED state")
+                    expect(currentStates[5]).to(equal(.closed), description: "Should be CLOSED state")
+                    expect(previousStates[4]).to(equal(.closing), description: "Should be CLOSING state")
+                    expect(currentStates[6]).to(equal(.suspended), description: "Should be SUSPENDED state")
+                    expect(previousStates[5]).to(equal(.closed), description: "Should be CLOSED state")
+                    expect(currentStates[7]).to(equal(.failed), description: "Should be FAILED state")
+                    expect(previousStates[6]).to(equal(.suspended), description: "Should be SUSPENDED state")
                 }
 
                 // RTN4h
