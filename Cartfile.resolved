@@ -1,7 +1,6 @@
 github "Quick/Nimble" "v9.2.0"
 github "Quick/Quick" "v3.0.0"
 github "SwiftyJSON/SwiftyJSON" "4.3.0"
-github "ably-forks/SocketRocket" "0.5.2-ably-8"
 github "ably/delta-codec-cocoa" "1.2.0"
 github "rvi/msgpack-objective-C" "0.3.1"
 github "whitesmith/Aspects" "1.4.2-ws1"

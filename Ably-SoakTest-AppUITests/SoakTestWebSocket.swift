@@ -7,7 +7,6 @@
 
 import Foundation
 import Ably.Private
-import SocketRocketAblyFork
 
 class SoakTestWebSocket: NSObject, ARTWebSocket {
     var readyState: ARTSRReadyState

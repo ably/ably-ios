@@ -18,12 +18,90 @@
 		1C6C18A41ADFDAB100AB79E4 /* ARTLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6C18A21ADFDAB100AB79E4 /* ARTLog.m */; };
 		1CD8DC9F1B1C7315007EAF36 /* ARTDefault.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CD8DC9D1B1C7315007EAF36 /* ARTDefault.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1CD8DCA01B1C7315007EAF36 /* ARTDefault.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CD8DC9E1B1C7315007EAF36 /* ARTDefault.m */; };
+		21447D3B254A2ECB00B3905A /* ARTSRWebSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 217D181B25421FED00DFF07E /* ARTSRWebSocket.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		21447D40254A2ECE00B3905A /* ARTSRWebSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 217D181B25421FED00DFF07E /* ARTSRWebSocket.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		21447D45254A2ED100B3905A /* ARTSRWebSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 217D181B25421FED00DFF07E /* ARTSRWebSocket.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		217D1829254222F500DFF07E /* ARTSRHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D180425421FED00DFF07E /* ARTSRHash.m */; };
+		217D182A254222F500DFF07E /* ARTSRRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D180025421FED00DFF07E /* ARTSRRandom.m */; };
+		217D182B254222F500DFF07E /* ARTSRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D181F25421FED00DFF07E /* ARTSRWebSocket.m */; };
+		217D182C254222F500DFF07E /* ARTSRProxyConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D17F225421FED00DFF07E /* ARTSRProxyConnect.m */; };
+		217D182D254222F500DFF07E /* ARTSRSIMDHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D180925421FED00DFF07E /* ARTSRSIMDHelpers.m */; };
+		217D182E254222F600DFF07E /* ARTSRRunLoopThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D17F425421FED00DFF07E /* ARTSRRunLoopThread.m */; };
+		217D182F254222F600DFF07E /* ARTSRIOConsumerPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D181325421FED00DFF07E /* ARTSRIOConsumerPool.m */; };
+		217D1830254222F600DFF07E /* ARTSRMutex.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D180225421FED00DFF07E /* ARTSRMutex.m */; };
+		217D1831254222F600DFF07E /* ARTSRConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D181525421FED00DFF07E /* ARTSRConstants.m */; };
+		217D1832254222F600DFF07E /* ARTSRSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D181E25421FED00DFF07E /* ARTSRSecurityPolicy.m */; };
+		217D1833254222F600DFF07E /* ARTSRPinningSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D17F825421FED00DFF07E /* ARTSRPinningSecurityPolicy.m */; };
+		217D1834254222F600DFF07E /* ARTSRURLUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D180C25421FED00DFF07E /* ARTSRURLUtilities.m */; };
+		217D1835254222F600DFF07E /* ARTSRIOConsumer.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D181225421FED00DFF07E /* ARTSRIOConsumer.m */; };
+		217D1836254222F600DFF07E /* ARTSRLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D17FF25421FED00DFF07E /* ARTSRLog.m */; };
+		217D1837254222F600DFF07E /* ARTSRError.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D180E25421FED00DFF07E /* ARTSRError.m */; };
+		217D1838254222F600DFF07E /* NSRunLoop+ARTSRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D181D25421FED00DFF07E /* NSRunLoop+ARTSRWebSocket.m */; };
+		217D1839254222F600DFF07E /* ARTSRHTTPConnectMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D180D25421FED00DFF07E /* ARTSRHTTPConnectMessage.m */; };
+		217D183A254222F600DFF07E /* NSURLRequest+ARTSRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D181725421FED00DFF07E /* NSURLRequest+ARTSRWebSocket.m */; };
+		217D183B254222F600DFF07E /* ARTSRDelegateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D17FC25421FED00DFF07E /* ARTSRDelegateController.m */; };
+		217D1840254222F700DFF07E /* ARTSRHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D180425421FED00DFF07E /* ARTSRHash.m */; };
+		217D1841254222F700DFF07E /* ARTSRRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D180025421FED00DFF07E /* ARTSRRandom.m */; };
+		217D1842254222F700DFF07E /* ARTSRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D181F25421FED00DFF07E /* ARTSRWebSocket.m */; };
+		217D1843254222F700DFF07E /* ARTSRProxyConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D17F225421FED00DFF07E /* ARTSRProxyConnect.m */; };
+		217D1844254222F700DFF07E /* ARTSRSIMDHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D180925421FED00DFF07E /* ARTSRSIMDHelpers.m */; };
+		217D1845254222F700DFF07E /* ARTSRRunLoopThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D17F425421FED00DFF07E /* ARTSRRunLoopThread.m */; };
+		217D1846254222F700DFF07E /* ARTSRIOConsumerPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D181325421FED00DFF07E /* ARTSRIOConsumerPool.m */; };
+		217D1847254222F700DFF07E /* ARTSRMutex.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D180225421FED00DFF07E /* ARTSRMutex.m */; };
+		217D1848254222F700DFF07E /* ARTSRConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D181525421FED00DFF07E /* ARTSRConstants.m */; };
+		217D1849254222F700DFF07E /* ARTSRSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D181E25421FED00DFF07E /* ARTSRSecurityPolicy.m */; };
+		217D184A254222F700DFF07E /* ARTSRPinningSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D17F825421FED00DFF07E /* ARTSRPinningSecurityPolicy.m */; };
+		217D184B254222F700DFF07E /* ARTSRURLUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D180C25421FED00DFF07E /* ARTSRURLUtilities.m */; };
+		217D184C254222F700DFF07E /* ARTSRIOConsumer.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D181225421FED00DFF07E /* ARTSRIOConsumer.m */; };
+		217D184D254222F700DFF07E /* ARTSRLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D17FF25421FED00DFF07E /* ARTSRLog.m */; };
+		217D184E254222F700DFF07E /* ARTSRError.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D180E25421FED00DFF07E /* ARTSRError.m */; };
+		217D184F254222F700DFF07E /* NSRunLoop+ARTSRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D181D25421FED00DFF07E /* NSRunLoop+ARTSRWebSocket.m */; };
+		217D1850254222F700DFF07E /* ARTSRHTTPConnectMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D180D25421FED00DFF07E /* ARTSRHTTPConnectMessage.m */; };
+		217D1851254222F700DFF07E /* NSURLRequest+ARTSRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D181725421FED00DFF07E /* NSURLRequest+ARTSRWebSocket.m */; };
+		217D1852254222F700DFF07E /* ARTSRDelegateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D17FC25421FED00DFF07E /* ARTSRDelegateController.m */; };
+		217D1857254222F900DFF07E /* ARTSRHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D180425421FED00DFF07E /* ARTSRHash.m */; };
+		217D1858254222F900DFF07E /* ARTSRRandom.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D180025421FED00DFF07E /* ARTSRRandom.m */; };
+		217D1859254222F900DFF07E /* ARTSRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D181F25421FED00DFF07E /* ARTSRWebSocket.m */; };
+		217D185A254222F900DFF07E /* ARTSRProxyConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D17F225421FED00DFF07E /* ARTSRProxyConnect.m */; };
+		217D185B254222F900DFF07E /* ARTSRSIMDHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D180925421FED00DFF07E /* ARTSRSIMDHelpers.m */; };
+		217D185C254222F900DFF07E /* ARTSRRunLoopThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D17F425421FED00DFF07E /* ARTSRRunLoopThread.m */; };
+		217D185D254222F900DFF07E /* ARTSRIOConsumerPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D181325421FED00DFF07E /* ARTSRIOConsumerPool.m */; };
+		217D185E254222F900DFF07E /* ARTSRMutex.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D180225421FED00DFF07E /* ARTSRMutex.m */; };
+		217D185F254222F900DFF07E /* ARTSRConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D181525421FED00DFF07E /* ARTSRConstants.m */; };
+		217D1860254222FA00DFF07E /* ARTSRSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D181E25421FED00DFF07E /* ARTSRSecurityPolicy.m */; };
+		217D1861254222FA00DFF07E /* ARTSRPinningSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D17F825421FED00DFF07E /* ARTSRPinningSecurityPolicy.m */; };
+		217D1862254222FA00DFF07E /* ARTSRURLUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D180C25421FED00DFF07E /* ARTSRURLUtilities.m */; };
+		217D1863254222FA00DFF07E /* ARTSRIOConsumer.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D181225421FED00DFF07E /* ARTSRIOConsumer.m */; };
+		217D1864254222FA00DFF07E /* ARTSRLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D17FF25421FED00DFF07E /* ARTSRLog.m */; };
+		217D1865254222FA00DFF07E /* ARTSRError.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D180E25421FED00DFF07E /* ARTSRError.m */; };
+		217D1866254222FA00DFF07E /* NSRunLoop+ARTSRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D181D25421FED00DFF07E /* NSRunLoop+ARTSRWebSocket.m */; };
+		217D1867254222FA00DFF07E /* ARTSRHTTPConnectMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D180D25421FED00DFF07E /* ARTSRHTTPConnectMessage.m */; };
+		217D1868254222FA00DFF07E /* NSURLRequest+ARTSRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D181725421FED00DFF07E /* NSURLRequest+ARTSRWebSocket.m */; };
+		217D1869254222FA00DFF07E /* ARTSRDelegateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 217D17FC25421FED00DFF07E /* ARTSRDelegateController.m */; };
 		560579D924AF1BA900A4D03D /* ARTDefaultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560579D824AF1BA900A4D03D /* ARTDefaultTests.swift */; };
 		560579DA24AF1BA900A4D03D /* ARTDefaultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560579D824AF1BA900A4D03D /* ARTDefaultTests.swift */; };
 		560579DB24AF1BA900A4D03D /* ARTDefaultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560579D824AF1BA900A4D03D /* ARTDefaultTests.swift */; };
 		56190954238C3D3200A862A6 /* CryptoTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 56190953238C3D3200A862A6 /* CryptoTest.m */; };
 		56190955238C3D3200A862A6 /* CryptoTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 56190953238C3D3200A862A6 /* CryptoTest.m */; };
 		56190956238C3D3200A862A6 /* CryptoTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 56190953238C3D3200A862A6 /* CryptoTest.m */; };
+		8412FDE52661AC37001FE9E6 /* AblyDeltaCodec.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8412FDE12661AC37001FE9E6 /* AblyDeltaCodec.xcframework */; };
+		8412FDE62661AC37001FE9E6 /* AblyDeltaCodec.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8412FDE12661AC37001FE9E6 /* AblyDeltaCodec.xcframework */; };
+		8412FDE72661AC37001FE9E6 /* AblyDeltaCodec.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8412FDE12661AC37001FE9E6 /* AblyDeltaCodec.xcframework */; };
+		8412FDEB2661AC37001FE9E6 /* msgpack.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8412FDE32661AC37001FE9E6 /* msgpack.xcframework */; };
+		8412FDEC2661AC37001FE9E6 /* msgpack.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8412FDE32661AC37001FE9E6 /* msgpack.xcframework */; };
+		8412FDED2661AC37001FE9E6 /* msgpack.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8412FDE32661AC37001FE9E6 /* msgpack.xcframework */; };
+		8412FDF52661AC7B001FE9E6 /* Aspects.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8412FDF12661AC7A001FE9E6 /* Aspects.xcframework */; };
+		8412FDF62661AC7B001FE9E6 /* Aspects.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8412FDF12661AC7A001FE9E6 /* Aspects.xcframework */; };
+		8412FDF72661AC7B001FE9E6 /* Aspects.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8412FDF12661AC7A001FE9E6 /* Aspects.xcframework */; };
+		8412FDF82661AC7B001FE9E6 /* SwiftyJSON.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8412FDF22661AC7B001FE9E6 /* SwiftyJSON.xcframework */; };
+		8412FDF92661AC7B001FE9E6 /* SwiftyJSON.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8412FDF22661AC7B001FE9E6 /* SwiftyJSON.xcframework */; };
+		8412FDFA2661AC7B001FE9E6 /* SwiftyJSON.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8412FDF22661AC7B001FE9E6 /* SwiftyJSON.xcframework */; };
+		8412FDFB2661AC7B001FE9E6 /* Quick.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8412FDF32661AC7B001FE9E6 /* Quick.xcframework */; };
+		8412FDFC2661AC7B001FE9E6 /* Quick.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8412FDF32661AC7B001FE9E6 /* Quick.xcframework */; };
+		8412FDFD2661AC7B001FE9E6 /* Quick.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8412FDF32661AC7B001FE9E6 /* Quick.xcframework */; };
+		8412FDFE2661AC7B001FE9E6 /* Nimble.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8412FDF42661AC7B001FE9E6 /* Nimble.xcframework */; };
+		8412FDFF2661AC7B001FE9E6 /* Nimble.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8412FDF42661AC7B001FE9E6 /* Nimble.xcframework */; };
+		8412FE002661AC7B001FE9E6 /* Nimble.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8412FDF42661AC7B001FE9E6 /* Nimble.xcframework */; };
 		850BFB4C1B79323C009D0ADD /* ARTPaginatedResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 850BFB4A1B79323C009D0ADD /* ARTPaginatedResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		850BFB4D1B79323C009D0ADD /* ARTPaginatedResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 850BFB4B1B79323C009D0ADD /* ARTPaginatedResult.m */; };
 		851674EF1B7BA5CD00D35169 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851674EE1B7BA5CD00D35169 /* Stats.swift */; };
@@ -605,29 +683,6 @@
 		D7D8F82D1BC2C706009718F2 /* ARTTokenParams.h in Headers */ = {isa = PBXBuildFile; fileRef = D7D8F8291BC2C706009718F2 /* ARTTokenParams.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D7D8F82E1BC2C706009718F2 /* ARTTokenParams.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D8F82A1BC2C706009718F2 /* ARTTokenParams.m */; };
 		D7DC8AF11C6AA0C8005AF165 /* ARTDefault+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DC8AF01C6A9FFC005AF165 /* ARTDefault+Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		D7DEA1C925DEB30800EBEC75 /* SocketRocketAblyFork.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7DEA1C525DEB30800EBEC75 /* SocketRocketAblyFork.xcframework */; };
-		D7DEA1CA25DEB30800EBEC75 /* AblyDeltaCodec.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7DEA1C625DEB30800EBEC75 /* AblyDeltaCodec.xcframework */; };
-		D7DEA1CC25DEB30800EBEC75 /* msgpack.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7DEA1C825DEB30800EBEC75 /* msgpack.xcframework */; };
-		D7DEA1D425DEB31000EBEC75 /* AblyDeltaCodec.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7DEA1C625DEB30800EBEC75 /* AblyDeltaCodec.xcframework */; };
-		D7DEA1D525DEB31000EBEC75 /* msgpack.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7DEA1C825DEB30800EBEC75 /* msgpack.xcframework */; };
-		D7DEA1D625DEB31000EBEC75 /* SocketRocketAblyFork.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7DEA1C525DEB30800EBEC75 /* SocketRocketAblyFork.xcframework */; };
-		D7DEA1D725DEB31000EBEC75 /* ULID.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7DEA1C725DEB30800EBEC75 /* ULID.xcframework */; };
-		D7DEA1DF25DEB31400EBEC75 /* AblyDeltaCodec.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7DEA1C625DEB30800EBEC75 /* AblyDeltaCodec.xcframework */; };
-		D7DEA1E025DEB31400EBEC75 /* msgpack.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7DEA1C825DEB30800EBEC75 /* msgpack.xcframework */; };
-		D7DEA1E125DEB31400EBEC75 /* SocketRocketAblyFork.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7DEA1C525DEB30800EBEC75 /* SocketRocketAblyFork.xcframework */; };
-		D7DEA1E225DEB31400EBEC75 /* ULID.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7DEA1C725DEB30800EBEC75 /* ULID.xcframework */; };
-		D7DEA1EE25DEB32600EBEC75 /* SwiftyJSON.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7DEA1EA25DEB32600EBEC75 /* SwiftyJSON.xcframework */; };
-		D7DEA1EF25DEB32600EBEC75 /* Quick.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7DEA1EB25DEB32600EBEC75 /* Quick.xcframework */; };
-		D7DEA1F025DEB32600EBEC75 /* Aspects.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7DEA1EC25DEB32600EBEC75 /* Aspects.xcframework */; };
-		D7DEA1F125DEB32600EBEC75 /* Nimble.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7DEA1ED25DEB32600EBEC75 /* Nimble.xcframework */; };
-		D7DEA20025DEB32A00EBEC75 /* Aspects.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7DEA1EC25DEB32600EBEC75 /* Aspects.xcframework */; };
-		D7DEA20125DEB32A00EBEC75 /* Nimble.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7DEA1ED25DEB32600EBEC75 /* Nimble.xcframework */; };
-		D7DEA20225DEB32A00EBEC75 /* Quick.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7DEA1EB25DEB32600EBEC75 /* Quick.xcframework */; };
-		D7DEA20325DEB32A00EBEC75 /* SwiftyJSON.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7DEA1EA25DEB32600EBEC75 /* SwiftyJSON.xcframework */; };
-		D7DEA20425DEB32F00EBEC75 /* Aspects.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7DEA1EC25DEB32600EBEC75 /* Aspects.xcframework */; };
-		D7DEA20525DEB32F00EBEC75 /* Nimble.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7DEA1ED25DEB32600EBEC75 /* Nimble.xcframework */; };
-		D7DEA20625DEB32F00EBEC75 /* Quick.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7DEA1EB25DEB32600EBEC75 /* Quick.xcframework */; };
-		D7DEA20725DEB32F00EBEC75 /* SwiftyJSON.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7DEA1EA25DEB32600EBEC75 /* SwiftyJSON.xcframework */; };
 		D7DEAFD11E65926D00D23F24 /* ARTLocalDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DEAFCF1E65926D00D23F24 /* ARTLocalDevice.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D7DEAFD21E65926D00D23F24 /* ARTLocalDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DEAFD01E65926D00D23F24 /* ARTLocalDevice.m */; };
 		D7DF73851EA600240013CD36 /* PushActivationStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DF73831EA5FE620013CD36 /* PushActivationStateMachine.swift */; };
@@ -753,6 +808,36 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		D7093C36219EDB4400723F17 /* Copy Carthage Frameworks to Test bundle */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Copy Carthage Frameworks to Test bundle";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7093C6F219EE23700723F17 /* Copy Carthage Frameworks to Test bundle */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Copy Carthage Frameworks to Test bundle";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D736A1221F917830005ABE81 /* Copy Carthage Frameworks to Test bundle */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Copy Carthage Frameworks to Test bundle";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EB3630C8238055F100B83598 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -777,8 +862,56 @@
 		1C6C18A21ADFDAB100AB79E4 /* ARTLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARTLog.m; sourceTree = "<group>"; };
 		1CD8DC9D1B1C7315007EAF36 /* ARTDefault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARTDefault.h; sourceTree = "<group>"; };
 		1CD8DC9E1B1C7315007EAF36 /* ARTDefault.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARTDefault.m; sourceTree = "<group>"; };
+		217D17F125421FED00DFF07E /* ARTSRProxyConnect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARTSRProxyConnect.h; sourceTree = "<group>"; };
+		217D17F225421FED00DFF07E /* ARTSRProxyConnect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARTSRProxyConnect.m; sourceTree = "<group>"; };
+		217D17F425421FED00DFF07E /* ARTSRRunLoopThread.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARTSRRunLoopThread.m; sourceTree = "<group>"; };
+		217D17F525421FED00DFF07E /* ARTSRRunLoopThread.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARTSRRunLoopThread.h; sourceTree = "<group>"; };
+		217D17F725421FED00DFF07E /* ARTSRPinningSecurityPolicy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARTSRPinningSecurityPolicy.h; sourceTree = "<group>"; };
+		217D17F825421FED00DFF07E /* ARTSRPinningSecurityPolicy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARTSRPinningSecurityPolicy.m; sourceTree = "<group>"; };
+		217D17F925421FED00DFF07E /* NSRunLoop+ARTSRWebSocketPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSRunLoop+ARTSRWebSocketPrivate.h"; sourceTree = "<group>"; };
+		217D17FB25421FED00DFF07E /* ARTSRDelegateController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARTSRDelegateController.h; sourceTree = "<group>"; };
+		217D17FC25421FED00DFF07E /* ARTSRDelegateController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARTSRDelegateController.m; sourceTree = "<group>"; };
+		217D17FD25421FED00DFF07E /* ARTSRConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARTSRConstants.h; sourceTree = "<group>"; };
+		217D17FF25421FED00DFF07E /* ARTSRLog.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARTSRLog.m; sourceTree = "<group>"; };
+		217D180025421FED00DFF07E /* ARTSRRandom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARTSRRandom.m; sourceTree = "<group>"; };
+		217D180125421FED00DFF07E /* ARTSRSIMDHelpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARTSRSIMDHelpers.h; sourceTree = "<group>"; };
+		217D180225421FED00DFF07E /* ARTSRMutex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARTSRMutex.m; sourceTree = "<group>"; };
+		217D180325421FED00DFF07E /* ARTSRURLUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARTSRURLUtilities.h; sourceTree = "<group>"; };
+		217D180425421FED00DFF07E /* ARTSRHash.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARTSRHash.m; sourceTree = "<group>"; };
+		217D180525421FED00DFF07E /* ARTSRHTTPConnectMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARTSRHTTPConnectMessage.h; sourceTree = "<group>"; };
+		217D180625421FED00DFF07E /* ARTSRError.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARTSRError.h; sourceTree = "<group>"; };
+		217D180725421FED00DFF07E /* ARTSRLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARTSRLog.h; sourceTree = "<group>"; };
+		217D180825421FED00DFF07E /* ARTSRMutex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARTSRMutex.h; sourceTree = "<group>"; };
+		217D180925421FED00DFF07E /* ARTSRSIMDHelpers.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARTSRSIMDHelpers.m; sourceTree = "<group>"; };
+		217D180A25421FED00DFF07E /* ARTSRRandom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARTSRRandom.h; sourceTree = "<group>"; };
+		217D180B25421FED00DFF07E /* ARTSRHash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARTSRHash.h; sourceTree = "<group>"; };
+		217D180C25421FED00DFF07E /* ARTSRURLUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARTSRURLUtilities.m; sourceTree = "<group>"; };
+		217D180D25421FED00DFF07E /* ARTSRHTTPConnectMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARTSRHTTPConnectMessage.m; sourceTree = "<group>"; };
+		217D180E25421FED00DFF07E /* ARTSRError.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARTSRError.m; sourceTree = "<group>"; };
+		217D181025421FED00DFF07E /* ARTSRIOConsumerPool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARTSRIOConsumerPool.h; sourceTree = "<group>"; };
+		217D181125421FED00DFF07E /* ARTSRIOConsumer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARTSRIOConsumer.h; sourceTree = "<group>"; };
+		217D181225421FED00DFF07E /* ARTSRIOConsumer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARTSRIOConsumer.m; sourceTree = "<group>"; };
+		217D181325421FED00DFF07E /* ARTSRIOConsumerPool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARTSRIOConsumerPool.m; sourceTree = "<group>"; };
+		217D181425421FED00DFF07E /* NSURLRequest+ARTSRWebSocketPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURLRequest+ARTSRWebSocketPrivate.h"; sourceTree = "<group>"; };
+		217D181525421FED00DFF07E /* ARTSRConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARTSRConstants.m; sourceTree = "<group>"; };
+		217D181625421FED00DFF07E /* NSRunLoop+ARTSRWebSocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSRunLoop+ARTSRWebSocket.h"; sourceTree = "<group>"; };
+		217D181725421FED00DFF07E /* NSURLRequest+ARTSRWebSocket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURLRequest+ARTSRWebSocket.m"; sourceTree = "<group>"; };
+		217D181A25421FED00DFF07E /* SocketRocketAblyFork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocketRocketAblyFork.h; sourceTree = "<group>"; };
+		217D181B25421FED00DFF07E /* ARTSRWebSocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARTSRWebSocket.h; sourceTree = "<group>"; };
+		217D181C25421FED00DFF07E /* NSURLRequest+ARTSRWebSocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURLRequest+ARTSRWebSocket.h"; sourceTree = "<group>"; };
+		217D181D25421FED00DFF07E /* NSRunLoop+ARTSRWebSocket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSRunLoop+ARTSRWebSocket.m"; sourceTree = "<group>"; };
+		217D181E25421FED00DFF07E /* ARTSRSecurityPolicy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARTSRSecurityPolicy.m; sourceTree = "<group>"; };
+		217D181F25421FED00DFF07E /* ARTSRWebSocket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARTSRWebSocket.m; sourceTree = "<group>"; };
+		217D182025421FED00DFF07E /* ARTSRSecurityPolicy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARTSRSecurityPolicy.h; sourceTree = "<group>"; };
 		560579D824AF1BA900A4D03D /* ARTDefaultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARTDefaultTests.swift; sourceTree = "<group>"; };
 		56190953238C3D3200A862A6 /* CryptoTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CryptoTest.m; sourceTree = "<group>"; };
+		8412FDE12661AC37001FE9E6 /* AblyDeltaCodec.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = AblyDeltaCodec.xcframework; path = Carthage/Build/AblyDeltaCodec.xcframework; sourceTree = "<group>"; };
+		8412FDE32661AC37001FE9E6 /* msgpack.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = msgpack.xcframework; path = Carthage/Build/msgpack.xcframework; sourceTree = "<group>"; };
+		8412FDE42661AC37001FE9E6 /* SocketRocketAblyFork.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SocketRocketAblyFork.xcframework; path = Carthage/Build/SocketRocketAblyFork.xcframework; sourceTree = "<group>"; };
+		8412FDF12661AC7A001FE9E6 /* Aspects.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Aspects.xcframework; path = Carthage/Build/Aspects.xcframework; sourceTree = "<group>"; };
+		8412FDF22661AC7B001FE9E6 /* SwiftyJSON.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SwiftyJSON.xcframework; path = Carthage/Build/SwiftyJSON.xcframework; sourceTree = "<group>"; };
+		8412FDF32661AC7B001FE9E6 /* Quick.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Quick.xcframework; path = Carthage/Build/Quick.xcframework; sourceTree = "<group>"; };
+		8412FDF42661AC7B001FE9E6 /* Nimble.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Nimble.xcframework; path = Carthage/Build/Nimble.xcframework; sourceTree = "<group>"; };
 		850BFB4A1B79323C009D0ADD /* ARTPaginatedResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARTPaginatedResult.h; sourceTree = "<group>"; };
 		850BFB4B1B79323C009D0ADD /* ARTPaginatedResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARTPaginatedResult.m; sourceTree = "<group>"; };
 		851674EE1B7BA5CD00D35169 /* Stats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
@@ -954,14 +1087,6 @@
 		D7D8F8291BC2C706009718F2 /* ARTTokenParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARTTokenParams.h; sourceTree = "<group>"; };
 		D7D8F82A1BC2C706009718F2 /* ARTTokenParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARTTokenParams.m; sourceTree = "<group>"; };
 		D7DC8AF01C6A9FFC005AF165 /* ARTDefault+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ARTDefault+Private.h"; sourceTree = "<group>"; };
-		D7DEA1C525DEB30800EBEC75 /* SocketRocketAblyFork.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SocketRocketAblyFork.xcframework; path = Carthage/Build/SocketRocketAblyFork.xcframework; sourceTree = "<group>"; };
-		D7DEA1C625DEB30800EBEC75 /* AblyDeltaCodec.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = AblyDeltaCodec.xcframework; path = Carthage/Build/AblyDeltaCodec.xcframework; sourceTree = "<group>"; };
-		D7DEA1C725DEB30800EBEC75 /* ULID.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ULID.xcframework; path = Carthage/Build/ULID.xcframework; sourceTree = "<group>"; };
-		D7DEA1C825DEB30800EBEC75 /* msgpack.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = msgpack.xcframework; path = Carthage/Build/msgpack.xcframework; sourceTree = "<group>"; };
-		D7DEA1EA25DEB32600EBEC75 /* SwiftyJSON.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SwiftyJSON.xcframework; path = Carthage/Build/SwiftyJSON.xcframework; sourceTree = "<group>"; };
-		D7DEA1EB25DEB32600EBEC75 /* Quick.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Quick.xcframework; path = Carthage/Build/Quick.xcframework; sourceTree = "<group>"; };
-		D7DEA1EC25DEB32600EBEC75 /* Aspects.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Aspects.xcframework; path = Carthage/Build/Aspects.xcframework; sourceTree = "<group>"; };
-		D7DEA1ED25DEB32600EBEC75 /* Nimble.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Nimble.xcframework; path = Carthage/Build/Nimble.xcframework; sourceTree = "<group>"; };
 		D7DEAFCF1E65926D00D23F24 /* ARTLocalDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARTLocalDevice.h; sourceTree = "<group>"; };
 		D7DEAFD01E65926D00D23F24 /* ARTLocalDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARTLocalDevice.m; sourceTree = "<group>"; };
 		D7DF73831EA5FE620013CD36 /* PushActivationStateMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushActivationStateMachine.swift; sourceTree = "<group>"; };
@@ -1037,11 +1162,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8412FDF82661AC7B001FE9E6 /* SwiftyJSON.xcframework in Frameworks */,
+				8412FDFE2661AC7B001FE9E6 /* Nimble.xcframework in Frameworks */,
+				8412FDFB2661AC7B001FE9E6 /* Quick.xcframework in Frameworks */,
 				D70F277D2261046A00956251 /* Ably.framework in Frameworks */,
-				D7DEA1EE25DEB32600EBEC75 /* SwiftyJSON.xcframework in Frameworks */,
-				D7DEA1EF25DEB32600EBEC75 /* Quick.xcframework in Frameworks */,
-				D7DEA1F025DEB32600EBEC75 /* Aspects.xcframework in Frameworks */,
-				D7DEA1F125DEB32600EBEC75 /* Nimble.xcframework in Frameworks */,
+				8412FDF52661AC7B001FE9E6 /* Aspects.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1049,9 +1174,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7DEA1C925DEB30800EBEC75 /* SocketRocketAblyFork.xcframework in Frameworks */,
-				D7DEA1CA25DEB30800EBEC75 /* AblyDeltaCodec.xcframework in Frameworks */,
-				D7DEA1CC25DEB30800EBEC75 /* msgpack.xcframework in Frameworks */,
+				8412FDE52661AC37001FE9E6 /* AblyDeltaCodec.xcframework in Frameworks */,
+				8412FDEB2661AC37001FE9E6 /* msgpack.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1059,11 +1183,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8412FDF92661AC7B001FE9E6 /* SwiftyJSON.xcframework in Frameworks */,
+				8412FDFF2661AC7B001FE9E6 /* Nimble.xcframework in Frameworks */,
+				8412FDFC2661AC7B001FE9E6 /* Quick.xcframework in Frameworks */,
 				D7093C0F219E2DB200723F17 /* Ably.framework in Frameworks */,
-				D7DEA20025DEB32A00EBEC75 /* Aspects.xcframework in Frameworks */,
-				D7DEA20125DEB32A00EBEC75 /* Nimble.xcframework in Frameworks */,
-				D7DEA20225DEB32A00EBEC75 /* Quick.xcframework in Frameworks */,
-				D7DEA20325DEB32A00EBEC75 /* SwiftyJSON.xcframework in Frameworks */,
+				8412FDF62661AC7B001FE9E6 /* Aspects.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1071,11 +1195,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8412FDFA2661AC7B001FE9E6 /* SwiftyJSON.xcframework in Frameworks */,
+				8412FE002661AC7B001FE9E6 /* Nimble.xcframework in Frameworks */,
+				8412FDFD2661AC7B001FE9E6 /* Quick.xcframework in Frameworks */,
 				D7093C65219EE1AE00723F17 /* Ably.framework in Frameworks */,
-				D7DEA20425DEB32F00EBEC75 /* Aspects.xcframework in Frameworks */,
-				D7DEA20525DEB32F00EBEC75 /* Nimble.xcframework in Frameworks */,
-				D7DEA20625DEB32F00EBEC75 /* Quick.xcframework in Frameworks */,
-				D7DEA20725DEB32F00EBEC75 /* SwiftyJSON.xcframework in Frameworks */,
+				8412FDF72661AC7B001FE9E6 /* Aspects.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1083,10 +1207,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7DEA1D425DEB31000EBEC75 /* AblyDeltaCodec.xcframework in Frameworks */,
-				D7DEA1D525DEB31000EBEC75 /* msgpack.xcframework in Frameworks */,
-				D7DEA1D625DEB31000EBEC75 /* SocketRocketAblyFork.xcframework in Frameworks */,
-				D7DEA1D725DEB31000EBEC75 /* ULID.xcframework in Frameworks */,
+				8412FDE62661AC37001FE9E6 /* AblyDeltaCodec.xcframework in Frameworks */,
+				8412FDEC2661AC37001FE9E6 /* msgpack.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1094,10 +1216,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7DEA1DF25DEB31400EBEC75 /* AblyDeltaCodec.xcframework in Frameworks */,
-				D7DEA1E025DEB31400EBEC75 /* msgpack.xcframework in Frameworks */,
-				D7DEA1E125DEB31400EBEC75 /* SocketRocketAblyFork.xcframework in Frameworks */,
-				D7DEA1E225DEB31400EBEC75 /* ULID.xcframework in Frameworks */,
+				8412FDE72661AC37001FE9E6 /* AblyDeltaCodec.xcframework in Frameworks */,
+				8412FDED2661AC37001FE9E6 /* msgpack.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1119,6 +1239,111 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		217D17EE25421FC100DFF07E /* SocketRocket */ = {
+			isa = PBXGroup;
+			children = (
+				217D182025421FED00DFF07E /* ARTSRSecurityPolicy.h */,
+				217D181E25421FED00DFF07E /* ARTSRSecurityPolicy.m */,
+				217D181B25421FED00DFF07E /* ARTSRWebSocket.h */,
+				217D181F25421FED00DFF07E /* ARTSRWebSocket.m */,
+				217D17EF25421FED00DFF07E /* Internal */,
+				217D181625421FED00DFF07E /* NSRunLoop+ARTSRWebSocket.h */,
+				217D181D25421FED00DFF07E /* NSRunLoop+ARTSRWebSocket.m */,
+				217D181C25421FED00DFF07E /* NSURLRequest+ARTSRWebSocket.h */,
+				217D181725421FED00DFF07E /* NSURLRequest+ARTSRWebSocket.m */,
+				217D181A25421FED00DFF07E /* SocketRocketAblyFork.h */,
+			);
+			name = SocketRocket;
+			path = SocketRocket/SocketRocket;
+			sourceTree = "<group>";
+		};
+		217D17EF25421FED00DFF07E /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				217D17F025421FED00DFF07E /* Proxy */,
+				217D17F325421FED00DFF07E /* RunLoop */,
+				217D17F625421FED00DFF07E /* Security */,
+				217D17F925421FED00DFF07E /* NSRunLoop+ARTSRWebSocketPrivate.h */,
+				217D17FA25421FED00DFF07E /* Delegate */,
+				217D17FD25421FED00DFF07E /* ARTSRConstants.h */,
+				217D17FE25421FED00DFF07E /* Utilities */,
+				217D180F25421FED00DFF07E /* IOConsumer */,
+				217D181425421FED00DFF07E /* NSURLRequest+ARTSRWebSocketPrivate.h */,
+				217D181525421FED00DFF07E /* ARTSRConstants.m */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
+		217D17F025421FED00DFF07E /* Proxy */ = {
+			isa = PBXGroup;
+			children = (
+				217D17F125421FED00DFF07E /* ARTSRProxyConnect.h */,
+				217D17F225421FED00DFF07E /* ARTSRProxyConnect.m */,
+			);
+			path = Proxy;
+			sourceTree = "<group>";
+		};
+		217D17F325421FED00DFF07E /* RunLoop */ = {
+			isa = PBXGroup;
+			children = (
+				217D17F425421FED00DFF07E /* ARTSRRunLoopThread.m */,
+				217D17F525421FED00DFF07E /* ARTSRRunLoopThread.h */,
+			);
+			path = RunLoop;
+			sourceTree = "<group>";
+		};
+		217D17F625421FED00DFF07E /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				217D17F725421FED00DFF07E /* ARTSRPinningSecurityPolicy.h */,
+				217D17F825421FED00DFF07E /* ARTSRPinningSecurityPolicy.m */,
+			);
+			path = Security;
+			sourceTree = "<group>";
+		};
+		217D17FA25421FED00DFF07E /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				217D17FB25421FED00DFF07E /* ARTSRDelegateController.h */,
+				217D17FC25421FED00DFF07E /* ARTSRDelegateController.m */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		217D17FE25421FED00DFF07E /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				217D17FF25421FED00DFF07E /* ARTSRLog.m */,
+				217D180025421FED00DFF07E /* ARTSRRandom.m */,
+				217D180125421FED00DFF07E /* ARTSRSIMDHelpers.h */,
+				217D180225421FED00DFF07E /* ARTSRMutex.m */,
+				217D180325421FED00DFF07E /* ARTSRURLUtilities.h */,
+				217D180425421FED00DFF07E /* ARTSRHash.m */,
+				217D180525421FED00DFF07E /* ARTSRHTTPConnectMessage.h */,
+				217D180625421FED00DFF07E /* ARTSRError.h */,
+				217D180725421FED00DFF07E /* ARTSRLog.h */,
+				217D180825421FED00DFF07E /* ARTSRMutex.h */,
+				217D180925421FED00DFF07E /* ARTSRSIMDHelpers.m */,
+				217D180A25421FED00DFF07E /* ARTSRRandom.h */,
+				217D180B25421FED00DFF07E /* ARTSRHash.h */,
+				217D180C25421FED00DFF07E /* ARTSRURLUtilities.m */,
+				217D180D25421FED00DFF07E /* ARTSRHTTPConnectMessage.m */,
+				217D180E25421FED00DFF07E /* ARTSRError.m */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		217D180F25421FED00DFF07E /* IOConsumer */ = {
+			isa = PBXGroup;
+			children = (
+				217D181025421FED00DFF07E /* ARTSRIOConsumerPool.h */,
+				217D181125421FED00DFF07E /* ARTSRIOConsumer.h */,
+				217D181225421FED00DFF07E /* ARTSRIOConsumer.m */,
+				217D181325421FED00DFF07E /* ARTSRIOConsumerPool.m */,
+			);
+			path = IOConsumer;
+			sourceTree = "<group>";
+		};
 		856AAC8B1B6E304B00B07119 /* Spec */ = {
 			isa = PBXGroup;
 			children = (
@@ -1166,6 +1391,7 @@
 				D75B85F921BAF8F900FD8DD2 /* Ably.xcconfig */,
 				D7EE14F51F07964500C178D5 /* Version.xcconfig */,
 				96BF61331A35B2AB004CF2B3 /* Source */,
+				217D17EE25421FC100DFF07E /* SocketRocket */,
 				856AAC8B1B6E304B00B07119 /* Spec */,
 				EB36308A23804F7A00B83598 /* Ably-SoakTest-App */,
 				EB3630A123804F7C00B83598 /* Ably-SoakTest-AppUITests */,
@@ -1507,14 +1733,13 @@
 		FAFEC5BB8312EB69E84C28D4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D7DEA1EC25DEB32600EBEC75 /* Aspects.xcframework */,
-				D7DEA1ED25DEB32600EBEC75 /* Nimble.xcframework */,
-				D7DEA1EB25DEB32600EBEC75 /* Quick.xcframework */,
-				D7DEA1EA25DEB32600EBEC75 /* SwiftyJSON.xcframework */,
-				D7DEA1C625DEB30800EBEC75 /* AblyDeltaCodec.xcframework */,
-				D7DEA1C825DEB30800EBEC75 /* msgpack.xcframework */,
-				D7DEA1C525DEB30800EBEC75 /* SocketRocketAblyFork.xcframework */,
-				D7DEA1C725DEB30800EBEC75 /* ULID.xcframework */,
+				8412FDE12661AC37001FE9E6 /* AblyDeltaCodec.xcframework */,
+				8412FDE32661AC37001FE9E6 /* msgpack.xcframework */,
+				8412FDE42661AC37001FE9E6 /* SocketRocketAblyFork.xcframework */,
+				8412FDF12661AC7A001FE9E6 /* Aspects.xcframework */,
+				8412FDF42661AC7B001FE9E6 /* Nimble.xcframework */,
+				8412FDF32661AC7B001FE9E6 /* Quick.xcframework */,
+				8412FDF22661AC7B001FE9E6 /* SwiftyJSON.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1562,6 +1787,7 @@
 				EB89D4091C61C5ED007FA5B7 /* ARTRealtimeChannels.h in Headers */,
 				96E408431A38939E00087F77 /* ARTProtocolMessage.h in Headers */,
 				D78D780921271FB10016808B /* ARTHTTPPaginatedResponse+Private.h in Headers */,
+				21447D3B254A2ECB00B3905A /* ARTSRWebSocket.h in Headers */,
 				EBB721CB2376B454001C3550 /* ARTURLSession.h in Headers */,
 				D746AE381BBC3201003ECEF8 /* ARTMessage.h in Headers */,
 				D746AE471BBD6FE9003ECEF8 /* ARTQueuedMessage.h in Headers */,
@@ -1690,6 +1916,7 @@
 				D710D68121949EB3008F54AD /* ARTReachability.h in Headers */,
 				D710D58921949D29008F54AD /* ARTBaseMessage.h in Headers */,
 				D710D55721949C8C008F54AD /* ARTPushActivationEvent.h in Headers */,
+				21447D40254A2ECE00B3905A /* ARTSRWebSocket.h in Headers */,
 				EBB721CC2376B454001C3550 /* ARTURLSession.h in Headers */,
 				D710D4CE21949BB2008F54AD /* ARTWebSocketTransport+Private.h in Headers */,
 				D710D56C21949CB9008F54AD /* ARTPushChannelSubscriptions.h in Headers */,
@@ -1818,6 +2045,7 @@
 				D710D68321949EB4008F54AD /* ARTReachability.h in Headers */,
 				D710D5AF21949D2A008F54AD /* ARTBaseMessage.h in Headers */,
 				D710D55D21949C8D008F54AD /* ARTPushActivationEvent.h in Headers */,
+				21447D45254A2ED100B3905A /* ARTSRWebSocket.h in Headers */,
 				EBB721CD2376B454001C3550 /* ARTURLSession.h in Headers */,
 				D710D4D021949BB3008F54AD /* ARTWebSocketTransport+Private.h in Headers */,
 				D710D57221949CBA008F54AD /* ARTPushChannelSubscriptions.h in Headers */,
@@ -1916,6 +2144,7 @@
 				856AAC861B6E304B00B07119 /* Sources */,
 				856AAC871B6E304B00B07119 /* Frameworks */,
 				856AAC881B6E304B00B07119 /* Resources */,
+				D736A1221F917830005ABE81 /* Copy Carthage Frameworks to Test bundle */,
 			);
 			buildRules = (
 			);
@@ -1952,6 +2181,7 @@
 				D7093C06219E2DB200723F17 /* Sources */,
 				D7093C07219E2DB200723F17 /* Frameworks */,
 				D7093C08219E2DB200723F17 /* Resources */,
+				D7093C36219EDB4400723F17 /* Copy Carthage Frameworks to Test bundle */,
 			);
 			buildRules = (
 			);
@@ -1970,6 +2200,7 @@
 				D7093C5C219EE1AE00723F17 /* Sources */,
 				D7093C5D219EE1AE00723F17 /* Frameworks */,
 				D7093C5E219EE1AE00723F17 /* Resources */,
+				D7093C6F219EE23700723F17 /* Copy Carthage Frameworks to Test bundle */,
 			);
 			buildRules = (
 			);
@@ -2234,27 +2465,36 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB82F8521C59D30500661917 /* ARTDataEncoder.m in Sources */,
+				217D183A254222F600DFF07E /* NSURLRequest+ARTSRWebSocket.m in Sources */,
+				217D182B254222F500DFF07E /* ARTSRWebSocket.m in Sources */,
 				EB2D5A911CC941A700AD1A67 /* ARTRealtimeTransport.m in Sources */,
 				D746AE391BBC3201003ECEF8 /* ARTMessage.m in Sources */,
 				D7E0FEB9211DE94700659FAA /* ARTNSMutableRequest+ARTRest.m in Sources */,
 				D7B621991E4A762A00684474 /* ARTPushChannel.m in Sources */,
 				EB89D40B1C61C6EA007FA5B7 /* ARTRealtimeChannels.m in Sources */,
+				217D183B254222F600DFF07E /* ARTSRDelegateController.m in Sources */,
 				D746AE231BBB60EE003ECEF8 /* ARTChannel.m in Sources */,
 				D76F153C23DB010C00B5133C /* ARTRealtimeChannelOptions.m in Sources */,
 				D769E15421270F3400DC5CD1 /* ARTHTTPPaginatedResponse.m in Sources */,
 				D7DEAFD21E65926D00D23F24 /* ARTLocalDevice.m in Sources */,
 				EB2D84FD1CD769B800F23CDA /* ARTOSReachability.m in Sources */,
+				217D1829254222F500DFF07E /* ARTSRHash.m in Sources */,
 				D746AE481BBD6FE9003ECEF8 /* ARTQueuedMessage.m in Sources */,
+				217D1830254222F600DFF07E /* ARTSRMutex.m in Sources */,
 				D746AE3D1BBC5AE1003ECEF8 /* ARTRealtimeChannel.m in Sources */,
+				217D1837254222F600DFF07E /* ARTSRError.m in Sources */,
 				96A507A21A377AA50077CDF8 /* ARTPresenceMessage.m in Sources */,
 				D74CBC0F212F076000D090E4 /* ARTConstants.m in Sources */,
 				D7F1D3741BF4DE07001A4B5E /* ARTRestPresence.m in Sources */,
+				217D182E254222F600DFF07E /* ARTSRRunLoopThread.m in Sources */,
+				217D1832254222F600DFF07E /* ARTSRSecurityPolicy.m in Sources */,
 				D746AE541BBD85C5003ECEF8 /* ARTChannels.m in Sources */,
 				96BF61541A35B39C004CF2B3 /* ARTRest.m in Sources */,
 				D7D8F82C1BC2C706009718F2 /* ARTTokenRequest.m in Sources */,
 				D7D8F8261BC2C691009718F2 /* ARTTokenDetails.m in Sources */,
 				D75A3F1C1DDE5B62002A4AAD /* ARTGCD.m in Sources */,
 				1C2B0FFE1B136A6D00E3633C /* ARTPresenceMap.m in Sources */,
+				217D182A254222F500DFF07E /* ARTSRRandom.m in Sources */,
 				960D07941A45F1D800ED8C8C /* ARTCrypto.m in Sources */,
 				D777EEE52063A64E002EBA03 /* ARTNSMutableRequest+ARTPush.m in Sources */,
 				D7AE18CA1E5B40C900478D82 /* ARTPushAdmin.m in Sources */,
@@ -2263,16 +2503,21 @@
 				D785C42A1E549E33008FEC05 /* ARTPushChannelSubscription.m in Sources */,
 				D7B17EE41C07208B00A6958E /* ARTConnectionDetails.m in Sources */,
 				96BF61591A35B52C004CF2B3 /* ARTHttp.m in Sources */,
+				217D1833254222F600DFF07E /* ARTSRPinningSecurityPolicy.m in Sources */,
 				D3AD0EBE215E2FB000312105 /* ARTNSString+ARTUtil.m in Sources */,
 				D73692001DB788C40062C150 /* ARTAuthDetails.m in Sources */,
 				D71966EB1E5E006E000974DD /* ARTPushActivationState.m in Sources */,
 				1C578E201B3435CA00EF46EC /* ARTFallback.m in Sources */,
+				217D1831254222F600DFF07E /* ARTSRConstants.m in Sources */,
 				96A507B61A37881C0077CDF8 /* ARTNSDate+ARTUtil.m in Sources */,
+				217D182C254222F500DFF07E /* ARTSRProxyConnect.m in Sources */,
 				850BFB4D1B79323C009D0ADD /* ARTPaginatedResult.m in Sources */,
+				217D1836254222F600DFF07E /* ARTSRLog.m in Sources */,
 				EB9C530D1CD7BFF300.8.557 /* ARTJsonLikeEncoder.m in Sources */,
 				D746AE1F1BBB5207003ECEF8 /* ARTDataQuery.m in Sources */,
 				961343D91A42E0B7006DC822 /* ARTClientOptions.m in Sources */,
 				96BF615F1A35C1C8004CF2B3 /* ARTTypes.m in Sources */,
+				217D1838254222F600DFF07E /* NSRunLoop+ARTSRWebSocket.m in Sources */,
 				D7D8F82E1BC2C706009718F2 /* ARTTokenParams.m in Sources */,
 				D746AE411BBC5B14003ECEF8 /* ARTEventEmitter.m in Sources */,
 				96A507AE1A3780F60077CDF8 /* ARTJsonEncoder.m in Sources */,
@@ -2295,8 +2540,10 @@
 				D7B621951E4A6FE600684474 /* ARTDeviceDetails.m in Sources */,
 				D7588AF41BFF91B800BB8279 /* ARTURLSessionServerTrust.m in Sources */,
 				D74CBC04212EB58700D090E4 /* ARTNSHTTPURLResponse+ARTPaginated.m in Sources */,
+				217D1839254222F600DFF07E /* ARTSRHTTPConnectMessage.m in Sources */,
 				D746AE501BBD84E7003ECEF8 /* ARTChannelOptions.m in Sources */,
 				EB89D4051C61C1A4007FA5B7 /* ARTRestChannels.m in Sources */,
+				217D1834254222F600DFF07E /* ARTSRURLUtilities.m in Sources */,
 				D777EEE1206285CF002EBA03 /* ARTDeviceIdentityTokenDetails.m in Sources */,
 				D73B655823EF2B2900D459A6 /* ARTDeltaCodec.m in Sources */,
 				D768C6AD1E4B5B0200436011 /* ARTDevicePushDetails.m in Sources */,
@@ -2305,10 +2552,13 @@
 				EB1B540522F8DA05006A59AC /* ARTQueuedDealloc.m in Sources */,
 				D746AE291BBB61C9003ECEF8 /* ARTPresence.m in Sources */,
 				D70EECAD1FEAF331008A50CD /* ARTPendingMessage.m in Sources */,
+				217D182F254222F600DFF07E /* ARTSRIOConsumerPool.m in Sources */,
 				96A507BE1A3791490077CDF8 /* ARTRealtime.m in Sources */,
 				967A43221A39AEAF00E4CE23 /* ARTNSArray+ARTFunctional.m in Sources */,
+				217D1835254222F600DFF07E /* ARTSRIOConsumer.m in Sources */,
 				D71966EF1E5E0081000974DD /* ARTPushActivationEvent.m in Sources */,
 				96A507A61A377DE90077CDF8 /* ARTNSDictionary+ARTDictionaryUtil.m in Sources */,
+				217D182D254222F500DFF07E /* ARTSRSIMDHelpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2377,27 +2627,36 @@
 			buildActionMask = 2147483647;
 			files = (
 				D710D4EF21949C0D008F54AD /* ARTConnectionDetails.m in Sources */,
+				217D1851254222F700DFF07E /* NSURLRequest+ARTSRWebSocket.m in Sources */,
+				217D1842254222F700DFF07E /* ARTSRWebSocket.m in Sources */,
 				D710D4F021949C0D008F54AD /* ARTRealtimePresence.m in Sources */,
 				D710D4F321949C0D008F54AD /* ARTRealtimeChannels.m in Sources */,
 				D710D53521949C54008F54AD /* ARTDevicePushDetails.m in Sources */,
 				D710D62F21949E03008F54AD /* ARTDataQuery.m in Sources */,
 				D710D53121949C54008F54AD /* ARTPush.m in Sources */,
+				217D1852254222F700DFF07E /* ARTSRDelegateController.m in Sources */,
 				D710D5E021949D78008F54AD /* ARTStats.m in Sources */,
 				D76F153F23DB013000B5133C /* ARTRealtimeChannelOptions.m in Sources */,
 				D710D4F121949C0D008F54AD /* ARTQueuedMessage.m in Sources */,
 				D710D49521949AC2008F54AD /* ARTRest.m in Sources */,
 				D710D53921949C54008F54AD /* ARTNSMutableRequest+ARTPush.m in Sources */,
+				217D1840254222F700DFF07E /* ARTSRHash.m in Sources */,
 				D710D66D21949E78008F54AD /* ARTLog.m in Sources */,
+				217D1847254222F700DFF07E /* ARTSRMutex.m in Sources */,
 				D710D5D721949D78008F54AD /* ARTChannels.m in Sources */,
+				217D184E254222F700DFF07E /* ARTSRError.m in Sources */,
 				D710D4F221949C0D008F54AD /* ARTPendingMessage.m in Sources */,
 				D710D55F21949C97008F54AD /* ARTPushActivationState.m in Sources */,
 				D710D67221949E79008F54AD /* ARTGCD.m in Sources */,
+				217D1845254222F700DFF07E /* ARTSRRunLoopThread.m in Sources */,
+				217D1849254222F700DFF07E /* ARTSRSecurityPolicy.m in Sources */,
 				D710D63321949E03008F54AD /* ARTNSHTTPURLResponse+ARTPaginated.m in Sources */,
 				D710D5D021949D78008F54AD /* ARTAuthOptions.m in Sources */,
 				D710D5E221949D78008F54AD /* ARTTypes.m in Sources */,
 				D710D5DF21949D78008F54AD /* ARTDataEncoder.m in Sources */,
 				D710D4EE21949C0D008F54AD /* ARTConnection.m in Sources */,
 				D710D4C921949BAA008F54AD /* ARTWebSocketTransport.m in Sources */,
+				217D1841254222F700DFF07E /* ARTSRRandom.m in Sources */,
 				D710D5DD21949D78008F54AD /* ARTPresenceMessage.m in Sources */,
 				D710D63221949E03008F54AD /* ARTFallback.m in Sources */,
 				D710D5D221949D78008F54AD /* ARTTokenRequest.m in Sources */,
@@ -2406,16 +2665,21 @@
 				D710D53721949C54008F54AD /* ARTLocalDevice.m in Sources */,
 				D710D53621949C54008F54AD /* ARTDeviceIdentityTokenDetails.m in Sources */,
 				D710D4C821949BAA008F54AD /* ARTRealtimeTransport.m in Sources */,
+				217D184A254222F700DFF07E /* ARTSRPinningSecurityPolicy.m in Sources */,
 				D710D49821949ACA008F54AD /* ARTRestChannel.m in Sources */,
 				D710D5DE21949D78008F54AD /* ARTPresenceMap.m in Sources */,
 				D710D49A21949ACA008F54AD /* ARTRestPresence.m in Sources */,
 				D710D66E21949E78008F54AD /* ARTNSDate+ARTUtil.m in Sources */,
+				217D1848254222F700DFF07E /* ARTSRConstants.m in Sources */,
 				D710D57321949CC4008F54AD /* ARTPushAdmin.m in Sources */,
+				217D1843254222F700DFF07E /* ARTSRProxyConnect.m in Sources */,
 				D710D53421949C54008F54AD /* ARTDeviceDetails.m in Sources */,
+				217D184D254222F700DFF07E /* ARTSRLog.m in Sources */,
 				D710D66A21949E78008F54AD /* ARTJsonLikeEncoder.m in Sources */,
 				D710D57521949CC4008F54AD /* ARTPushChannelSubscriptions.m in Sources */,
 				D710D55E21949C97008F54AD /* ARTPushActivationStateMachine.m in Sources */,
 				D710D49C21949ACA008F54AD /* ARTNSMutableRequest+ARTRest.m in Sources */,
+				217D184F254222F700DFF07E /* NSRunLoop+ARTSRWebSocket.m in Sources */,
 				D710D66C21949E78008F54AD /* ARTMsgPackEncoder.m in Sources */,
 				D710D48621949A5B008F54AD /* ARTDefault.m in Sources */,
 				D710D5DB21949D78008F54AD /* ARTMessage.m in Sources */,
@@ -2438,8 +2702,10 @@
 				D710D48C21949A97008F54AD /* ARTConstants.m in Sources */,
 				D710D5DA21949D78008F54AD /* ARTBaseMessage.m in Sources */,
 				D710D63421949E03008F54AD /* ARTNSMutableURLRequest+ARTPaginated.m in Sources */,
+				217D1850254222F700DFF07E /* ARTSRHTTPConnectMessage.m in Sources */,
 				D710D57421949CC4008F54AD /* ARTPushDeviceRegistrations.m in Sources */,
 				D710D5D821949D78008F54AD /* ARTChannelOptions.m in Sources */,
+				217D184B254222F700DFF07E /* ARTSRURLUtilities.m in Sources */,
 				D73B655923EF2B2900D459A6 /* ARTDeltaCodec.m in Sources */,
 				D710D62D21949E03008F54AD /* ARTHttp.m in Sources */,
 				D710D63021949E03008F54AD /* ARTPaginatedResult.m in Sources */,
@@ -2448,10 +2714,13 @@
 				D710D53321949C54008F54AD /* ARTPushChannelSubscription.m in Sources */,
 				D710D67121949E79008F54AD /* ARTOSReachability.m in Sources */,
 				D710D56021949C97008F54AD /* ARTPushActivationEvent.m in Sources */,
+				217D1846254222F700DFF07E /* ARTSRIOConsumerPool.m in Sources */,
 				D710D66921949E78008F54AD /* ARTCrypto.m in Sources */,
 				D710D63121949E03008F54AD /* ARTHTTPPaginatedResponse.m in Sources */,
+				217D184C254222F700DFF07E /* ARTSRIOConsumer.m in Sources */,
 				D710D5DC21949D78008F54AD /* ARTPresence.m in Sources */,
 				D710D53821949C54008F54AD /* ARTLocalDeviceStorage.m in Sources */,
+				217D1844254222F700DFF07E /* ARTSRSIMDHelpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2460,27 +2729,36 @@
 			buildActionMask = 2147483647;
 			files = (
 				D710D4FF21949C0E008F54AD /* ARTConnectionDetails.m in Sources */,
+				217D1868254222FA00DFF07E /* NSURLRequest+ARTSRWebSocket.m in Sources */,
+				217D1859254222F900DFF07E /* ARTSRWebSocket.m in Sources */,
 				D710D50021949C0E008F54AD /* ARTRealtimePresence.m in Sources */,
 				D710D50321949C0E008F54AD /* ARTRealtimeChannels.m in Sources */,
 				D710D54721949C55008F54AD /* ARTDevicePushDetails.m in Sources */,
 				D710D63F21949E04008F54AD /* ARTDataQuery.m in Sources */,
 				D710D54321949C55008F54AD /* ARTPush.m in Sources */,
+				217D1869254222FA00DFF07E /* ARTSRDelegateController.m in Sources */,
 				D710D60621949D79008F54AD /* ARTStats.m in Sources */,
 				D76F154023DB013000B5133C /* ARTRealtimeChannelOptions.m in Sources */,
 				D710D50121949C0E008F54AD /* ARTQueuedMessage.m in Sources */,
 				D710D49721949AC3008F54AD /* ARTRest.m in Sources */,
 				D710D54B21949C55008F54AD /* ARTNSMutableRequest+ARTPush.m in Sources */,
+				217D1857254222F900DFF07E /* ARTSRHash.m in Sources */,
 				D710D65321949E77008F54AD /* ARTLog.m in Sources */,
+				217D185E254222F900DFF07E /* ARTSRMutex.m in Sources */,
 				D710D5FD21949D79008F54AD /* ARTChannels.m in Sources */,
+				217D1865254222FA00DFF07E /* ARTSRError.m in Sources */,
 				D710D50221949C0E008F54AD /* ARTPendingMessage.m in Sources */,
 				D710D56521949C98008F54AD /* ARTPushActivationState.m in Sources */,
 				D710D65821949E77008F54AD /* ARTGCD.m in Sources */,
+				217D185C254222F900DFF07E /* ARTSRRunLoopThread.m in Sources */,
+				217D1860254222FA00DFF07E /* ARTSRSecurityPolicy.m in Sources */,
 				D710D64321949E04008F54AD /* ARTNSHTTPURLResponse+ARTPaginated.m in Sources */,
 				D710D5F621949D79008F54AD /* ARTAuthOptions.m in Sources */,
 				D710D60821949D79008F54AD /* ARTTypes.m in Sources */,
 				D710D60521949D79008F54AD /* ARTDataEncoder.m in Sources */,
 				D710D4FE21949C0E008F54AD /* ARTConnection.m in Sources */,
 				D710D4CD21949BAB008F54AD /* ARTWebSocketTransport.m in Sources */,
+				217D1858254222F900DFF07E /* ARTSRRandom.m in Sources */,
 				D710D60321949D79008F54AD /* ARTPresenceMessage.m in Sources */,
 				D710D64221949E04008F54AD /* ARTFallback.m in Sources */,
 				D710D5F821949D79008F54AD /* ARTTokenRequest.m in Sources */,
@@ -2489,16 +2767,21 @@
 				D710D54921949C55008F54AD /* ARTLocalDevice.m in Sources */,
 				D710D54821949C55008F54AD /* ARTDeviceIdentityTokenDetails.m in Sources */,
 				D710D4CC21949BAB008F54AD /* ARTRealtimeTransport.m in Sources */,
+				217D1861254222FA00DFF07E /* ARTSRPinningSecurityPolicy.m in Sources */,
 				D710D4A221949ACB008F54AD /* ARTRestChannel.m in Sources */,
 				D710D60421949D79008F54AD /* ARTPresenceMap.m in Sources */,
 				D710D4A421949ACB008F54AD /* ARTRestPresence.m in Sources */,
 				D710D65421949E77008F54AD /* ARTNSDate+ARTUtil.m in Sources */,
+				217D185F254222F900DFF07E /* ARTSRConstants.m in Sources */,
 				D710D57921949CC5008F54AD /* ARTPushAdmin.m in Sources */,
+				217D185A254222F900DFF07E /* ARTSRProxyConnect.m in Sources */,
 				D710D54621949C55008F54AD /* ARTDeviceDetails.m in Sources */,
+				217D1864254222FA00DFF07E /* ARTSRLog.m in Sources */,
 				D710D65021949E77008F54AD /* ARTJsonLikeEncoder.m in Sources */,
 				D710D57B21949CC5008F54AD /* ARTPushChannelSubscriptions.m in Sources */,
 				D710D56421949C98008F54AD /* ARTPushActivationStateMachine.m in Sources */,
 				D710D4A621949ACB008F54AD /* ARTNSMutableRequest+ARTRest.m in Sources */,
+				217D1866254222FA00DFF07E /* NSRunLoop+ARTSRWebSocket.m in Sources */,
 				D710D65221949E77008F54AD /* ARTMsgPackEncoder.m in Sources */,
 				D710D48821949A5C008F54AD /* ARTDefault.m in Sources */,
 				D710D60121949D79008F54AD /* ARTMessage.m in Sources */,
@@ -2521,8 +2804,10 @@
 				D710D48E21949A98008F54AD /* ARTConstants.m in Sources */,
 				D710D60021949D79008F54AD /* ARTBaseMessage.m in Sources */,
 				D710D64421949E04008F54AD /* ARTNSMutableURLRequest+ARTPaginated.m in Sources */,
+				217D1867254222FA00DFF07E /* ARTSRHTTPConnectMessage.m in Sources */,
 				D710D57A21949CC5008F54AD /* ARTPushDeviceRegistrations.m in Sources */,
 				D710D5FE21949D79008F54AD /* ARTChannelOptions.m in Sources */,
+				217D1862254222FA00DFF07E /* ARTSRURLUtilities.m in Sources */,
 				D73B655A23EF2B2900D459A6 /* ARTDeltaCodec.m in Sources */,
 				D710D63D21949E04008F54AD /* ARTHttp.m in Sources */,
 				D710D64021949E04008F54AD /* ARTPaginatedResult.m in Sources */,
@@ -2531,10 +2816,13 @@
 				D710D54521949C55008F54AD /* ARTPushChannelSubscription.m in Sources */,
 				D710D65721949E77008F54AD /* ARTOSReachability.m in Sources */,
 				D710D56621949C98008F54AD /* ARTPushActivationEvent.m in Sources */,
+				217D185D254222F900DFF07E /* ARTSRIOConsumerPool.m in Sources */,
 				D710D64F21949E77008F54AD /* ARTCrypto.m in Sources */,
 				D710D64121949E04008F54AD /* ARTHTTPPaginatedResponse.m in Sources */,
+				217D1863254222FA00DFF07E /* ARTSRIOConsumer.m in Sources */,
 				D710D60221949D79008F54AD /* ARTPresence.m in Sources */,
 				D710D54A21949C55008F54AD /* ARTLocalDeviceStorage.m in Sources */,
+				217D185B254222F900DFF07E /* ARTSRSIMDHelpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2615,6 +2903,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DYLIB_COMPATIBILITY_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -2644,6 +2936,10 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_COMPATIBILITY_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -2788,6 +3084,11 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/include";
 				INFOPLIST_FILE = "Source/Info-iOS.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2811,6 +3112,11 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/include";
 				INFOPLIST_FILE = "Source/Info-iOS.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2841,6 +3147,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "Spec/Info-macOS.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2876,6 +3186,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "Spec/Info-macOS.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2906,6 +3220,11 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "Spec/Info-tvOS.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2940,6 +3259,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "Spec/Info-tvOS.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2974,8 +3298,13 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/include";
 				INFOPLIST_FILE = "Source/Info-macOS.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -3010,8 +3339,13 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/include";
 				INFOPLIST_FILE = "Source/Info-macOS.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -3043,7 +3377,12 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/include";
 				INFOPLIST_FILE = "Source/Info-tvOS.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -3078,7 +3417,12 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/include";
 				INFOPLIST_FILE = "Source/Info-tvOS.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -3179,6 +3523,10 @@
 				CODE_SIGN_STYLE = Manual;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "Ably-SoakTest-AppUITests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
@@ -3216,6 +3564,10 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "Ably-SoakTest-AppUITests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
