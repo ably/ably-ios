@@ -1104,10 +1104,42 @@ class RestClient: QuickSpec {
                         let extractHostname = { (request: URLRequest) in
                             NSRegularExpression.extract(request.url!.absoluteString, pattern: "[f-j].ably-realtime.com")
                         }
+                        
                         let resultFallbackHosts = testHTTPExecutor.requests.compactMap(extractHostname)
                         let expectedFallbackHosts = expectedHostOrder.map { _fallbackHosts[$0] }
-                        
+                
                         expect(resultFallbackHosts).to(equal(expectedFallbackHosts))
+                    }
+                    
+                    it("all fallback requests headers should contain `Host` header with fallback host address") {
+                        let options = ARTClientOptions(key: "xxxx:xxxx")
+                        options.httpMaxRetryCount = 10
+                        options.fallbackHosts = _fallbackHosts
+                        
+                        let client = ARTRest(options: options)
+                        let mockHTTP = MockHTTP(logger: options.logHandler)
+                        testHTTPExecutor = TestProxyHTTPExecutor(http: mockHTTP, logger: options.logHandler)
+                        client.internal.httpExecutor = testHTTPExecutor
+                        mockHTTP.setNetworkState(network: .hostUnreachable)
+                        let channel = client.channels.get("test")
+                        
+                        waitUntil(timeout: testTimeout) { done in
+                            channel.publish(nil, data: "nil") { _ in
+                                done()
+                            }
+                        }
+                        
+                        expect(testHTTPExecutor.requests).to(haveCount(ARTDefault.fallbackHosts().count + 1))
+                        
+                        let fallbackRequests = testHTTPExecutor.requests.filter {
+                            NSRegularExpression.match($0.url!.absoluteString, pattern: "[f-j].ably-realtime.com")
+                        }
+                        
+                        let fallbackRequestsWithHostHeader = fallbackRequests.filter {
+                            $0.allHTTPHeaderFields!["Host"] == $0.url?.host
+                        }
+                                            
+                        expect(fallbackRequests.count).to(be(fallbackRequestsWithHostHeader.count))
                     }
                     
                     it("if an empty array of fallback hosts is provided, then fallback host functionality is disabled") {
