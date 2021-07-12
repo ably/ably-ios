@@ -39,4 +39,9 @@
 
 + (NSInteger)maxMessageSize;
 
+/**
+ The period in seconds before HTTP requests are retried against the default endpoint
+ */
++ (NSTimeInterval)fallbackRetryTimeout;
+
 @end

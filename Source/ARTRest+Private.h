@@ -42,6 +42,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) id<ARTDeviceStorage> storage;
 
 @property (nonatomic, readonly, getter=getBaseUrl) NSURL *baseUrl;
+@property (nullable, nonatomic, copy) NSString *currentFallbackHost;
+@property (readonly, nonatomic) CFAbsoluteTime fallbackRetryExpiration;
 
 @property (nonatomic, strong, readonly) ARTLog *logger;
 

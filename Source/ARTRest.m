@@ -40,6 +40,8 @@
 #import "ARTLocalDeviceStorage.h"
 #import "ARTNSMutableRequest+ARTRest.h"
 #import "ARTHTTPPaginatedResponse+Private.h"
+#import "ARTNSMutableURLRequest+ARTUtil.h"
+#import "ARTTime.h"
 
 @implementation ARTRest {
     ARTQueuedDealloc *_dealloc;
@@ -287,6 +289,8 @@
 }
 
 - (NSObject<ARTCancellable> *)executeRequest:(NSURLRequest *)request completion:(void (^)(NSHTTPURLResponse *_Nullable, NSData *_Nullable, NSError *_Nullable))callback fallbacks:(ARTFallback *)fallbacks retries:(NSUInteger)retries {
+    
+    [ARTTime timeSinceBoot];
     __block ARTFallback *blockFallbacks = fallbacks;
 
     if ([request isKindOfClass:[NSMutableURLRequest class]]) {
@@ -298,7 +302,19 @@
         if (_options.clientId && !self.auth.isTokenAuth) {
             [mutableRequest setValue:encodeBase64(_options.clientId) forHTTPHeaderField:@"X-Ably-ClientId"];
         }
+        
+        // RSC15f - reset the successed fallback host on fallbackRetryTimeout expiration
+        // change URLRequest host from `fallback host` to `default host`
+        //
+        if (self.currentFallbackHost != nil && self.fallbackRetryExpiration < [ARTTime timeSinceBoot]) {
+            [self.logger debug:__FILE__ line:__LINE__ message:@"RS:%p fallbackRetryExpiration ids expired, reset `prioritizedHost` and `currentFallbackHost`", self];
+            
+            self.currentFallbackHost = nil;
+            self.prioritizedHost = nil;
+            [mutableRequest replaceHostWith:_options.restHost];
+        }
     }
+
 
     [self.logger debug:__FILE__ line:__LINE__ message:@"RS:%p executing request %@", self, request];
     __block NSObject<ARTCancellable> *task;
@@ -347,7 +363,15 @@
                 // Return error with HTTP StatusCode if ARTErrorStatusCode does not exist
                 error = [ARTErrorInfo createWithCode:response.statusCode*100 status:response.statusCode message:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
             }
+            
+        } else {
+            // Response Status Code < 400 and no errors
+            if (error == nil && self.currentFallbackHost != nil) {
+                [self.logger debug:__FILE__ line:__LINE__ message:@"RS:%p switching `prioritizedHost` to fallback host %@", self, self.currentFallbackHost];
+                self.prioritizedHost = self.currentFallbackHost;
+            }
         }
+        
         if (retries < self->_options.httpMaxRetryCount && [self shouldRetryWithFallback:request response:response error:error]) {
             if (!blockFallbacks && [ARTFallback restShouldFallback:request.URL withOptions:self->_options]) {
                 blockFallbacks = [[ARTFallback alloc] initWithOptions:self->_options];
@@ -356,6 +380,7 @@
                 NSString *host = [blockFallbacks popFallbackHost];
                 if (host != nil) {
                     [self.logger debug:__FILE__ line:__LINE__ message:@"RS:%p host is down; retrying request at %@", self, host];
+                    self.currentFallbackHost = host;
                     NSMutableURLRequest *newRequest = [request copy];
                     NSURL *url = request.URL;
                     NSString *urlStr = [NSString stringWithFormat:@"%@://%@:%@%@?%@", url.scheme, host, url.port, url.path, (url.query ? url.query : @"")];
@@ -621,6 +646,20 @@ dispatch_async(_queue, ^{
         components.host = prioritizedHost;
     }
     return components.URL;
+}
+
+- (void)setCurrentFallbackHost:(NSString *)value {
+    if (value == nil) {
+        _fallbackRetryExpiration = 0.0;
+    }
+    
+    if ([_currentFallbackHost isEqual:value]) {
+        return;
+    }
+    
+    _currentFallbackHost = value;
+
+    _fallbackRetryExpiration = [ARTTime timeSinceBoot] + [ARTDefault fallbackRetryTimeout];
 }
 
 #if TARGET_OS_IOS
