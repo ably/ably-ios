@@ -69,6 +69,9 @@
 		96E408481A3895E800087F77 /* ARTWebSocketTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E408461A3895E800087F77 /* ARTWebSocketTransport.m */; };
 		D3AD0EBD215E2FB000312105 /* ARTNSString+ARTUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = D3AD0EBB215E2FB000312105 /* ARTNSString+ARTUtil.h */; };
 		D3AD0EBE215E2FB000312105 /* ARTNSString+ARTUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AD0EBC215E2FB000312105 /* ARTNSString+ARTUtil.m */; };
+		D5A22172266F526600C87C42 /* GCDTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A22171266F526600C87C42 /* GCDTest.swift */; };
+		D5A22173266F526600C87C42 /* GCDTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A22171266F526600C87C42 /* GCDTest.swift */; };
+		D5A22174266F526600C87C42 /* GCDTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A22171266F526600C87C42 /* GCDTest.swift */; };
 		D7093C0F219E2DB200723F17 /* Ably.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D710D45B219495E2008F54AD /* Ably.framework */; };
 		D7093C19219E465300723F17 /* TestUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856AAC961B6E30C800B07119 /* TestUtilities.swift */; };
 		D7093C1A219E465C00723F17 /* NSObject+TestSuite.m in Sources */ = {isa = PBXBuildFile; fileRef = D780846D1C68B3E50083009D /* NSObject+TestSuite.m */; };
@@ -828,6 +831,7 @@
 		96E408461A3895E800087F77 /* ARTWebSocketTransport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARTWebSocketTransport.m; sourceTree = "<group>"; };
 		D3AD0EBB215E2FB000312105 /* ARTNSString+ARTUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ARTNSString+ARTUtil.h"; path = "Private/ARTNSString+ARTUtil.h"; sourceTree = "<group>"; };
 		D3AD0EBC215E2FB000312105 /* ARTNSString+ARTUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "ARTNSString+ARTUtil.m"; path = "Private/ARTNSString+ARTUtil.m"; sourceTree = "<group>"; };
+		D5A22171266F526600C87C42 /* GCDTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDTest.swift; sourceTree = "<group>"; };
 		D7093C0A219E2DB200723F17 /* Ably-macOS-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ably-macOS-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7093C0E219E2DB200723F17 /* Info-macOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-macOS.plist"; sourceTree = "<group>"; };
 		D7093C60219EE1AE00723F17 /* Ably-tvOS-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ably-tvOS-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1151,6 +1155,7 @@
 				851674EE1B7BA5CD00D35169 /* Stats.swift */,
 				856AAC961B6E30C800B07119 /* TestUtilities.swift */,
 				EB1AE0CD1C5C3A4900D62250 /* Utilities.swift */,
+				D5A22171266F526600C87C42 /* GCDTest.swift */,
 			);
 			path = Spec;
 			sourceTree = "<group>";
@@ -2195,6 +2200,7 @@
 				856AAC991B6E312F00B07119 /* RestClient.swift in Sources */,
 				D746AE2C1BBB625E003ECEF8 /* RestClientChannel.swift in Sources */,
 				D71D30041C5F7B2F002115B0 /* RealtimeClientChannels.swift in Sources */,
+				D5A22172266F526600C87C42 /* GCDTest.swift in Sources */,
 				EB1B53F922F85CE4006A59AC /* ObjectLifetimes.swift in Sources */,
 				D7DF73851EA600240013CD36 /* PushActivationStateMachine.swift in Sources */,
 				D7FC1ECB209CEA2E001E4153 /* Push.swift in Sources */,
@@ -2324,6 +2330,7 @@
 				D7093C1E219E466900723F17 /* RestClient.swift in Sources */,
 				D7093C2B219E466E00723F17 /* Crypto.swift in Sources */,
 				D7093C20219E466E00723F17 /* RestClientChannel.swift in Sources */,
+				D5A22173266F526600C87C42 /* GCDTest.swift in Sources */,
 				EB1B53FA22F85CE4006A59AC /* ObjectLifetimes.swift in Sources */,
 				D7093C2A219E466E00723F17 /* Utilities.swift in Sources */,
 				D798554923EB96C000946BE2 /* DeltaCodec.swift in Sources */,
@@ -2354,6 +2361,7 @@
 				D7093C78219EE26400723F17 /* RestClientChannels.swift in Sources */,
 				D7093C76219EE26400723F17 /* RestClientStats.swift in Sources */,
 				D7093C82219EE26400723F17 /* Crypto.swift in Sources */,
+				D5A22174266F526600C87C42 /* GCDTest.swift in Sources */,
 				EB1B53FB22F85CE4006A59AC /* ObjectLifetimes.swift in Sources */,
 				D7093C7C219EE26400723F17 /* RealtimeClientConnection.swift in Sources */,
 				D798554A23EB96C000946BE2 /* DeltaCodec.swift in Sources */,
