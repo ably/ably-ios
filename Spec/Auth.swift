@@ -1211,13 +1211,14 @@ class Auth : QuickSpec {
                             realtime.connect()
                             
                             let transport = realtime.internal.transport as! TestProxyTransport
-                            transport.beforeProcessingReceivedMessage = { message in
+                            transport.setBeforeIncomingMessageModifier({ message in
                                 if message.action == .connected {
                                     if let details = message.connectionDetails {
                                         details.clientId = nil
                                     }
                                 }
-                            }
+                                return message
+                            })
                         }
                     }
 

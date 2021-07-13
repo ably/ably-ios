@@ -99,7 +99,7 @@ class DeltaCodec: QuickSpec {
                         fail("TestProxyTransport is not be assigned"); return
                     }
 
-                    transport.changeReceivedMessage = { protocolMessage in
+                    transport.setBeforeIncomingMessageModifier({ protocolMessage in
                         if protocolMessage.action == .message,
                             let thirdMessage = protocolMessage.messages?.filter({ $0.name == "2" }).first {
                             thirdMessage.extras = [
@@ -108,10 +108,10 @@ class DeltaCodec: QuickSpec {
                                     "from": "foo:1:0"
                                 ]
                             ] as NSDictionary
-                            transport.changeReceivedMessage = nil
+                            transport.setBeforeIncomingMessageModifier(nil)
                         }
                         return protocolMessage
-                    }
+                    })
 
                     var receivedMessages: [ARTMessage] = []
                     channel.subscribe { message in
@@ -157,14 +157,14 @@ class DeltaCodec: QuickSpec {
                         fail("TestProxyTransport is not be assigned"); return
                     }
 
-                    transport.changeReceivedMessage = { protocolMessage in
+                    transport.setBeforeIncomingMessageModifier({ protocolMessage in
                         if protocolMessage.action == .message,
                             let thirdMessage = protocolMessage.messages?.filter({ $0.name == "2" }).first {
                             thirdMessage.data = Data() //invalid delta
-                            transport.changeReceivedMessage = nil
+                            transport.setBeforeIncomingMessageModifier(nil)
                         }
                         return protocolMessage
-                    }
+                    })
 
                     var receivedMessages: [ARTMessage] = []
                     channel.subscribe { message in

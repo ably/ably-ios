@@ -95,9 +95,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, readonly) ARTRealtimeChannelInternal *internal;
 
-- (instancetype)initWithInternal:(ARTRealtimeChannelInternal *)internal queuedDealloc:(ARTQueuedDealloc *)dealloc;
+- (void)internalAsync:(void (^)(ARTRealtimeChannelInternal *))use;
+- (void)internalSync:(void (^)(ARTRealtimeChannelInternal *))use;
 
-@property (readonly) ARTRealtimeChannelInternal *internal_nosync;
+- (instancetype)initWithInternal:(ARTRealtimeChannelInternal *)internal queuedDealloc:(ARTQueuedDealloc *)dealloc;
 
 @end
 

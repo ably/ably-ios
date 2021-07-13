@@ -973,9 +973,9 @@ class TestProxyHTTPExecutor: NSObject, ARTHTTPExecutor {
         return result
     }
 
-    var callbackBeforeRequest: ((URLRequest) -> Void)?
-    var callbackAfterRequest: ((URLRequest) -> Void)?
-    var callbackProcessingDataResponse: ((Data?) -> Data)?
+    private var callbackBeforeRequest: ((URLRequest) -> Void)?
+    private var callbackAfterRequest: ((URLRequest) -> Void)?
+    private var callbackProcessingDataResponse: ((Data?) -> Data)?
 
     init(_ logger: ARTLog) {
         self._logger = logger
@@ -1090,30 +1090,101 @@ class TestProxyHTTPExecutor: NSObject, ARTHTTPExecutor {
 /// Records each message for test purpose.
 class TestProxyTransport: ARTWebSocketTransport {
 
-    var lastUrl: URL?
-
-    fileprivate(set) var protocolMessagesSent = [ARTProtocolMessage]()
-    fileprivate(set) var protocolMessagesReceived = [ARTProtocolMessage]()
-    fileprivate(set) var protocolMessagesSentIgnored = [ARTProtocolMessage]()
-
-    fileprivate(set) var rawDataSent = [Data]()
-    fileprivate(set) var rawDataReceived = [Data]()
-    fileprivate var replacingAcksWithNacks: ARTErrorInfo?
-
-    var ignoreWebSocket = false
-
-    var beforeProcessingSentMessage: ((ARTProtocolMessage) -> Void)?
-    var beforeProcessingReceivedMessage: ((ARTProtocolMessage) -> Void)?
-    var afterProcessingReceivedMessage: ((ARTProtocolMessage) -> Void)?
-    var changeReceivedMessage: ((ARTProtocolMessage) -> ARTProtocolMessage)?
-
-    var actionsIgnored = [ARTProtocolMessageAction]()
-    var ignoreSends = false
-
     /// This will affect all WebSocketTransport instances.
     /// Set it to nil after the test ends.
     static var fakeNetworkResponse: FakeNetworkResponse?
     static var networkConnectEvent: ((ARTRealtimeTransport, URL) -> Void)?
+
+
+    fileprivate(set) var lastUrl: URL?
+
+    private var _protocolMessagesReceived: [ARTProtocolMessage] = []
+    var protocolMessagesReceived: [ARTProtocolMessage] {
+        var result: [ARTProtocolMessage] = []
+        queue.sync {
+            result = self._protocolMessagesReceived
+        }
+        return result
+    }
+
+    private var _protocolMessagesSent: [ARTProtocolMessage] = []
+    var protocolMessagesSent: [ARTProtocolMessage] {
+        var result: [ARTProtocolMessage] = []
+        queue.sync {
+            result = self._protocolMessagesSent
+        }
+        return result
+    }
+
+    private var _protocolMessagesSentIgnored: [ARTProtocolMessage] = []
+    var protocolMessagesSentIgnored: [ARTProtocolMessage] {
+        var result: [ARTProtocolMessage] = []
+        queue.sync {
+            result = self._protocolMessagesSentIgnored
+        }
+        return result
+    }
+
+    fileprivate(set) var rawDataSent = [Data]()
+    fileprivate(set) var rawDataReceived = [Data]()
+
+    private var replacingAcksWithNacks: ARTErrorInfo?
+
+    var ignoreWebSocket = false
+    var ignoreSends = false
+    var actionsIgnored = [ARTProtocolMessageAction]()
+
+    var queue: DispatchQueue {
+        return websocket?.delegateDispatchQueue ?? AblyTests.queue
+    }
+
+    private var callbackBeforeProcessingIncomingMessage: ((ARTProtocolMessage) -> Void)?
+    private var callbackAfterProcessingIncomingMessage: ((ARTProtocolMessage) -> Void)?
+    private var callbackBeforeProcessingOutgoingMessage: ((ARTProtocolMessage) -> Void)?
+    private var callbackBeforeIncomingMessageModifier: ((ARTProtocolMessage) -> ARTProtocolMessage)?
+    private var callbackAfterIncomingMessageModifier: ((ARTProtocolMessage) -> ARTProtocolMessage)?
+
+    func setListenerBeforeProcessingIncomingMessage(_ callback: ((ARTProtocolMessage) -> Void)?) {
+        queue.sync {
+            self.callbackBeforeProcessingIncomingMessage = callback
+        }
+    }
+
+    func setListenerAfterProcessingIncomingMessage(_ callback: ((ARTProtocolMessage) -> Void)?) {
+        queue.sync {
+            self.callbackAfterProcessingIncomingMessage = callback
+        }
+    }
+
+    func setListenerBeforeProcessingOutgoingMessage(_ callback: ((ARTProtocolMessage) -> Void)?) {
+        queue.sync {
+            self.callbackBeforeProcessingOutgoingMessage = callback
+        }
+    }
+
+    /// The modifier will be used in the internal queue.
+    func setBeforeIncomingMessageModifier(_ callback: ((ARTProtocolMessage) -> ARTProtocolMessage)?) {
+        self.callbackBeforeIncomingMessageModifier = callback
+    }
+
+    /// The modifier will be used in the internal queue.
+    func setAfterIncomingMessageModifier(_ callback: ((ARTProtocolMessage) -> ARTProtocolMessage)?) {
+        self.callbackAfterIncomingMessageModifier = callback
+    }
+
+    func enableReplaceAcksWithNacks(with errorInfo: ARTErrorInfo) {
+        queue.sync {
+            self.replacingAcksWithNacks = errorInfo
+        }
+    }
+
+    func disableReplaceAcksWithNacks() {
+        queue.sync {
+            self.replacingAcksWithNacks = nil
+        }
+    }
+
+    // MARK: ARTWebSocket
 
     override func connect(withKey key: String) {
         if let fakeResponse = TestProxyTransport.fakeNetworkResponse {
@@ -1139,7 +1210,7 @@ class TestProxyTransport: ARTWebSocketTransport {
             }
 
             func performFakeConnectionError(_ secondsForDelay: TimeInterval, error: ARTRealtimeTransportError) {
-                AblyTests.queue.asyncAfter(deadline: .now() + secondsForDelay) {
+                self.queue.asyncAfter(deadline: .now() + secondsForDelay) {
                     self.delegate?.realtimeTransportFailed(self, withError: error)
                     hook?.remove()
                 }
@@ -1169,7 +1240,7 @@ class TestProxyTransport: ARTWebSocketTransport {
             networkConnectEventHandler(self, lastUrl)
         }
         else {
-            AblyTests.queue.asyncAfter(deadline: .now() + 0.1) {
+            queue.asyncAfter(deadline: .now() + 0.1) {
                 // Repeat until `lastUrl` is assigned.
                 self.performNetworkConnectEvent()
             }
@@ -1197,12 +1268,14 @@ class TestProxyTransport: ARTWebSocketTransport {
 
         if let msg = decodedObject as? ARTProtocolMessage {
             if ignoreSends {
-                protocolMessagesSentIgnored.append(msg)
+                _protocolMessagesSentIgnored.append(msg)
                 return false
             }
-            protocolMessagesSent.append(msg)
-            if let performEvent = beforeProcessingSentMessage {
-                performEvent(msg)
+            _protocolMessagesSent.append(msg)
+            if let performEvent = callbackBeforeProcessingOutgoingMessage {
+                DispatchQueue.main.async {
+                    performEvent(msg)
+                }
             }
         }
         rawDataSent.append(data)
@@ -1216,42 +1289,33 @@ class TestProxyTransport: ARTWebSocketTransport {
                 original.error = error
             }
         }
-        protocolMessagesReceived.append(original)
+        _protocolMessagesReceived.append(original)
         if actionsIgnored.contains(original.action) {
             return
         }
-        if let performEvent = beforeProcessingReceivedMessage {
-            performEvent(original)
+        if let performEvent = callbackBeforeProcessingIncomingMessage {
+            DispatchQueue.main.async {
+                performEvent(original)
+            }
         }
         var msg = original
-        if let performEvent = changeReceivedMessage {
+        if let performEvent = callbackBeforeIncomingMessageModifier {
             msg = performEvent(original)
         }
         super.receive(msg)
-        if let performEvent = afterProcessingReceivedMessage {
-            performEvent(original)
+        if let performEvent = callbackAfterIncomingMessageModifier {
+            msg = performEvent(msg)
+        }
+        if let performEvent = callbackAfterProcessingIncomingMessage {
+            DispatchQueue.main.async {
+                performEvent(msg)
+            }
         }
     }
 
     override func receive(with data: Data) -> ARTProtocolMessage? {
         rawDataReceived.append(data)
         return super.receive(with: data)
-    }
-
-    func replaceAcksWithNacks(_ error: ARTErrorInfo, block: (_ doneReplacing: @escaping () -> Void) -> Void) {
-        replacingAcksWithNacks = error
-        block({ self.replacingAcksWithNacks = nil })
-    }
-
-    func simulateTransportSuccess(clientId: String? = nil) {
-        self.ignoreWebSocket = true
-        let msg = ARTProtocolMessage()
-        msg.action = .connected
-        msg.connectionId = "x-xxxxxxxx"
-        msg.connectionKey = "xxxxxxx-xxxxxxxxxxxxxx-xxxxxxxx"
-        msg.connectionSerial = -1
-        msg.connectionDetails = ARTConnectionDetails(clientId: clientId, connectionKey: "a8c10!t-3D0O4ejwTdvLkl-b33a8c10", maxMessageSize: 16384, maxFrameSize: 262144, maxInboundRate: 250, connectionStateTtl: 60, serverId: "testServerId", maxIdleInterval: 15000)
-        super.receive(msg)
     }
 
     override func webSocketDidOpen(_ webSocket: ARTWebSocket) {
@@ -1283,6 +1347,20 @@ class TestProxyTransport: ARTWebSocketTransport {
             super.webSocket(webSocket, didCloseWithCode: code, reason: reason, wasClean: wasClean)
         }
     }
+
+    // MARK: Helpers
+
+    func simulateTransportSuccess(clientId: String? = nil) {
+        self.ignoreWebSocket = true
+        let msg = ARTProtocolMessage()
+        msg.action = .connected
+        msg.connectionId = "x-xxxxxxxx"
+        msg.connectionKey = "xxxxxxx-xxxxxxxxxxxxxx-xxxxxxxx"
+        msg.connectionSerial = -1
+        msg.connectionDetails = ARTConnectionDetails(clientId: clientId, connectionKey: "a8c10!t-3D0O4ejwTdvLkl-b33a8c10", maxMessageSize: 16384, maxFrameSize: 262144, maxInboundRate: 250, connectionStateTtl: 60, serverId: "testServerId", maxIdleInterval: 15000)
+        super.receive(msg)
+    }
+
 }
 
 

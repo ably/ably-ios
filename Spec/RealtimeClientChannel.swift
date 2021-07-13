@@ -3267,14 +3267,14 @@ class RealtimeClientChannel: QuickSpec {
 
                             let transport = client.internal.transport as! TestProxyTransport
 
-                            transport.beforeProcessingSentMessage = { protocolMessage in
+                            transport.setListenerBeforeProcessingOutgoingMessage({ protocolMessage in
                                 if protocolMessage.action == .message {
                                     expect(protocolMessage.messages![0].data as? String).to(equal(testMessage.encrypted.data))
                                     expect(protocolMessage.messages![0].encoding).to(equal(testMessage.encrypted.encoding))
                                 }
-                            }
+                            })
 
-                            transport.beforeProcessingReceivedMessage = { protocolMessage in
+                            transport.setBeforeIncomingMessageModifier({ protocolMessage in
                                 if protocolMessage.action == .message {
                                     expect(protocolMessage.messages![0].data as? NSObject).to(equal(AblyTests.base64ToData(testMessage.encrypted.data) as NSObject?))
                                     expect(protocolMessage.messages![0].encoding).to(equal("utf-8/cipher+aes-\(cryptoFixtureFileName.suffix(3))-cbc"))
@@ -3282,7 +3282,8 @@ class RealtimeClientChannel: QuickSpec {
                                     // Force an error decoding a message
                                     protocolMessage.messages![0].encoding = "bad_encoding_type"
                                 }
-                            }
+                                return protocolMessage
+                            })
 
                             waitUntil(timeout: testTimeout) { done in
                                 let partlyDone = AblyTests.splitDone(2, done: done)
@@ -3334,14 +3335,15 @@ class RealtimeClientChannel: QuickSpec {
 
                         let transport = client.internal.transport as! TestProxyTransport
 
-                        transport.beforeProcessingReceivedMessage = { protocolMessage in
+                        transport.setBeforeIncomingMessageModifier({ protocolMessage in
                             if protocolMessage.action == .message {
                                 let messageReceived = protocolMessage.messages![0]
                                 // Replacement: `json/utf-8/cipher+aes-256-cbc/base64` to `invalid/cipher+aes-256-cbc/base64`
                                 let newEncoding = "invalid" + messageReceived.encoding!["json/utf-8".endIndex...]
                                 messageReceived.encoding = newEncoding
                             }
-                        }
+                            return protocolMessage
+                        })
 
                         waitUntil(timeout: testTimeout) { done in
                             channel.subscribe { message in
@@ -4251,7 +4253,7 @@ class RealtimeClientChannel: QuickSpec {
                             expect(attachedMessages).to(beEmpty())
                         }
 
-                        xit("should fail if the attach moves to DETACHED") {
+                        it("should fail if the attach moves to DETACHED") {
                             let client = AblyTests.newRealtime(AblyTests.commonAppSetup())
                             defer { client.dispose(); client.close() }
                             let channel = client.channels.get("foo")
@@ -4273,13 +4275,14 @@ class RealtimeClientChannel: QuickSpec {
                             ]
 
                             // Convert ATTACHED to DETACHED
-                            transport.changeReceivedMessage = { protocolMessage in
+                            transport.setBeforeIncomingMessageModifier({ protocolMessage in
                                 if protocolMessage.action == .attached {
                                     protocolMessage.action = .detached
-                                    protocolMessage.error = ARTErrorInfo.create(withCode: 50000, status: 500, message: "internal error")
+                                    protocolMessage.error = .create(withCode: 50000, status: 500, message: "internal error")
+                                    transport.setBeforeIncomingMessageModifier(nil)
                                 }
                                 return protocolMessage
-                            }
+                            })
 
                             waitUntil(timeout: testTimeout) { done in
                                 let partialDone = AblyTests.splitDone(2, done: done)
@@ -4456,13 +4459,13 @@ class RealtimeClientChannel: QuickSpec {
                     fail("TestProxyTransport is not set"); return
                 }
 
-                transport.changeReceivedMessage = { protocolMessage in
+                transport.setBeforeIncomingMessageModifier({ protocolMessage in
                     if protocolMessage.action == .attached {
                         protocolMessage.action = .detached
                         protocolMessage.error = ARTErrorInfo.create(withCode: 50000, status: 500, message: "fake error message text")
                     }
                     return protocolMessage
-                }
+                })
 
                 waitUntil(timeout: testTimeout) { done in
                     channel.attach { error in
