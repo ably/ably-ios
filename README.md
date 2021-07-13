@@ -687,13 +687,14 @@ You can also view the [community reported Github issues](https://github.com/ably
 
 In this repository the `main` branch contains the latest development version of the Ably SDK. All development (bug fixing, feature implementation, etc.) is done against the `main` branch, which you should branch from whenever you'd like to make modifications. Here's the steps to follow when contributing to this repository.
 
-1. Fork it
-2. Setup or update your machine by running `make setup|update`
-3. Create your feature branch from `main` (`git checkout main && git checkout -b my-new-feature-branch`)
-4. Commit your changes (`git commit -am 'Add some feature'`)
-5. Ensure you have added suitable tests and the test suite is passing
-6. Push to the branch (`git push origin my-new-feature-branch`)
-7. Create a new Pull Request
+ - Fork it
+ - Install carthage: `brew install carthage`
+ - Setup or update your machine by running `make update`
+ - Create your feature branch from `main` (`git checkout main && git checkout -b my-new-feature-branch`)
+ - Commit your changes (`git commit -am 'Add some feature'`)
+ - Ensure you have added suitable tests and the test suite is passing
+ - Push to the branch (`git push origin my-new-feature-branch`)
+ - Create a new Pull Request
 
 Releases of the Ably SDK built by the sources in this repository are tagged with their [semantic version](http://semver.org/) numbers.
 
