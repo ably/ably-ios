@@ -20,7 +20,13 @@
 - (instancetype)init:(dispatch_queue_t)queue {
     if (self = [super init]) {
         _queue = queue;
-        _session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:self delegateQueue:nil];
+        NSURLSessionConfiguration *config = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+        if (@available(iOS 13.0, macOS 10.15, tvOS 13.0, *)) {
+            config.TLSMinimumSupportedProtocolVersion = tls_protocol_version_TLSv12;
+        } else {
+            config.TLSMinimumSupportedProtocol = kTLSProtocol12;
+        }
+        _session = [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:nil];
     }
     return self;
 }
