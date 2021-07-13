@@ -58,6 +58,12 @@
     });
 }
 
+- (void)internalSync:(void (^)(ARTRealtimeInternal * _Nonnull))use {
+    dispatch_sync(_internal.queue, ^{
+        use(self->_internal);
+    });
+}
+
 - (ARTConnection *)connection {
     return [[ARTConnection alloc] initWithInternal:_internal.connection queuedDealloc:_dealloc];
 }

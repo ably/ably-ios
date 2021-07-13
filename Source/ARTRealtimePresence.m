@@ -204,7 +204,9 @@ dispatch_async(_queue, ^{
             callback(nil, error);
             return;
         }
-        if (self->_channel.presenceMap.syncInProgress && query.waitForSync) {
+        const BOOL syncInProgress = self->_channel.presenceMap.syncInProgress;
+        if (syncInProgress && query.waitForSync) {
+            [self->_channel.logger debug:__FILE__ line:__LINE__ message:@"R:%p C:%p (%@) sync is in progress, waiting until the presence members is synchronized", self->_channel.realtime, self->_channel, self->_channel.name];
             [self->_channel.presenceMap onceSyncEnds:^(NSArray<ARTPresenceMessage *> *members) {
                 NSArray<ARTPresenceMessage *> *filteredMembers = [members artFilter:filterMemberBlock];
                 callback(filteredMembers, nil);
@@ -213,6 +215,7 @@ dispatch_async(_queue, ^{
                 callback(nil, error);
             }];
         } else {
+            [self->_channel.logger debug:__FILE__ line:__LINE__ message:@"R:%p C:%p (%@) returning presence members (syncInProgress=%d)", self->_channel.realtime, self->_channel, self->_channel.name, syncInProgress];
             NSArray<ARTPresenceMessage *> *members = self->_channel.presenceMap.members.allValues;
             NSArray<ARTPresenceMessage *> *filteredMembers = [members artFilter:filterMemberBlock];
             callback(filteredMembers, nil);

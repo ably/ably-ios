@@ -124,7 +124,9 @@ NSString *ARTPresenceSyncStateToStr(ARTPresenceSyncState state) {
         [_localMembers removeObject:message];
     }
 
-    if (!force && self.syncInProgress) {
+    const BOOL syncInProgress = self.syncInProgress;
+    if (!force && syncInProgress) {
+        [_logger debug:__FILE__ line:__LINE__ message:@"%p \"%@\" should be removed after sync ends (syncInProgress=%d)", self, message.clientId, syncInProgress];
         message.action = ARTPresenceAbsent;
         // Should be removed after Sync ends
         [self internalAdd:message withSessionId:message.syncSessionId];
@@ -135,6 +137,7 @@ NSString *ARTPresenceSyncStateToStr(ARTPresenceSyncState state) {
 }
 
 - (void)cleanUpAbsentMembers {
+    [_logger debug:__FILE__ line:__LINE__ message:@"%p cleaning up absent members (syncSessionId=%lu)", self, (unsigned long)_syncSessionId];
     NSSet<NSString *> *filteredMembers = [_members keysOfEntriesPassingTest:^BOOL(NSString *key, ARTPresenceMessage *message, BOOL *stop) {
         return message.action == ARTPresenceAbsent;
     }];
@@ -144,6 +147,7 @@ NSString *ARTPresenceSyncStateToStr(ARTPresenceSyncState state) {
 }
 
 - (void)leaveMembersNotPresentInSync {
+    [_logger debug:__FILE__ line:__LINE__ message:@"%p leaving members not present in sync (syncSessionId=%lu)", self, (unsigned long)_syncSessionId];
     for (ARTPresenceMessage *member in [_members allValues]) {
         if (member.syncSessionId != _syncSessionId) {
             // Handle members that have not been added or updated in the PresenceMap during the sync process
@@ -155,6 +159,7 @@ NSString *ARTPresenceSyncStateToStr(ARTPresenceSyncState state) {
 }
 
 - (void)reenterLocalMembersMissingFromSync {
+    [_logger debug:__FILE__ line:__LINE__ message:@"%p reentering local members missed from sync (syncSessionId=%lu)", self, (unsigned long)_syncSessionId];
     NSSet *filteredLocalMembers = [_localMembers filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"syncSessionId != %lu", (unsigned long)_syncSessionId]];
     for (ARTPresenceMessage *localMember in filteredLocalMembers) {
         ARTPresenceMessage *reenter = [localMember copy];

@@ -452,7 +452,7 @@ class RealtimeClientPresence: QuickSpec {
             context("subscribe") {
 
                 // RTP6a
-                xit("with no arguments should subscribe a listener to all presence messages") {
+                it("with no arguments should subscribe a listener to all presence messages") {
                     let options = AblyTests.commonAppSetup()
 
                     let client1 = ARTRealtime(options: options)
@@ -704,8 +704,8 @@ class RealtimeClientPresence: QuickSpec {
                             channel.once(.attaching) { stateChange in
                                 expect(stateChange?.reason).to(beNil())
                                 expect(channel.presence.internal.pendingPresence.count) == 1
-                                AblyTests.queue.async {
-                                    channel.internal.setSuspended(ARTStatus.state(.error, info: ARTErrorInfo.create(withCode: 1234, message: "unknown error")))
+                                channel.internalAsync { _internal in
+                                    _internal.setSuspended(ARTStatus.state(.error, info: ARTErrorInfo.create(withCode: 1234, message: "unknown error")))
                                 }
                                 partialDone()
                             }
@@ -725,7 +725,7 @@ class RealtimeClientPresence: QuickSpec {
                         }
                     }
 
-                    xit("should maintain the PresenceMap and any members present before and after the sync should not emit presence events") {
+                    it("should maintain the PresenceMap and any members present before and after the sync should not emit presence events") {
                         let options = AblyTests.commonAppSetup()
                         let channelName = NSUUID().uuidString
 
@@ -765,8 +765,10 @@ class RealtimeClientPresence: QuickSpec {
                                 partialDone()
                             }
                             channel.once(.suspended) { stateChange in
-                                expect(channel.internal.presenceMap.members).to(haveCount(4))
-                                expect(channel.internal.presenceMap.localMembers).to(haveCount(1))
+                                channel.internalSync { _internal in
+                                    expect(_internal.presenceMap.members).to(haveCount(4))
+                                    expect(_internal.presenceMap.localMembers).to(haveCount(1))
+                                }
                                 partialDone()
                             }
                             channel.once(.attached) { stateChange in
@@ -777,7 +779,9 @@ class RealtimeClientPresence: QuickSpec {
                                 }
                                 partialDone()
                             }
-                            channel.internal.setSuspended(ARTStatus.state(.ok))
+                            channel.internalAsync { _internal in
+                                _internal.setSuspended(ARTStatus.state(.ok))
+                            }
                         }
 
                         channel.presence.unsubscribe()
@@ -789,10 +793,13 @@ class RealtimeClientPresence: QuickSpec {
                                 }
                                 expect(members).to(haveCount(3))
                                 expect(members).to(allPass({ (member: ARTPresenceMessage?) in member!.action != .absent }))
-                                expect(channel.internal.presenceMap.members).to(haveCount(3))
-                                expect(channel.internal.presenceMap.localMembers).to(beEmpty())
                                 done()
                             }
+                        }
+
+                        channel.internalSync { _internal in
+                            expect(_internal.presenceMap.members).to(haveCount(3))
+                            expect(_internal.presenceMap.localMembers).to(beEmpty())
                         }
                     }
 
@@ -919,7 +926,7 @@ class RealtimeClientPresence: QuickSpec {
             context("subscribe") {
 
                 // RTP6b
-                xit("with a single action argument") {
+                it("with a single action argument") {
                     let options = AblyTests.commonAppSetup()
 
                     let client1 = ARTRealtime(options: options)
@@ -1812,6 +1819,7 @@ class RealtimeClientPresence: QuickSpec {
                     waitUntil(timeout: testTimeout) { done in
                         transport.afterProcessingReceivedMessage = { protocolMessage in
                             if protocolMessage.action == .sync {
+                                transport.afterProcessingReceivedMessage = nil
                                 done()
                             }
                         }
@@ -1830,8 +1838,11 @@ class RealtimeClientPresence: QuickSpec {
                         }
                         clientMembers?.channels.get(channelName).presence.leaveClient("user11", data: nil)
                     }
+                    channel.presence.unsubscribe()
 
-                    expect(channel.internal.presenceMap.members.filter{ _, presence in presence.memberKey() == user11MemberKey }).to(beEmpty())
+                    channel.internalSync { _internal in
+                        expect(_internal.presenceMap.members.filter{ _, presence in presence.memberKey() == user11MemberKey }).to(beEmpty())
+                    }
                 }
 
                 // RTP2f
@@ -1916,8 +1927,10 @@ class RealtimeClientPresence: QuickSpec {
                         }
                     }
 
-                    expect(channel.internal.presenceMap.members.filter{ _, presence in presence.action == .present }).to(haveCount(1))
-                    expect(channel.internal.presenceMap.members.filter{ _, presence in presence.action == .enter }).to(beEmpty())
+                    channel.internalSync { _internal in
+                        expect(_internal.presenceMap.members.filter{ _, presence in presence.action == .present }).to(haveCount(1))
+                        expect(_internal.presenceMap.members.filter{ _, presence in presence.action == .enter }).to(beEmpty())
+                    }
                 }
 
             }
@@ -2667,7 +2680,7 @@ class RealtimeClientPresence: QuickSpec {
                 // RTP17b
                 context("events applied to presence map") {
 
-                    xit("should be applied to ENTER, PRESENT or UPDATE events with a connectionId that matches the current client’s connectionId") {
+                    it("should be applied to ENTER, PRESENT or UPDATE events with a connectionId that matches the current client’s connectionId") {
                         let options = AblyTests.commonAppSetup()
                         let client = ARTRealtime(options: options)
                         defer { client.dispose(); client.close() }
@@ -2690,7 +2703,9 @@ class RealtimeClientPresence: QuickSpec {
                             fail("connectionId is empty"); return
                         }
 
-                        expect(channel.internal.presenceMap.localMembers).to(haveCount(1))
+                        channel.internalSync { _internal in
+                            expect(_internal.presenceMap.localMembers).to(haveCount(1))
+                        }
 
                         let additionalMember = ARTPresenceMessage(
                             clientId: "two",
@@ -2707,51 +2722,55 @@ class RealtimeClientPresence: QuickSpec {
                         expect(client.connection.state).toEventually(equal(.suspended), timeout: testTimeout)
 
                         expect(channel.internal.presenceMap.localMembers).to(haveCount(2))
+                        
+                        channel.internalSync { _internal in
+                            expect(_internal.presenceMap.localMembers).to(haveCount(2))
+                        }
 
                         waitUntil(timeout: testTimeout) { done in
-                            let partialDone = AblyTests.splitDone(2, done: done)
+                            let partialDone = AblyTests.splitDone(3, done: done)
+
                             channel.once(.attached) { stateChange in
                                 expect(stateChange?.reason).to(beNil())
                                 partialDone()
                             }
-                            // Reconnect
-                            client.connect()
+
                             // Await Sync
                             channel.internal.presenceMap.onceSyncEnds { _ in
+                                // Should remove the "two" member that was added manually because the connectionId
+                                //doesn't match and it's not synthesized, it will be re-entered.
+                                expect(channel.internal.presenceMap.localMembers).to(haveCount(1))
+
                                 partialDone()
                             }
-                        }
 
-                        expect(channel.internal.presenceMap.syncComplete).toEventually(beTrue(), timeout: testTimeout)
-
-                        // Should remove the "two" member that was added manually because the connectionId
-                        //doesn't match and it's not synthesized, it will be re-entered.
-                        expect(channel.internal.presenceMap.localMembers).to(haveCount(1))
-
-                        waitUntil(timeout: testTimeout) { done in
-                            let partialDone = AblyTests.splitDone(2, done: done)
                             channel.presence.subscribe(.enter) { presence in
                                 expect(presence.clientId).to(equal("two"))
                                 channel.presence.unsubscribe()
                                 partialDone()
                             }
-                            if channel.internal.presenceMap.syncComplete {
-                                channel.internal.sync { error in
-                                    expect(error).to(beNil())
-                                    channel.internal.presenceMap.onceSyncEnds { _ in
-                                        partialDone()
-                                    }
-                                }
-                            }
+
+                            // Reconnect
+                            client.connect()
                         }
 
+                        // Wait for server
+                        waitUntil(timeout: testTimeout) { done in
+                            delay(1, closure: done)
+                        }
+
+                        channel.internalAsync { _internal in
+                            _internal.sync()
+                        }
+
+                        expect(channel.presence.syncComplete).to(beFalse())
                         waitUntil(timeout: testTimeout) { done in
                             channel.presence.get { presences, error in
                                 expect(error).to(beNil())
                                 guard let presences = presences else {
                                     fail("Presences is nil"); done(); return
                                 }
-                                expect(channel.internal.presenceMap.syncComplete).to(beTrue())
+                                expect(channel.presence.syncComplete).to(beTrue())
                                 expect(presences).to(haveCount(2))
                                 expect(presences.map({$0.clientId})).to(contain(["one", "two"]))
                                 done()
@@ -2779,7 +2798,7 @@ class RealtimeClientPresence: QuickSpec {
                             }
                         }
 
-                        waitUntil(timeout: DispatchTimeInterval.seconds(20)) { done in
+                        waitUntil(timeout: .seconds(20)) { done in
                             channel.internal.presenceMap.onceSyncEnds { _ in
                                 // Synthesized leave
                                 expect(channel.internal.presenceMap.localMembers).to(beEmpty())
@@ -3654,7 +3673,7 @@ class RealtimeClientPresence: QuickSpec {
             context("history") {
 
                 // RTP12c, RTP12d
-                xit("should return a PaginatedResult page") {
+                it("should return a PaginatedResult page") {
                     let options = AblyTests.commonAppSetup()
 
                     var clientSecondary: ARTRealtime!

@@ -230,6 +230,8 @@ class RestClientPresence: QuickSpec {
                 context("query argument") {
 
                     // RSP4b2
+                    // Disabled because there's something wrong in the Sandbox.
+                    // More info at https://ably-real-time.slack.com/archives/C030C5YLY/p1614269570000400
                     xit("direction should change the order of the members") {
                         let options = AblyTests.commonAppSetup()
                         let client = ARTRest(options: options)
@@ -322,7 +324,7 @@ class RestClientPresence: QuickSpec {
                 }
 
                 // RSP3a3
-                xit("connectionId should filter members by the provided connectionId") {
+                it("connectionId should filter members by the provided connectionId") {
                     let options = AblyTests.commonAppSetup()
                     let client = ARTRest(options: options)
                     let channel = client.channels.get("test")

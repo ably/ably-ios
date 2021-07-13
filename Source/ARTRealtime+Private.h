@@ -30,6 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) ARTRealtimeInternal *internal;
 
 - (void)internalAsync:(void (^)(ARTRealtimeInternal *))use;
+- (void)internalSync:(void (^)(ARTRealtimeInternal *))use;
 
 @end
 

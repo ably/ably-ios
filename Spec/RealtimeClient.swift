@@ -271,6 +271,11 @@ class RealtimeClient: QuickSpec {
                     let client = ARTRealtime(options: AblyTests.commonAppSetup())
                     defer { client.close() }
                     var paginatedResult: ARTPaginatedResult<AnyObject>?
+                    waitUntil(timeout: testTimeout) { done in
+                        client.connection.once(.connected) { _ in
+                            done()
+                        }
+                    }
 
                     // Realtime
                     expect {
