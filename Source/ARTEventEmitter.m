@@ -134,6 +134,9 @@
 }
 
 - (void)startTimer {
+    if (!_eventHandler) {
+        return;
+    }
     if (_timerIsRunning) {
         NSAssert(false, @"timer is already running");
     }
