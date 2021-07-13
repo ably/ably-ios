@@ -16,9 +16,6 @@ extern void (^ARTFallback_shuffleArray)(NSMutableArray *);
 
 @property (readwrite, strong, nonatomic) NSMutableArray<NSString *> *hosts;
 
-+ (BOOL)restShouldFallback:(NSURL *)host withOptions:(ARTClientOptions *)options;
-+ (BOOL)realtimeShouldFallback:(NSURL *)host withOptions:(ARTClientOptions *)options;
-
 @end
 
 NS_ASSUME_NONNULL_END

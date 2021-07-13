@@ -32,6 +32,7 @@
 #import "ARTStats.h"
 #import "ARTRealtimeTransport.h"
 #import "ARTFallback.h"
+#import "ARTFallbackHosts.h"
 #import "ARTAuthDetails.h"
 #import "ARTGCD.h"
 #import "ARTEncoder.h"
@@ -1502,7 +1503,8 @@ dispatch_async(_queue, ^{
     if ([self shouldRetryWithFallback:transportError]) {
         [self.logger debug:__FILE__ line:__LINE__ message:@"R:%p host is down; can retry with fallback host", self];
         if (!_fallbacks && [transportError.url.host isEqualToString:[ARTDefault realtimeHost]]) {
-            self->_fallbacks = [[ARTFallback alloc] initWithOptions:[self getClientOptions]];
+            NSArray *hosts = [ARTFallbackHosts hostsFromOptions:[self getClientOptions]];
+            self->_fallbacks = [[ARTFallback alloc] initWithFallbackHosts:hosts];
             if (self->_fallbacks != nil) {
                 [self reconnectWithFallback];
             } else {

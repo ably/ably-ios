@@ -25,6 +25,7 @@
 #import "ARTDefault.h"
 #import "ARTStats.h"
 #import "ARTFallback+Private.h"
+#import "ARTFallbackHosts.h"
 #import "ARTNSDictionary+ARTDictionaryUtil.h"
 #import "ARTNSArray+ARTFunctional.h"
 #import "ARTRestChannel.h"
@@ -349,18 +350,19 @@
             }
         }
         if (retries < self->_options.httpMaxRetryCount && [self shouldRetryWithFallback:request response:response error:error]) {
-            if (!blockFallbacks && [ARTFallback restShouldFallback:request.URL withOptions:self->_options]) {
-                blockFallbacks = [[ARTFallback alloc] initWithOptions:self->_options];
+            if (!blockFallbacks) {
+                NSArray *hosts = [ARTFallbackHosts hostsFromOptions:self->_options];
+                blockFallbacks = [[ARTFallback alloc] initWithFallbackHosts:hosts];
             }
             if (blockFallbacks) {
                 NSString *host = [blockFallbacks popFallbackHost];
                 if (host != nil) {
                     [self.logger debug:__FILE__ line:__LINE__ message:@"RS:%p host is down; retrying request at %@", self, host];
-                    NSMutableURLRequest *newRequest = [request copy];
-                    NSURL *url = request.URL;
-                    NSString *urlStr = [NSString stringWithFormat:@"%@://%@:%@%@?%@", url.scheme, host, url.port, url.path, (url.query ? url.query : @"")];
-                    newRequest.URL = [NSURL URLWithString:urlStr];
-                    task = [self executeRequest:newRequest completion:callback fallbacks:blockFallbacks retries:retries + 1];
+                    NSMutableURLRequest *fallbackRequest = [request copy];
+                    NSURLComponents *urlComponents = [NSURLComponents componentsWithURL:request.URL resolvingAgainstBaseURL:true];
+                    urlComponents.host = host;
+                    fallbackRequest.URL = urlComponents.URL;
+                    task = [self executeRequest:fallbackRequest completion:callback fallbacks:blockFallbacks retries:retries + 1];
                     return;
                 }
             }
@@ -386,6 +388,9 @@
 }
 
 - (BOOL)shouldRetryWithFallback:(NSURLRequest *)request response:(NSHTTPURLResponse *)response error:(NSError *)error {
+    if ([request.URL.host isEqualToString:self.options.authUrl.host]) {
+        return NO;
+    }
     if (response.statusCode >= 500 && response.statusCode <= 504) {
         return YES;
     }

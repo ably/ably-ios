@@ -16,11 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ARTFallback : NSObject
 
 /**
- Init with options.
- */
-- (instancetype)initWithOptions:(ARTClientOptions *)options;
-
-/**
  Init with fallback hosts array.
  */
 - (instancetype)initWithFallbackHosts:(nullable NSArray<NSString *> *)fallbackHosts;

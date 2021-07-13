@@ -11,6 +11,7 @@
 @interface ARTDefault : NSObject
 
 + (NSArray<NSString *> *)fallbackHosts;
++ (NSArray<NSString *> *)fallbackHostsWithEnvironment:(NSString *)environment;
 + (NSString*)restHost;
 + (NSString*)realtimeHost;
 + (int)port;

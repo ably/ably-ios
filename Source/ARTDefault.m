@@ -12,6 +12,8 @@
 
 @implementation ARTDefault
 
+NSString *const ARTDefaultProduction = @"production";
+
 NSString *const ARTDefault_restHost = @"rest.ably.io";
 NSString *const ARTDefault_realtimeHost = @"realtime.ably.io";
 NSString *const ARTDefault_version = @"1.2";
@@ -37,8 +39,24 @@ static NSTimeInterval _realtimeRequestTimeout = 10.0;
 static NSTimeInterval _connectionStateTtl = 60.0;
 static NSInteger _maxMessageSize = 65536;
 
++ (NSArray*)fallbackHostsWithEnvironment:(NSString *)environment {
+    NSString *prefix = @"";
+    NSString *suffix = @"";
+    if (environment && ![[environment stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""] && ![environment isEqualToString:ARTDefaultProduction]) {
+        prefix = [NSString stringWithFormat:@"%@-", environment];
+        suffix = @"-fallback";
+    }
+    return @[
+        [NSString stringWithFormat:@"%@a%@.ably-realtime.com", prefix, suffix],
+        [NSString stringWithFormat:@"%@b%@.ably-realtime.com", prefix, suffix],
+        [NSString stringWithFormat:@"%@c%@.ably-realtime.com", prefix, suffix],
+        [NSString stringWithFormat:@"%@d%@.ably-realtime.com", prefix, suffix],
+        [NSString stringWithFormat:@"%@e%@.ably-realtime.com", prefix, suffix]
+    ];
+}
+
 + (NSArray*)fallbackHosts {
-    return @[@"a.ably-realtime.com", @"b.ably-realtime.com", @"c.ably-realtime.com", @"d.ably-realtime.com", @"e.ably-realtime.com"];
+    return [self fallbackHostsWithEnvironment:nil];
 }
 
 + (NSString*)restHost {
