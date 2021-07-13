@@ -69,6 +69,30 @@
 		96E408481A3895E800087F77 /* ARTWebSocketTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E408461A3895E800087F77 /* ARTWebSocketTransport.m */; };
 		D3AD0EBD215E2FB000312105 /* ARTNSString+ARTUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = D3AD0EBB215E2FB000312105 /* ARTNSString+ARTUtil.h */; };
 		D3AD0EBE215E2FB000312105 /* ARTNSString+ARTUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AD0EBC215E2FB000312105 /* ARTNSString+ARTUtil.m */; };
+		D520C4D626809BB5000012B2 /* ARTStringifiable.h in Headers */ = {isa = PBXBuildFile; fileRef = D520C4D426809BB5000012B2 /* ARTStringifiable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D520C4D726809BB5000012B2 /* ARTStringifiable.h in Headers */ = {isa = PBXBuildFile; fileRef = D520C4D426809BB5000012B2 /* ARTStringifiable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D520C4D826809BB5000012B2 /* ARTStringifiable.h in Headers */ = {isa = PBXBuildFile; fileRef = D520C4D426809BB5000012B2 /* ARTStringifiable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D520C4D926809BB5000012B2 /* ARTStringifiable.m in Sources */ = {isa = PBXBuildFile; fileRef = D520C4D526809BB5000012B2 /* ARTStringifiable.m */; };
+		D520C4DA26809BB5000012B2 /* ARTStringifiable.m in Sources */ = {isa = PBXBuildFile; fileRef = D520C4D526809BB5000012B2 /* ARTStringifiable.m */; };
+		D520C4DB26809BB5000012B2 /* ARTStringifiable.m in Sources */ = {isa = PBXBuildFile; fileRef = D520C4D526809BB5000012B2 /* ARTStringifiable.m */; };
+		D520C4E12680A1FA000012B2 /* Stringifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D520C4DD2680A1E3000012B2 /* Stringifiable.swift */; };
+		D520C4E22680A1FB000012B2 /* Stringifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D520C4DD2680A1E3000012B2 /* Stringifiable.swift */; };
+		D520C4E32680A1FC000012B2 /* Stringifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D520C4DD2680A1E3000012B2 /* Stringifiable.swift */; };
+		D520C4E42680A880000012B2 /* ARTStringifiable+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = D520C4DC26809D49000012B2 /* ARTStringifiable+Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		D520C4E52680A881000012B2 /* ARTStringifiable+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = D520C4DC26809D49000012B2 /* ARTStringifiable+Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		D520C4E62680A882000012B2 /* ARTStringifiable+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = D520C4DC26809D49000012B2 /* ARTStringifiable+Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		D54C5548268B31E500729EC4 /* ARTNSMutableDictionary+ARTDictionaryUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = D54C5546268B31E500729EC4 /* ARTNSMutableDictionary+ARTDictionaryUtil.h */; };
+		D54C5549268B31E500729EC4 /* ARTNSMutableDictionary+ARTDictionaryUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = D54C5546268B31E500729EC4 /* ARTNSMutableDictionary+ARTDictionaryUtil.h */; };
+		D54C554A268B31E500729EC4 /* ARTNSMutableDictionary+ARTDictionaryUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = D54C5546268B31E500729EC4 /* ARTNSMutableDictionary+ARTDictionaryUtil.h */; };
+		D54C554B268B31E500729EC4 /* ARTNSMutableDictionary+ARTDictionaryUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D54C5547268B31E500729EC4 /* ARTNSMutableDictionary+ARTDictionaryUtil.m */; };
+		D54C554C268B31E500729EC4 /* ARTNSMutableDictionary+ARTDictionaryUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D54C5547268B31E500729EC4 /* ARTNSMutableDictionary+ARTDictionaryUtil.m */; };
+		D54C554D268B31E500729EC4 /* ARTNSMutableDictionary+ARTDictionaryUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D54C5547268B31E500729EC4 /* ARTNSMutableDictionary+ARTDictionaryUtil.m */; };
+		D5C0CB3D268317B500C06521 /* NSURLQueryItem+Stringifiable.h in Headers */ = {isa = PBXBuildFile; fileRef = D5C0CB3B268317B500C06521 /* NSURLQueryItem+Stringifiable.h */; };
+		D5C0CB3E268317B500C06521 /* NSURLQueryItem+Stringifiable.h in Headers */ = {isa = PBXBuildFile; fileRef = D5C0CB3B268317B500C06521 /* NSURLQueryItem+Stringifiable.h */; };
+		D5C0CB3F268317B500C06521 /* NSURLQueryItem+Stringifiable.h in Headers */ = {isa = PBXBuildFile; fileRef = D5C0CB3B268317B500C06521 /* NSURLQueryItem+Stringifiable.h */; };
+		D5C0CB40268317B500C06521 /* NSURLQueryItem+Stringifiable.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C0CB3C268317B500C06521 /* NSURLQueryItem+Stringifiable.m */; };
+		D5C0CB41268317B500C06521 /* NSURLQueryItem+Stringifiable.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C0CB3C268317B500C06521 /* NSURLQueryItem+Stringifiable.m */; };
+		D5C0CB42268317B500C06521 /* NSURLQueryItem+Stringifiable.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C0CB3C268317B500C06521 /* NSURLQueryItem+Stringifiable.m */; };
 		D7093C0F219E2DB200723F17 /* Ably.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D710D45B219495E2008F54AD /* Ably.framework */; };
 		D7093C19219E465300723F17 /* TestUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856AAC961B6E30C800B07119 /* TestUtilities.swift */; };
 		D7093C1A219E465C00723F17 /* NSObject+TestSuite.m in Sources */ = {isa = PBXBuildFile; fileRef = D780846D1C68B3E50083009D /* NSObject+TestSuite.m */; };
@@ -828,6 +852,14 @@
 		96E408461A3895E800087F77 /* ARTWebSocketTransport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARTWebSocketTransport.m; sourceTree = "<group>"; };
 		D3AD0EBB215E2FB000312105 /* ARTNSString+ARTUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ARTNSString+ARTUtil.h"; path = "Private/ARTNSString+ARTUtil.h"; sourceTree = "<group>"; };
 		D3AD0EBC215E2FB000312105 /* ARTNSString+ARTUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "ARTNSString+ARTUtil.m"; path = "Private/ARTNSString+ARTUtil.m"; sourceTree = "<group>"; };
+		D520C4D426809BB5000012B2 /* ARTStringifiable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARTStringifiable.h; sourceTree = "<group>"; };
+		D520C4D526809BB5000012B2 /* ARTStringifiable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARTStringifiable.m; sourceTree = "<group>"; };
+		D520C4DC26809D49000012B2 /* ARTStringifiable+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ARTStringifiable+Private.h"; sourceTree = "<group>"; };
+		D520C4DD2680A1E3000012B2 /* Stringifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stringifiable.swift; sourceTree = "<group>"; };
+		D54C5546268B31E500729EC4 /* ARTNSMutableDictionary+ARTDictionaryUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ARTNSMutableDictionary+ARTDictionaryUtil.h"; sourceTree = "<group>"; };
+		D54C5547268B31E500729EC4 /* ARTNSMutableDictionary+ARTDictionaryUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ARTNSMutableDictionary+ARTDictionaryUtil.m"; sourceTree = "<group>"; };
+		D5C0CB3B268317B500C06521 /* NSURLQueryItem+Stringifiable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURLQueryItem+Stringifiable.h"; sourceTree = "<group>"; };
+		D5C0CB3C268317B500C06521 /* NSURLQueryItem+Stringifiable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURLQueryItem+Stringifiable.m"; sourceTree = "<group>"; };
 		D7093C0A219E2DB200723F17 /* Ably-macOS-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ably-macOS-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7093C0E219E2DB200723F17 /* Info-macOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-macOS.plist"; sourceTree = "<group>"; };
 		D7093C60219EE1AE00723F17 /* Ably-tvOS-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ably-tvOS-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1119,17 +1151,17 @@
 			children = (
 				856AAC9A1B6E326E00B07119 /* ably-common */,
 				856AAC951B6E30C800B07119 /* AblySpec-Bridging-Header.h */,
-				560579D824AF1BA900A4D03D /* ARTDefaultTests.swift */,
-				D7C1B8761BBEA81A0087B55F /* Auth.swift */,
-				EB7913A71C6E54C3000ABF9B /* Crypto.swift */,
+				D780846C1C68B3E50083009D /* NSObject+TestSuite.h */,
 				56190953238C3D3200A862A6 /* CryptoTest.m */,
-				D798554723EB96C000946BE2 /* DeltaCodec.swift */,
+				D780846D1C68B3E50083009D /* NSObject+TestSuite.m */,
 				856AAC8E1B6E304B00B07119 /* Info-iOS.plist */,
 				D7093C0E219E2DB200723F17 /* Info-macOS.plist */,
 				D7093C64219EE1AE00723F17 /* Info-tvOS.plist */,
+				560579D824AF1BA900A4D03D /* ARTDefaultTests.swift */,
+				D7C1B8761BBEA81A0087B55F /* Auth.swift */,
+				EB7913A71C6E54C3000ABF9B /* Crypto.swift */,
+				D798554723EB96C000946BE2 /* DeltaCodec.swift */,
 				D7093CA8219EFA8A00723F17 /* MockDeviceStorage.swift */,
-				D780846C1C68B3E50083009D /* NSObject+TestSuite.h */,
-				D780846D1C68B3E50083009D /* NSObject+TestSuite.m */,
 				D714A63D1C74D4B2002F2CA0 /* NSObject+TestSuite.swift */,
 				EB1B53F822F85CE4006A59AC /* ObjectLifetimes.swift */,
 				D7FC1ECA209CEA2E001E4153 /* Push.swift */,
@@ -1149,6 +1181,7 @@
 				853ED7C31B7A1A3C006F1C6F /* RestClientStats.swift */,
 				D74CBC09212EC02C00D090E4 /* RestPaginated.swift */,
 				851674EE1B7BA5CD00D35169 /* Stats.swift */,
+				D520C4DD2680A1E3000012B2 /* Stringifiable.swift */,
 				856AAC961B6E30C800B07119 /* TestUtilities.swift */,
 				EB1AE0CD1C5C3A4900D62250 /* Utilities.swift */,
 			);
@@ -1288,7 +1321,6 @@
 				D7D29B411BE3DEB300374295 /* ARTConnection.m */,
 				D7B17EE11C07208B00A6958E /* ARTConnectionDetails.h */,
 				D7D5A69B1CA40C350071BD6D /* ARTConnectionDetails+Private.h */,
-				D7B17EE21C07208B00A6958E /* ARTConnectionDetails.m */,
 				D7F1D3751BF4DE72001A4B5E /* ARTRealtimePresence.h */,
 				EB7617711CB6CBFE00D0981E /* ARTRealtimePresence+Private.h */,
 				D7F1D3761BF4DE72001A4B5E /* ARTRealtimePresence.m */,
@@ -1308,6 +1340,7 @@
 			isa = PBXGroup;
 			children = (
 				96E4083D1A3892C700087F77 /* ARTRealtimeTransport.h */,
+				D7B17EE21C07208B00A6958E /* ARTConnectionDetails.m */,
 				EB2D5A901CC941A700AD1A67 /* ARTRealtimeTransport.m */,
 				96E408451A3895E800087F77 /* ARTWebSocketTransport.h */,
 				D714A63F1C75F0C5002F2CA0 /* ARTWebSocketTransport+Private.h */,
@@ -1367,6 +1400,9 @@
 				1C55427C1B148306003068DB /* ARTStatus.m */,
 				96BF615C1A35C1C8004CF2B3 /* ARTTypes.h */,
 				96BF615D1A35C1C8004CF2B3 /* ARTTypes.m */,
+				D520C4D426809BB5000012B2 /* ARTStringifiable.h */,
+				D520C4D526809BB5000012B2 /* ARTStringifiable.m */,
+				D520C4DC26809D49000012B2 /* ARTStringifiable+Private.h */,
 			);
 			name = Types;
 			sourceTree = "<group>";
@@ -1408,6 +1444,10 @@
 				D798555E23ECCDAF00946BE2 /* ARTVCDiffDecoder.h */,
 				D73B655323EF2B2900D459A6 /* ARTDeltaCodec.h */,
 				D73B655423EF2B2900D459A6 /* ARTDeltaCodec.m */,
+				D5C0CB3B268317B500C06521 /* NSURLQueryItem+Stringifiable.h */,
+				D5C0CB3C268317B500C06521 /* NSURLQueryItem+Stringifiable.m */,
+				D54C5546268B31E500729EC4 /* ARTNSMutableDictionary+ARTDictionaryUtil.h */,
+				D54C5547268B31E500729EC4 /* ARTNSMutableDictionary+ARTDictionaryUtil.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -1556,6 +1596,7 @@
 				EB89D4091C61C5ED007FA5B7 /* ARTRealtimeChannels.h in Headers */,
 				96E408431A38939E00087F77 /* ARTProtocolMessage.h in Headers */,
 				D78D780921271FB10016808B /* ARTHTTPPaginatedResponse+Private.h in Headers */,
+				D520C4E42680A880000012B2 /* ARTStringifiable+Private.h in Headers */,
 				EBB721CB2376B454001C3550 /* ARTURLSession.h in Headers */,
 				D746AE381BBC3201003ECEF8 /* ARTMessage.h in Headers */,
 				D746AE471BBD6FE9003ECEF8 /* ARTQueuedMessage.h in Headers */,
@@ -1599,6 +1640,7 @@
 				D77F02A81DAF8099001B3FF9 /* ARTFallback+Private.h in Headers */,
 				D746AE3C1BBC5AE1003ECEF8 /* ARTRealtimeChannel.h in Headers */,
 				D7B621941E4A6FE600684474 /* ARTDeviceDetails.h in Headers */,
+				D5C0CB3D268317B500C06521 /* NSURLQueryItem+Stringifiable.h in Headers */,
 				96BF61701A35FB7C004CF2B3 /* ARTAuth.h in Headers */,
 				D76F153B23DB010C00B5133C /* ARTRealtimeChannelOptions.h in Headers */,
 				D74CBC07212EB5B900D090E4 /* ARTNSMutableURLRequest+ARTPaginated.h in Headers */,
@@ -1607,11 +1649,13 @@
 				D71966EE1E5E0081000974DD /* ARTPushActivationEvent.h in Headers */,
 				D746AE1E1BBB5207003ECEF8 /* ARTDataQuery+Private.h in Headers */,
 				D7AE18C91E5B40C900478D82 /* ARTPushAdmin.h in Headers */,
+				D54C5548268B31E500729EC4 /* ARTNSMutableDictionary+ARTDictionaryUtil.h in Headers */,
 				EB1B53FD22F8D91C006A59AC /* ARTQueuedDealloc.h in Headers */,
 				D77394031C6F6FFE00F5478F /* ARTProtocolMessage+Private.h in Headers */,
 				D746AE2F1BBBE7D7003ECEF8 /* ARTPaginatedResult+Private.h in Headers */,
 				D70C36C3233E6831002FD6E3 /* ARTFormEncode.h in Headers */,
 				D7AE18CE1E5B40FE00478D82 /* ARTPushDeviceRegistrations.h in Headers */,
+				D520C4D626809BB5000012B2 /* ARTStringifiable.h in Headers */,
 				D746AE431BBC5CD0003ECEF8 /* ARTRealtimeChannel+Private.h in Headers */,
 				D746AE251BBB611C003ECEF8 /* ARTChannel+Private.h in Headers */,
 				EB4B1A0C1F2190BB00467F07 /* ARTRestChannels+Private.h in Headers */,
@@ -1684,6 +1728,7 @@
 				D710D68121949EB3008F54AD /* ARTReachability.h in Headers */,
 				D710D58921949D29008F54AD /* ARTBaseMessage.h in Headers */,
 				D710D55721949C8C008F54AD /* ARTPushActivationEvent.h in Headers */,
+				D520C4E52680A881000012B2 /* ARTStringifiable+Private.h in Headers */,
 				EBB721CC2376B454001C3550 /* ARTURLSession.h in Headers */,
 				D710D4CE21949BB2008F54AD /* ARTWebSocketTransport+Private.h in Headers */,
 				D710D56C21949CB9008F54AD /* ARTPushChannelSubscriptions.h in Headers */,
@@ -1727,6 +1772,7 @@
 				D710D51E21949C42008F54AD /* ARTLocalDeviceStorage.h in Headers */,
 				D710D50721949C18008F54AD /* ARTConnectionDetails+Private.h in Headers */,
 				D7BDDD3E21959CC100CC0632 /* CompatibilityMacros.h in Headers */,
+				D5C0CB3E268317B500C06521 /* NSURLQueryItem+Stringifiable.h in Headers */,
 				D710D51B21949C42008F54AD /* ARTDeviceIdentityTokenDetails.h in Headers */,
 				D76F153D23DB012100B5133C /* ARTRealtimeChannelOptions.h in Headers */,
 				D710D48021949A42008F54AD /* ARTDefault.h in Headers */,
@@ -1735,11 +1781,13 @@
 				D710D4D421949BF9008F54AD /* ARTRealtime.h in Headers */,
 				D710D58821949D29008F54AD /* ARTProtocolMessage.h in Headers */,
 				D710D47D21949A27008F54AD /* Ably.h in Headers */,
+				D54C5549268B31E500729EC4 /* ARTNSMutableDictionary+ARTDictionaryUtil.h in Headers */,
 				EB1B53FE22F8D91C006A59AC /* ARTQueuedDealloc.h in Headers */,
 				D710D56A21949CB9008F54AD /* ARTPushAdmin.h in Headers */,
 				D710D48321949A4E008F54AD /* ARTDefault+Private.h in Headers */,
 				D70C36C4233E6831002FD6E3 /* ARTFormEncode.h in Headers */,
 				D710D59021949D29008F54AD /* ARTStatus.h in Headers */,
+				D520C4D726809BB5000012B2 /* ARTStringifiable.h in Headers */,
 				D710D61D21949DEC008F54AD /* ARTHTTPPaginatedResponse+Private.h in Headers */,
 				D710D58321949D28008F54AD /* ARTTokenDetails.h in Headers */,
 				D710D54C21949C66008F54AD /* ARTPush+Private.h in Headers */,
@@ -1812,6 +1860,7 @@
 				D710D68321949EB4008F54AD /* ARTReachability.h in Headers */,
 				D710D5AF21949D2A008F54AD /* ARTBaseMessage.h in Headers */,
 				D710D55D21949C8D008F54AD /* ARTPushActivationEvent.h in Headers */,
+				D520C4E62680A882000012B2 /* ARTStringifiable+Private.h in Headers */,
 				EBB721CD2376B454001C3550 /* ARTURLSession.h in Headers */,
 				D710D4D021949BB3008F54AD /* ARTWebSocketTransport+Private.h in Headers */,
 				D710D57221949CBA008F54AD /* ARTPushChannelSubscriptions.h in Headers */,
@@ -1855,6 +1904,7 @@
 				D710D53021949C44008F54AD /* ARTLocalDeviceStorage.h in Headers */,
 				D710D51321949C19008F54AD /* ARTConnectionDetails+Private.h in Headers */,
 				D7BDDD3F21959CC200CC0632 /* CompatibilityMacros.h in Headers */,
+				D5C0CB3F268317B500C06521 /* NSURLQueryItem+Stringifiable.h in Headers */,
 				D710D52D21949C44008F54AD /* ARTDeviceIdentityTokenDetails.h in Headers */,
 				D76F153E23DB012100B5133C /* ARTRealtimeChannelOptions.h in Headers */,
 				D710D48221949A43008F54AD /* ARTDefault.h in Headers */,
@@ -1863,11 +1913,13 @@
 				D710D4E421949BFB008F54AD /* ARTRealtime.h in Headers */,
 				D710D5AE21949D2A008F54AD /* ARTProtocolMessage.h in Headers */,
 				D710D47F21949A28008F54AD /* Ably.h in Headers */,
+				D54C554A268B31E500729EC4 /* ARTNSMutableDictionary+ARTDictionaryUtil.h in Headers */,
 				EB1B53FF22F8D91C006A59AC /* ARTQueuedDealloc.h in Headers */,
 				D710D57021949CBA008F54AD /* ARTPushAdmin.h in Headers */,
 				D710D48521949A4F008F54AD /* ARTDefault+Private.h in Headers */,
 				D70C36C5233E6831002FD6E3 /* ARTFormEncode.h in Headers */,
 				D710D5B621949D2A008F54AD /* ARTStatus.h in Headers */,
+				D520C4D826809BB5000012B2 /* ARTStringifiable.h in Headers */,
 				D710D62921949DED008F54AD /* ARTHTTPPaginatedResponse+Private.h in Headers */,
 				D710D5A921949D2A008F54AD /* ARTTokenDetails.h in Headers */,
 				D710D55221949C67008F54AD /* ARTPush+Private.h in Headers */,
@@ -2066,7 +2118,7 @@
 					};
 					96BF61301A35B2AB004CF2B3 = {
 						CreatedOnToolsVersion = 6.1.1;
-						LastSwiftMigration = 0920;
+						LastSwiftMigration = 1250;
 					};
 					D7093C09219E2DB200723F17 = {
 						CreatedOnToolsVersion = 10.1;
@@ -2080,10 +2132,12 @@
 					};
 					D710D45A219495E2008F54AD = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1250;
 						ProvisioningStyle = Automatic;
 					};
 					D710D474219495FC008F54AD = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1250;
 						ProvisioningStyle = Automatic;
 					};
 					EB36308823804F7A00B83598 = {
@@ -2217,6 +2271,7 @@
 				D746AE2D1BBB625E003ECEF8 /* RestClientChannels.swift in Sources */,
 				EBAB9A6F1C69702800AF036B /* ReadmeExamples.swift in Sources */,
 				56190954238C3D3200A862A6 /* CryptoTest.m in Sources */,
+				D520C4E12680A1FA000012B2 /* Stringifiable.swift in Sources */,
 				D7C1B8771BBEA81A0087B55F /* Auth.swift in Sources */,
 				D7EBE5A31BE8391E0086E675 /* RealtimeClientConnection.swift in Sources */,
 				560579D924AF1BA900A4D03D /* ARTDefaultTests.swift in Sources */,
@@ -2288,6 +2343,7 @@
 				D7AE18CF1E5B40FE00478D82 /* ARTPushDeviceRegistrations.m in Sources */,
 				D7B621951E4A6FE600684474 /* ARTDeviceDetails.m in Sources */,
 				D7588AF41BFF91B800BB8279 /* ARTURLSessionServerTrust.m in Sources */,
+				D520C4D926809BB5000012B2 /* ARTStringifiable.m in Sources */,
 				D74CBC04212EB58700D090E4 /* ARTNSHTTPURLResponse+ARTPaginated.m in Sources */,
 				D746AE501BBD84E7003ECEF8 /* ARTChannelOptions.m in Sources */,
 				EB89D4051C61C1A4007FA5B7 /* ARTRestChannels.m in Sources */,
@@ -2295,9 +2351,11 @@
 				D73B655823EF2B2900D459A6 /* ARTDeltaCodec.m in Sources */,
 				D768C6AD1E4B5B0200436011 /* ARTDevicePushDetails.m in Sources */,
 				1C6C18A41ADFDAB100AB79E4 /* ARTLog.m in Sources */,
+				D5C0CB40268317B500C06521 /* NSURLQueryItem+Stringifiable.m in Sources */,
 				D70EAAEE1BC3376200CD8B9E /* ARTRestChannel.m in Sources */,
 				EB1B540522F8DA05006A59AC /* ARTQueuedDealloc.m in Sources */,
 				D746AE291BBB61C9003ECEF8 /* ARTPresence.m in Sources */,
+				D54C554B268B31E500729EC4 /* ARTNSMutableDictionary+ARTDictionaryUtil.m in Sources */,
 				D70EECAD1FEAF331008A50CD /* ARTPendingMessage.m in Sources */,
 				96A507BE1A3791490077CDF8 /* ARTRealtime.m in Sources */,
 				967A43221A39AEAF00E4CE23 /* ARTNSArray+ARTFunctional.m in Sources */,
@@ -2319,6 +2377,7 @@
 				D7093C27219E466E00723F17 /* RealtimeClientChannels.swift in Sources */,
 				D7093C28219E466E00723F17 /* RealtimeClientPresence.swift in Sources */,
 				D7093C24219E466E00723F17 /* RealtimeClient.swift in Sources */,
+				D520C4E22680A1FB000012B2 /* Stringifiable.swift in Sources */,
 				D7093C1F219E466E00723F17 /* RestClientStats.swift in Sources */,
 				D7093C1A219E465C00723F17 /* NSObject+TestSuite.m in Sources */,
 				D7093C1E219E466900723F17 /* RestClient.swift in Sources */,
@@ -2349,6 +2408,7 @@
 				D7093C70219EE25400723F17 /* TestUtilities.swift in Sources */,
 				D7093C80219EE26400723F17 /* Stats.swift in Sources */,
 				D7093C77219EE26400723F17 /* RestClientChannel.swift in Sources */,
+				D520C4E32680A1FC000012B2 /* Stringifiable.swift in Sources */,
 				D7093C7E219EE26400723F17 /* RealtimeClientChannels.swift in Sources */,
 				D7093C79219EE26400723F17 /* RestClientPresence.swift in Sources */,
 				D7093C78219EE26400723F17 /* RestClientChannels.swift in Sources */,
@@ -2431,6 +2491,7 @@
 				D710D67021949E78008F54AD /* ARTNSDictionary+ARTDictionaryUtil.m in Sources */,
 				D710D48C21949A97008F54AD /* ARTConstants.m in Sources */,
 				D710D5DA21949D78008F54AD /* ARTBaseMessage.m in Sources */,
+				D520C4DA26809BB5000012B2 /* ARTStringifiable.m in Sources */,
 				D710D63421949E03008F54AD /* ARTNSMutableURLRequest+ARTPaginated.m in Sources */,
 				D710D57421949CC4008F54AD /* ARTPushDeviceRegistrations.m in Sources */,
 				D710D5D821949D78008F54AD /* ARTChannelOptions.m in Sources */,
@@ -2438,9 +2499,11 @@
 				D710D62D21949E03008F54AD /* ARTHttp.m in Sources */,
 				D710D63021949E03008F54AD /* ARTPaginatedResult.m in Sources */,
 				D710D5E121949D78008F54AD /* ARTStatus.m in Sources */,
+				D5C0CB41268317B500C06521 /* NSURLQueryItem+Stringifiable.m in Sources */,
 				EB1B540622F8DA05006A59AC /* ARTQueuedDealloc.m in Sources */,
 				D710D53321949C54008F54AD /* ARTPushChannelSubscription.m in Sources */,
 				D710D67121949E79008F54AD /* ARTOSReachability.m in Sources */,
+				D54C554C268B31E500729EC4 /* ARTNSMutableDictionary+ARTDictionaryUtil.m in Sources */,
 				D710D56021949C97008F54AD /* ARTPushActivationEvent.m in Sources */,
 				D710D66921949E78008F54AD /* ARTCrypto.m in Sources */,
 				D710D63121949E03008F54AD /* ARTHTTPPaginatedResponse.m in Sources */,
@@ -2514,6 +2577,7 @@
 				D710D65621949E77008F54AD /* ARTNSDictionary+ARTDictionaryUtil.m in Sources */,
 				D710D48E21949A98008F54AD /* ARTConstants.m in Sources */,
 				D710D60021949D79008F54AD /* ARTBaseMessage.m in Sources */,
+				D520C4DB26809BB5000012B2 /* ARTStringifiable.m in Sources */,
 				D710D64421949E04008F54AD /* ARTNSMutableURLRequest+ARTPaginated.m in Sources */,
 				D710D57A21949CC5008F54AD /* ARTPushDeviceRegistrations.m in Sources */,
 				D710D5FE21949D79008F54AD /* ARTChannelOptions.m in Sources */,
@@ -2521,9 +2585,11 @@
 				D710D63D21949E04008F54AD /* ARTHttp.m in Sources */,
 				D710D64021949E04008F54AD /* ARTPaginatedResult.m in Sources */,
 				D710D60721949D79008F54AD /* ARTStatus.m in Sources */,
+				D5C0CB42268317B500C06521 /* NSURLQueryItem+Stringifiable.m in Sources */,
 				EB1B540722F8DA05006A59AC /* ARTQueuedDealloc.m in Sources */,
 				D710D54521949C55008F54AD /* ARTPushChannelSubscription.m in Sources */,
 				D710D65721949E77008F54AD /* ARTOSReachability.m in Sources */,
+				D54C554D268B31E500729EC4 /* ARTNSMutableDictionary+ARTDictionaryUtil.m in Sources */,
 				D710D56621949C98008F54AD /* ARTPushActivationEvent.m in Sources */,
 				D710D64F21949E77008F54AD /* ARTCrypto.m in Sources */,
 				D710D64121949E04008F54AD /* ARTHTTPPaginatedResponse.m in Sources */,
@@ -2605,7 +2671,6 @@
 		856AAC931B6E304B00B07119 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CLANG_ENABLE_MODULES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -2633,7 +2698,6 @@
 		856AAC941B6E304B00B07119 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CLANG_ENABLE_MODULES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -2778,6 +2842,7 @@
 		96BF61481A35B2AB004CF2B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
@@ -2794,6 +2859,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.ably.$(PRODUCT_NAME)";
 				PRODUCT_NAME = Ably;
 				PROVISIONING_PROFILE_SPECIFIER = "ably-cocoa-soak-test";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -2801,6 +2867,7 @@
 		96BF61491A35B2AB004CF2B3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
@@ -2959,6 +3026,7 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
@@ -2985,6 +3053,8 @@
 				PRODUCT_NAME = Ably;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -2994,6 +3064,7 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
@@ -3020,6 +3091,7 @@
 				PRODUCT_NAME = Ably;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -3029,6 +3101,7 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
@@ -3052,6 +3125,8 @@
 				PRODUCT_NAME = Ably;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 10.0;
 			};
@@ -3063,6 +3138,7 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
@@ -3086,6 +3162,7 @@
 				PRODUCT_NAME = Ably;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 10.0;
 			};
@@ -3162,7 +3239,6 @@
 		EB3630A923804F7C00B83598 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -3198,7 +3274,6 @@
 		EB3630AA23804F7C00B83598 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

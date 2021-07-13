@@ -183,6 +183,45 @@ class RealtimeClient: QuickSpec {
                     expect(oldRestHost).to(equal("\(getEnvironment())-rest.ably.io"))
                     expect(oldRealtimeHost).to(equal("\(getEnvironment())-realtime.ably.io"))
                 }
+                
+                //RTC1f
+                it("url should contains transport params") {
+                    let options = AblyTests.commonAppSetup()
+                    options.transportParams = [
+                        "tpBool": .init(bool: true),
+                        "tpInt": .init(number: .init(value: 12)),
+                        "tpFloat": .init(number: .init(value: 12.12)),
+                        "tpString": .init(string: "Lorem ipsum"),
+                        "v": .init(string: "v12.34")
+                    ]
+                    
+                    let client = ARTRealtime(options: options)
+                    defer { client.dispose(); client.close() }
+
+                    waitUntil(timeout: testTimeout.multiplied(by: 2)) { done in
+                        client.connection.once(.connecting) { _ in
+                            guard let webSocketTransport = client.internal.transport as? ARTWebSocketTransport else {
+                                fail("Transport should be of type ARTWebSocketTransport"); done()
+                                return
+                            }
+                            let absoluteString = webSocketTransport.websocketURL?.absoluteString
+                            
+                            expect(webSocketTransport.websocketURL).toNot(beNil())
+                            expect(absoluteString?.contains("tpBool=true")).to(beTrue())
+                            expect(absoluteString?.contains("tpInt=12")).to(beTrue())
+                            expect(absoluteString?.contains("tpFloat=12.12")).to(beTrue())
+                            expect(absoluteString?.contains("tpString=Lorem%20ipsum")).to(beTrue())
+                    
+                            /**
+                             Test that replacing query string default values in ARTClientOptions works properly
+                             */
+                            expect(absoluteString?.components(separatedBy: "v=").count).to(be(2))
+                            
+                            done()
+                        }
+                        client.connect()
+                    }
+                }
             }
 
             // RTC2

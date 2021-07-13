@@ -11,6 +11,7 @@
 #import <Ably/ARTLog.h>
 
 @class ARTPlugin;
+@class ARTStringifiable;
 @protocol ARTPushRegistererDelegate;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -124,6 +125,13 @@ NS_ASSUME_NONNULL_BEGIN
  If enabled, every REST request to Ably includes a `request_id` query string parameter. This request ID remain the same if a request is retried to a fallback host.
  */
 @property (readwrite, assign, nonatomic) BOOL addRequestIds;
+
+/**
+ Additional parameters to be sent in the querystring when initiating a realtime connection. Keys are Strings, values are Stringifiable (a value that can be coerced to a string in order to be sent as a querystring parameter. Supported values should be at least strings, numbers, and booleans, with booleans stringified as true and false. If this is unidiomatic to the language, the implementer may consider this as equivalent to String).
+ 
+ Note:  If a key in transportParams is one the library sends by default (for example, v or heartbeats), the value in transportParams takes precedence.
+ */
+@property (nonatomic, copy, nullable) NSDictionary<NSString *, ARTStringifiable *> *transportParams;
 
 /**
  The object that processes Push activation/deactivation-related actions.

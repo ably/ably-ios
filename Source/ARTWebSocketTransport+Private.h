@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (readwrite, strong, nonatomic, nullable) id<ARTWebSocket> websocket;
 @property (readwrite, strong, nonatomic, nullable) NSURL *websocketURL;
 
-- (NSURL *)setupWebSocket:(NSArray<NSURLQueryItem *> *)params withOptions:(ARTClientOptions *)options resumeKey:(NSString *_Nullable)resumeKey connectionSerial:(NSNumber *_Nullable)connectionSerial;
+- (NSURL *)setupWebSocket:(NSDictionary<NSString *, NSURLQueryItem *> *)params withOptions:(ARTClientOptions *)options resumeKey:(NSString *_Nullable)resumeKey connectionSerial:(NSNumber *_Nullable)connectionSerial;
 
 - (void)setState:(ARTRealtimeTransportState)state;
 

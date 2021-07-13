@@ -12,6 +12,7 @@
 #import "ARTStatus.h"
 #import "ARTTokenParams.h"
 #import "ARTDeltaCodec.h"
+#import "ARTStringifiable.h"
 
 NSString *ARTDefaultEnvironment = nil;
 NSString *const ARTDefaultProduction = @"production";
@@ -52,6 +53,7 @@ NSString *const ARTDefaultProduction = @"production";
     _idempotentRestPublishing = [ARTClientOptions getDefaultIdempotentRestPublishingForVersion:[ARTDefault version]];
     _addRequestIds = false;
     _pushRegistererDelegate = nil;
+    
     return self;
 }
 
@@ -134,6 +136,7 @@ NSString *const ARTDefaultProduction = @"production";
     options.channelNamePrefix = self.channelNamePrefix;
     options.addRequestIds = self.addRequestIds;
     options.pushRegistererDelegate = self.pushRegistererDelegate;
+    options.transportParams = self.transportParams;
 
     return options;
 }

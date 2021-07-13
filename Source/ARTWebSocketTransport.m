@@ -20,6 +20,9 @@
 #import "ARTGCD.h"
 #import "ARTLog+Private.h"
 #import "ARTEventEmitter+Private.h"
+#import "NSURLQueryItem+Stringifiable.h"
+#import "ARTNSMutableDictionary+ARTDictionaryUtil.h"
+#import "ARTStringifiable.h"
 
 enum {
     ARTWsNeverConnected = -1,
@@ -126,7 +129,7 @@ Class configuredWebsocketClass = nil;
     _state = ARTRealtimeTransportStateOpening;
     [self.logger debug:__FILE__ line:__LINE__ message:@"R:%p WS:%p websocket connect with key", _delegate, self];
     NSURLQueryItem *keyParam = [NSURLQueryItem queryItemWithName:@"key" value:key];
-    [self setupWebSocket:@[keyParam] withOptions:self.options resumeKey:self.resumeKey connectionSerial:self.connectionSerial];
+    [self setupWebSocket:@{keyParam.name: keyParam} withOptions:self.options resumeKey:self.resumeKey connectionSerial:self.connectionSerial];
     // Connect
     [self.websocket open];
 }
@@ -135,27 +138,24 @@ Class configuredWebsocketClass = nil;
     _state = ARTRealtimeTransportStateOpening;
     [self.logger debug:__FILE__ line:__LINE__ message:@"R:%p WS:%p websocket connect with token", _delegate, self];
     NSURLQueryItem *accessTokenParam = [NSURLQueryItem queryItemWithName:@"accessToken" value:token];
-    [self setupWebSocket:@[accessTokenParam] withOptions:self.options resumeKey:self.resumeKey connectionSerial:self.connectionSerial];
+    [self setupWebSocket:@{accessTokenParam.name: accessTokenParam} withOptions:self.options resumeKey:self.resumeKey connectionSerial:self.connectionSerial];
     // Connect
     [self.websocket open];
 }
 
-- (NSURL *)setupWebSocket:(__GENERIC(NSArray, NSURLQueryItem *) *)params withOptions:(ARTClientOptions *)options resumeKey:(NSString *)resumeKey connectionSerial:(NSNumber *)connectionSerial {
-    NSArray *queryItems = params;
-
+- (NSURL *)setupWebSocket:(NSDictionary<NSString *, NSURLQueryItem *> *)params withOptions:(ARTClientOptions *)options resumeKey:(NSString *)resumeKey connectionSerial:(NSNumber *)connectionSerial {
+    __block NSMutableDictionary<NSString*, NSURLQueryItem*> *queryItems = [params mutableCopy];
+    
     // ClientID
     if (options.clientId) {
-        NSURLQueryItem *clientIdParam = [NSURLQueryItem queryItemWithName:@"clientId" value:options.clientId];
-        queryItems = [queryItems arrayByAddingObject:clientIdParam];
+        [queryItems addValueAsURLQueryItem:options.clientId forKey:@"clientId"];
     }
 
     // Echo
-    NSURLQueryItem *echoParam = [NSURLQueryItem queryItemWithName:@"echo" value:options.echoMessages ? @"true" : @"false"];
-    queryItems = [queryItems arrayByAddingObject:echoParam];
+    [queryItems addValueAsURLQueryItem:options.echoMessages ? @"true" : @"false" forKey:@"echo"];
 
     // Format: MsgPack, JSON
-    NSURLQueryItem *formatParam = [NSURLQueryItem queryItemWithName:@"format" value:[_encoder formatAsString]];
-    queryItems = [queryItems arrayByAddingObject:formatParam];
+    [queryItems addValueAsURLQueryItem:[_encoder formatAsString] forKey:@"format"];
 
     if (options.recover) {
         NSArray *recoverParts = [options.recover componentsSeparatedByString:@":"];
@@ -164,11 +164,8 @@ Class configuredWebsocketClass = nil;
             NSString *serial = [recoverParts objectAtIndex:1];
             [self.logger info:@"R:%p WS:%p ARTWebSocketTransport: attempting recovery of connection %@", _delegate, self, key];
 
-            NSURLQueryItem *recoverParam = [NSURLQueryItem queryItemWithName:@"recover" value:key];
-            queryItems = [queryItems arrayByAddingObject:recoverParam];
-
-            NSURLQueryItem *connectionSerialParam = [NSURLQueryItem queryItemWithName:@"connectionSerial" value:serial];
-            queryItems = [queryItems arrayByAddingObject:connectionSerialParam];
+            [queryItems addValueAsURLQueryItem:key forKey:@"recover"];
+            [queryItems addValueAsURLQueryItem:serial forKey:@"connectionSerial"];
 
             int64_t msgSerial = [[recoverParts lastObject] longLongValue];
             if (msgSerial) {
@@ -180,23 +177,25 @@ Class configuredWebsocketClass = nil;
         }
     }
     else if (resumeKey != nil && connectionSerial != nil) {
-        NSURLQueryItem *resumeKeyParam = [NSURLQueryItem queryItemWithName:@"resume" value:resumeKey];
-        queryItems = [queryItems arrayByAddingObject:resumeKeyParam];
-
-        NSURLQueryItem *connectionSerialParam = [NSURLQueryItem queryItemWithName:@"connectionSerial" value:[NSString stringWithFormat:@"%lld", (long long)[connectionSerial integerValue]]];
-        queryItems = [queryItems arrayByAddingObject:connectionSerialParam];
+        [queryItems addValueAsURLQueryItem:resumeKey forKey:@"resume"];
+        [queryItems addValueAsURLQueryItem:[NSString stringWithFormat:@"%lld", (long long)[connectionSerial integerValue]] forKey:@"connectionSerial"];
     }
 
-    NSURLQueryItem *versionParam = [NSURLQueryItem queryItemWithName:@"v" value:[ARTDefault version]];
-    queryItems = [queryItems arrayByAddingObject:versionParam];
+    [queryItems addValueAsURLQueryItem:[ARTDefault version] forKey:@"v"];
     
     // Lib
-    NSURLQueryItem *libParam = [NSURLQueryItem queryItemWithName:@"lib" value:[ARTDefault libraryVersion]];
-    queryItems = [queryItems arrayByAddingObject:libParam];
+    [queryItems addValueAsURLQueryItem:[ARTDefault libraryVersion] forKey:@"lib"];
 
+    // Transport Params
+    if (options.transportParams != nil) {
+        [options.transportParams enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, ARTStringifiable * _Nonnull obj, BOOL * _Nonnull stop) {
+            [queryItems addValueAsURLQueryItem:obj.stringValue forKey:key];
+        }];
+    }
+    
     // URL
     NSURLComponents *urlComponents = [NSURLComponents componentsWithString:@"/"];
-    urlComponents.queryItems = queryItems;
+    urlComponents.queryItems = [queryItems allValues];
     NSURL *url = [urlComponents URLRelativeToURL:[options realtimeUrl]];
 
     [_logger debug:__FILE__ line:__LINE__ message:@"R:%p WS:%p url %@", _delegate, self, url];
