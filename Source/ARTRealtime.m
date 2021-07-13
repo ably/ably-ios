@@ -1046,21 +1046,28 @@ dispatch_async(_queue, ^{
 
 - (void)handleTokenAuthError:(NSError *)error {
     [self.logger error:@"R:%p token auth failed with %@", self, error.description];
-    if (error.code == 40102 /*incompatible credentials*/ || error.code == 40300 /*auth fails with a 403 (RSA4d)*/) {
+    if (error.code == 40102 /*incompatible credentials*/) {
         // RSA15c
         [self transition:ARTRealtimeFailed withErrorInfo:[ARTErrorInfo createFromNSError:error]];
     }
     else if (self.options.authUrl || self.options.authCallback) {
-        ARTErrorInfo *errorInfo = [ARTErrorInfo createWithCode:ARTCodeErrorAuthConfiguredProviderFailure status:ARTStateConnectionFailed message:error.description];
-        switch (self.connection.state_nosync) {
-            case ARTRealtimeConnected:
-                // RSA4c3
-                [self.connection setErrorReason:errorInfo];
-                break;
-            default:
-                // RSA4c
-                [self transitionToDisconnectedOrSuspendedWithError:errorInfo];
-                break;
+        if (error.code == 40300 /* RSA4d */) {
+            ARTErrorInfo *errorInfo = [ARTErrorInfo createWithCode:ARTCodeErrorAuthConfiguredProviderFailure
+                                                            status:error.artStatusCode
+                                                           message:error.description];
+            [self transition:ARTRealtimeFailed withErrorInfo:errorInfo];
+        } else {
+            ARTErrorInfo *errorInfo = [ARTErrorInfo createWithCode:ARTCodeErrorAuthConfiguredProviderFailure status:ARTStateConnectionFailed message:error.description];
+            switch (self.connection.state_nosync) {
+                case ARTRealtimeConnected:
+                    // RSA4c3
+                    [self.connection setErrorReason:errorInfo];
+                    break;
+                default:
+                    // RSA4c
+                    [self transitionToDisconnectedOrSuspendedWithError:errorInfo];
+                    break;
+            }
         }
     }
     else {

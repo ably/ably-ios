@@ -102,4 +102,13 @@ FOUNDATION_EXPORT NSString *const ARTAblyMessageNoMeansToRenewToken;
 @interface ARTException : NSException
 @end
 
+/**
+ Support of ARTErrorInfo's properties for NSError
+ */
+@interface NSError (ARTErrorInfo)
+
+- (NSInteger)artStatusCode;
+
+@end
+
 NS_ASSUME_NONNULL_END

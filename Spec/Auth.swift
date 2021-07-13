@@ -473,7 +473,7 @@ class Auth : QuickSpec {
                     
                     waitUntil(timeout: testTimeout) { done in
                         realtime.connection.once(.failed) { stateChange in
-                            expect(stateChange?.reason?.code).to(equal(40300))
+                            expect(stateChange?.reason?.code).to(equal(80019))
                             expect(stateChange?.reason?.statusCode).to(equal(403))
                             done()
                         }
@@ -496,7 +496,7 @@ class Auth : QuickSpec {
                     waitUntil(timeout: testTimeout) { done in
                         realtime.connection.once(.failed) { stateChange in
                             expect(authCallbackHasBeenInvoked).to(beTrue())
-                            expect(stateChange?.reason?.code).to(equal(40300))
+                            expect(stateChange?.reason?.code).to(equal(80019))
                             expect(stateChange?.reason?.statusCode).to(equal(403))
                             done()
                         }

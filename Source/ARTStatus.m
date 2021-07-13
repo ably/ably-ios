@@ -85,11 +85,15 @@ NSInteger getStatusFromCode(NSInteger code) {
 }
 
 - (NSInteger)statusCode {
-    return [(NSNumber *)self.userInfo[ARTErrorInfoStatusCodeKey] integerValue];
+    return [self artStatusCode];
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"Error %ld - %@ (reason: %@)", (long)self.code, self.message, self.reason];
+    if (self.reason != nil) {
+        return [NSString stringWithFormat:@"Error %ld - %@ (reason: %@)", (long)self.code, self.message ?: @"<Empty Message>", self.reason];
+    } else {
+        return [NSString stringWithFormat:@"Error %ld - %@", (long)self.code, self.message ?: @"<Empty Message>"];
+    }
 }
 
 @end
@@ -128,6 +132,14 @@ NSInteger getStatusFromCode(NSInteger code) {
 
 -(void) setErrorInfo:(ARTErrorInfo *)errorInfo {
     _errorInfo = errorInfo;
+}
+
+@end
+
+@implementation NSError (ARTErrorInfo)
+
+- (NSInteger)artStatusCode {
+    return [(NSNumber *)self.userInfo[ARTErrorInfoStatusCodeKey] integerValue];
 }
 
 @end
