@@ -24,6 +24,9 @@
 		56190954238C3D3200A862A6 /* CryptoTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 56190953238C3D3200A862A6 /* CryptoTest.m */; };
 		56190955238C3D3200A862A6 /* CryptoTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 56190953238C3D3200A862A6 /* CryptoTest.m */; };
 		56190956238C3D3200A862A6 /* CryptoTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 56190953238C3D3200A862A6 /* CryptoTest.m */; };
+		849A7C12265FA2150097B2E3 /* Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A7C11265FA2150097B2E3 /* Default.swift */; };
+		849A7C13265FA2150097B2E3 /* Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A7C11265FA2150097B2E3 /* Default.swift */; };
+		849A7C14265FA2150097B2E3 /* Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A7C11265FA2150097B2E3 /* Default.swift */; };
 		850BFB4C1B79323C009D0ADD /* ARTPaginatedResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 850BFB4A1B79323C009D0ADD /* ARTPaginatedResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		850BFB4D1B79323C009D0ADD /* ARTPaginatedResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 850BFB4B1B79323C009D0ADD /* ARTPaginatedResult.m */; };
 		851674EF1B7BA5CD00D35169 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851674EE1B7BA5CD00D35169 /* Stats.swift */; };
@@ -777,6 +780,7 @@
 		1CD8DC9E1B1C7315007EAF36 /* ARTDefault.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARTDefault.m; sourceTree = "<group>"; };
 		560579D824AF1BA900A4D03D /* ARTDefaultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARTDefaultTests.swift; sourceTree = "<group>"; };
 		56190953238C3D3200A862A6 /* CryptoTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CryptoTest.m; sourceTree = "<group>"; };
+		849A7C11265FA2150097B2E3 /* Default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Default.swift; sourceTree = "<group>"; };
 		850BFB4A1B79323C009D0ADD /* ARTPaginatedResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARTPaginatedResult.h; sourceTree = "<group>"; };
 		850BFB4B1B79323C009D0ADD /* ARTPaginatedResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARTPaginatedResult.m; sourceTree = "<group>"; };
 		851674EE1B7BA5CD00D35169 /* Stats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
@@ -1123,6 +1127,7 @@
 				D7C1B8761BBEA81A0087B55F /* Auth.swift */,
 				EB7913A71C6E54C3000ABF9B /* Crypto.swift */,
 				56190953238C3D3200A862A6 /* CryptoTest.m */,
+				849A7C11265FA2150097B2E3 /* Default.swift */,
 				D798554723EB96C000946BE2 /* DeltaCodec.swift */,
 				856AAC8E1B6E304B00B07119 /* Info-iOS.plist */,
 				D7093C0E219E2DB200723F17 /* Info-macOS.plist */,
@@ -2217,6 +2222,7 @@
 				D746AE2D1BBB625E003ECEF8 /* RestClientChannels.swift in Sources */,
 				EBAB9A6F1C69702800AF036B /* ReadmeExamples.swift in Sources */,
 				56190954238C3D3200A862A6 /* CryptoTest.m in Sources */,
+				849A7C12265FA2150097B2E3 /* Default.swift in Sources */,
 				D7C1B8771BBEA81A0087B55F /* Auth.swift in Sources */,
 				D7EBE5A31BE8391E0086E675 /* RealtimeClientConnection.swift in Sources */,
 				560579D924AF1BA900A4D03D /* ARTDefaultTests.swift in Sources */,
@@ -2319,6 +2325,7 @@
 				D7093C27219E466E00723F17 /* RealtimeClientChannels.swift in Sources */,
 				D7093C28219E466E00723F17 /* RealtimeClientPresence.swift in Sources */,
 				D7093C24219E466E00723F17 /* RealtimeClient.swift in Sources */,
+				849A7C13265FA2150097B2E3 /* Default.swift in Sources */,
 				D7093C1F219E466E00723F17 /* RestClientStats.swift in Sources */,
 				D7093C1A219E465C00723F17 /* NSObject+TestSuite.m in Sources */,
 				D7093C1E219E466900723F17 /* RestClient.swift in Sources */,
@@ -2349,6 +2356,7 @@
 				D7093C70219EE25400723F17 /* TestUtilities.swift in Sources */,
 				D7093C80219EE26400723F17 /* Stats.swift in Sources */,
 				D7093C77219EE26400723F17 /* RestClientChannel.swift in Sources */,
+				849A7C14265FA2150097B2E3 /* Default.swift in Sources */,
 				D7093C7E219EE26400723F17 /* RealtimeClientChannels.swift in Sources */,
 				D7093C79219EE26400723F17 /* RestClientPresence.swift in Sources */,
 				D7093C78219EE26400723F17 /* RestClientChannels.swift in Sources */,

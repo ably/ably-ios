@@ -191,7 +191,7 @@ Class configuredWebsocketClass = nil;
     queryItems = [queryItems arrayByAddingObject:versionParam];
     
     // Lib
-    NSURLQueryItem *libParam = [NSURLQueryItem queryItemWithName:@"lib" value:[ARTDefault libraryVersion]];
+    NSURLQueryItem *libParam = [NSURLQueryItem queryItemWithName:@"lib" value:[ARTDefault agent]];
     queryItems = [queryItems arrayByAddingObject:libParam];
 
     // URL

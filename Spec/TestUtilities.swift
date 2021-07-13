@@ -1638,6 +1638,24 @@ public func haveParam(_ key: String, withValue expectedValue: String? = nil) -> 
     }
 }
 
+/// A Nimble matcher that succeeds when a param value starts with a particular string.
+public func haveParam(_ key: String, hasPrefix expectedValue: String) -> Predicate<String> {
+    let errorMessage = "param <\(key)> has prefix \(expectedValue)"
+    return Predicate.simple(errorMessage) { actualExpression in
+        guard let actualValue = try actualExpression.evaluate() else {
+            return .fail
+        }
+        let queryItems = actualValue.components(separatedBy: "&")
+        for item in queryItems {
+            let param = item.components(separatedBy: "=")
+            if let currentKey = param.first, let currentValue = param.last, currentKey == key && currentValue.hasPrefix(expectedValue) {
+                return .matches
+            }
+        }
+        return .doesNotMatch
+    }
+}
+
 
 // http://stackoverflow.com/a/26502285/818420
 extension String {

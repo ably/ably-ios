@@ -896,9 +896,9 @@ class RestClient: QuickSpec {
                         return
                     }
 
-                    expect(NSRegularExpression.match(testHTTPExecutor.requests[0].url!.absoluteString, pattern: "//\(ARTDefault.restHost()!)")).to(beTrue())
+                    expect(NSRegularExpression.match(testHTTPExecutor.requests[0].url!.absoluteString, pattern: "//\(ARTDefault.restHost())")).to(beTrue())
                     expect(NSRegularExpression.match(testHTTPExecutor.requests[1].url!.absoluteString, pattern: "//[a-e].ably-realtime.com")).to(beTrue())
-                    expect(NSRegularExpression.match(testHTTPExecutor.requests[2].url!.absoluteString, pattern: "//\(ARTDefault.restHost()!)")).to(beTrue())
+                    expect(NSRegularExpression.match(testHTTPExecutor.requests[2].url!.absoluteString, pattern: "//\(ARTDefault.restHost())")).to(beTrue())
                 }
 
                 // RSC15e
@@ -956,7 +956,7 @@ class RestClient: QuickSpec {
 
                     it("default fallback hosts should match @[a-e].ably-realtime.com@") {
                         let defaultFallbackHosts = ARTDefault.fallbackHosts()
-                        defaultFallbackHosts?.forEach { host in
+                        defaultFallbackHosts.forEach { host in
                             expect(host).to(match("[a-e].ably-realtime.com"))
                         }
                         expect(defaultFallbackHosts).to(haveCount(5))
@@ -1276,8 +1276,10 @@ class RestClient: QuickSpec {
                 }
             }
             
-            // RSC7b
-            it("X-Ably-Lib: [lib][.optional variant]?-[version] should be included in all REST requests") {
+            // RSC7b (Deprecated in favor of RCS7d)
+
+            // RSC7d
+            it("Ably-Agent: The Agent library identifier is composed of a series of key[/value] entries joined by spaces") {
                 let options = AblyTests.commonAppSetup()
                 let client = ARTRest(options: options)
                 testHTTPExecutor = TestProxyHTTPExecutor(options.logHandler)
@@ -1286,12 +1288,12 @@ class RestClient: QuickSpec {
                 waitUntil(timeout: testTimeout) { done in
                     channel.publish(nil, data: "message") { error in
                         expect(error).to(beNil())
-                        let headerLibVersion = testHTTPExecutor.requests.first!.allHTTPHeaderFields?["X-Ably-Lib"]
-                        let ablyBundleLibVersion = ARTDefault.libraryVersion()
-                        expect(headerLibVersion).to(equal(ablyBundleLibVersion))
+                        let headerAgent = testHTTPExecutor.requests.first!.allHTTPHeaderFields?["Ably-Agent"]
+                        let ablyAgent = ARTDefault.agent()
+                        expect(headerAgent).to(equal(ablyAgent))
                         
-                        let patternToMatch = "cocoa\(ARTDefault_variant)-1.2."
-                        let match = headerLibVersion?.hasPrefix(patternToMatch)
+                        let patternToMatch = "\(ARTDefault_libName)/1.2."
+                        let match = headerAgent?.hasPrefix(patternToMatch)
                         expect(match).to(beTrue())
                         
                         done()
