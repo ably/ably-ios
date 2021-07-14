@@ -16,10 +16,9 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.11'
   s.requires_arc      = true
   s.swift_version     = '5.0'
-  s.source_files      = 'Source/**/*.{h,m,swift}'
-  s.private_header_files = 'Source/*+Private.h', 'Source/Private/*.h'
+  s.source_files      = 'Source/**/*.{h,m,swift}', 'SocketRocket/SocketRocket/**/*.{h,m}'
+  s.private_header_files = 'Source/PrivateHeaders/*.h', 'SocketRocket/SocketRocket/**/*.h'
   s.module_map        = 'Source/Ably.modulemap'
-  s.dependency 'SocketRocketAblyFork', '0.5.2-ably-8'
   s.dependency 'msgpack', '0.3.1'
   s.dependency 'AblyDeltaCodec', '1.2.0'
 end

@@ -56,6 +56,13 @@ jobs:
 
       - name: Run Tests
         run: fastlane ${{ matrix.lane }}
+      
+      # This is the script specified as the pod’s prepare_command in its Podspec.
+      # It would be run automatically for a normal CocoaPods install, but it doesn’t
+      # get run when the dependency is specified with the :path option. So we run it
+      # manually.
+      - name: Prepare Pod
+        run: Scripts/prepare-pod.sh
 
       - name: Run Examples Tests
         working-directory: ./Examples/Tests
@@ -63,3 +70,15 @@ jobs:
           pod repo update
           pod install
           bundle exec fastlane scan -s Tests
+                
+      - name: Swift Package Manager - Installation Test
+        working-directory: ./
+        run:  |
+          echo 'Current Branch: ' $GITHUB_HEAD_REF
+          echo 'Current Revision (SHA):' $GITHUB_SHA
+          echo Current Path: $(pwd)
+          export PACKAGE_URL=file://$(pwd)
+          export PACKAGE_BRANCH_NAME=$GITHUB_HEAD_REF
+          export PACKAGE_REVISION=$GITHUB_SHA
+          rm Examples/SPM/Package.resolved
+          swift test --package-path Examples/SPM -v

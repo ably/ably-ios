@@ -68,8 +68,19 @@ Visit [ably.io/documentation](https://www.ably.io/documentation) for a complete 
 
 ## Installation Guide
 
-You can install Ably for iOS and macOS through CocoaPods, Carthage or manually.
+You can install Ably for iOS and macOS through Package Manager, CocoaPods, Carthage or manually.
 
+## Installation
+
+### Installing through [Swift Package Manager](https://swift.org/package-manager/)
+- To install the `ably-cocoa` package in your **Xcode Project**: 
+    - Paste `https://github.com/ably/ably-cocoa` in the *Swift Packages* search box. ( *Xcode project*  &rarr;  *Swift Packages..* . &rarr; `+` button)
+    - Select the `Ably` SDK for your target.
+    - [This apple guide](https://developer.apple.com/documentation/swift_packages/adding_package_dependencies_to_your_app) explains the steps in more detail.
+- To install the `ably-cocoa` package in another **Swift Package**, then add the following to your `Package.Swift`:
+```swift
+ .package(url: "https://github.com/ably/ably-cocoa", from: "1.3.0"),
+```
 ### Installing through [CocoaPods](https://cocoapods.org/)
 
 If you intend to use Swift, using `use_frameworks!` in your Podfile is recommended (this will create a Framework that can be used in Swift natively).
@@ -90,16 +101,27 @@ Add this line to your application's Cartfile:
     # For Xcode 7.3 and newer
     github "ably/ably-cocoa" >= 1.2
 
-And then run `carthage update` to build the framework and drag the built Ably.framework into your Xcode project.
+And then run  
 
-If you see, for example, a `dyld: Library not loaded: @rpath/SocketRocketAblyFork.framework/SocketRocketAblyFork` error, then most likely you forgot to add all the dependencies to your project. You have more detailed information [here](https://github.com/Carthage/Carthage#adding-frameworks-to-an-application).
+- for **iOS**: `carthage update --use-xcframeworks --platform iOS --no-use-binaries`
+- for **macOS**: `carthage update --use-xcframeworks --platform macOS --no-use-binaries`
+- for **tvOS**: `carthage update --use-xcframeworks --platform tvOS --no-use-binaries`
+
+to build the framework and drag the built (in `[PROJECT_ROOT]/Carthage/Build`)
+
+- `Ably.xcframework` 
+- `AblyDeltaCodec.xcframework`
+- `msgpack.xcframework`
+
+into your Xcode project.
+
+If you see, for example, a `dyld: Library not loaded: @rpath/AblyDeltaCodec.framework/AblyDeltaCodec` error, then most likely you forgot to add all the dependencies to your project. You have more detailed information [here](https://github.com/Carthage/Carthage#adding-frameworks-to-an-application).
 
 ### Manual installation 
 
 1. Get the code from GitHub [from the release page](https://github.com/ably/ably-cocoa/releases/tag/1.2.4), or clone it to get the latest, unstable and possibly underdocumented version: `git clone git@github.com:ably/ably-cocoa.git`
 2. Drag the directory `ably-cocoa/ably-cocoa` into your project as a group.
-3. Ably depends on our [SocketRocket Fork](https://github.com/ably-forks/SocketRocket) 0.5.2; get it [from the releases page](https://github.com/ably-forks/SocketRocket/releases/tag/0.5.2-ably-2) and follow [its manual installation instructions](https://github.com/ably-forks/SocketRocket/#installing).
-4. Ably also depends on our [MessagePack Fork](https://github.com/ably-forks/msgpack-objective-C) 0.2.0; get it [from the releases page](https://github.com/ably-forks/msgpack-objective-C/releases/tag/0.2.0-ably-1) and link it into your project.
+3. Ably depends on our [MessagePack Fork](https://github.com/ably-forks/msgpack-objective-C) 0.2.0; get it [from the releases page](https://github.com/ably-forks/msgpack-objective-C/releases/tag/0.2.0-ably-1) and link it into your project.
 
 ## Thread-safety
 
@@ -735,7 +757,7 @@ For each release, the following needs to be done:
 * Steps to perform *before* pushing a release tag up:
     1. Checkout `main` locally, pulling in changes from above using `git checkout main && git pull`
     2. Run `make update` to ensure Carthage dependencies are in sync
-    3. Generate the prebuilt framework for Carthage using `make carthage_package` (the output from this, `Ably.framework.zip`, will be attached to the release later on)
+    3. Generate the prebuilt framework for Carthage using `make carthage_package platform=[iOS|macOS|tvOS]` (the output from this, `Ably.framework.zip`, will be attached to the release later on)
     4. Validate that the CocoaPods build should succeed using `pod lib lint`
 * If any fixes are needed (e.g. the lint fails with warnings) then either commit them to `main` branch now if they are simple warning fixes or perhaps consider raising a new PR if they are complex or likely to need review.
 * Create a tag for this version number using `git tag x.x.x`

@@ -8,7 +8,7 @@
 
 #import <Ably/ARTWebSocketTransport.h>
 #import <Ably/CompatibilityMacros.h>
-#import <SocketRocketAblyFork/ARTSRWebSocket.h>
+#import <Ably/ARTSRWebSocket.h>
 #import <Ably/ARTEncoder.h>
 #import <Ably/ARTAuth.h>
 #import <Ably/ARTWebSocket.h>

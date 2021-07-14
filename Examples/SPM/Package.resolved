@@ -1,0 +1,34 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "ably-cocoa",
+        "repositoryURL": "/Users/lukaszszyszkowski/@projekty_ios/ably-cocoa",
+        "state": {
+          "branch": null,
+          "revision": "b6e554b07a0b4fe13011106f33d0826092c219aa",
+          "version": null
+        }
+      },
+      {
+        "package": "AblyDeltaCodec",
+        "repositoryURL": "https://github.com/ably/delta-codec-cocoa",
+        "state": {
+          "branch": "main",
+          "revision": "d09d34a5489665a3c924a95791ce0a97ef26cc99",
+          "version": null
+        }
+      },
+      {
+        "package": "msgpack",
+        "repositoryURL": "https://github.com/rvi/msgpack-objective-C",
+        "state": {
+          "branch": null,
+          "revision": "3e36b48e04ecd756cb927bd5f5b9bf6d45e475f9",
+          "version": "0.4.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
