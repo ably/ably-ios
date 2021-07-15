@@ -51,6 +51,8 @@ typedef CF_ENUM(NSUInteger, ARTClientCodeError) {
 
 NS_ASSUME_NONNULL_BEGIN
 
+FOUNDATION_EXPORT NSString *const ARTErrorInfoRequestIdKey;
+
 FOUNDATION_EXPORT NSString *const ARTAblyErrorDomain;
 
 /**
@@ -71,11 +73,16 @@ FOUNDATION_EXPORT NSString *const ARTAblyMessageNoMeansToRenewToken;
 @property (readonly) NSString *message;
 @property (nullable, readonly) NSString *reason;
 @property (readonly) NSInteger statusCode;
+@property (nullable, readonly) NSString *href;
+@property (nullable, readonly) NSString *requestId;
 
 + (ARTErrorInfo *)createWithCode:(NSInteger)code message:(NSString *)message;
 + (ARTErrorInfo *)createWithCode:(NSInteger)code status:(NSInteger)status message:(NSString *)message;
 + (ARTErrorInfo *)createFromNSError:(NSError *)error;
 + (ARTErrorInfo *)createFromNSException:(NSException *)error;
++ (ARTErrorInfo *)createWithCode:(NSInteger)code message:(NSString *)message requestId:(nullable NSString *)requestId;
++ (ARTErrorInfo *)createWithCode:(NSInteger)code status:(NSInteger)status message:(NSString *)message requestId:(nullable NSString *)requestId;
++ (ARTErrorInfo *)createFromNSException:(NSException *)error requestId:(nullable NSString *)requestId;
 + (ARTErrorInfo *)createUnknownError;
 + (ARTErrorInfo *)wrap:(ARTErrorInfo *)error prepend:(NSString *)prepend;
 

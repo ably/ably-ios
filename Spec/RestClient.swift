@@ -1351,7 +1351,7 @@ class RestClient: QuickSpec {
                     })
                 }
             }
-
+            
             // RSC19
             context("request") {
 
@@ -1743,6 +1743,24 @@ class RestClient: QuickSpec {
 
                     expect(fallbackRequests).toNot(beEmpty())
                     expect(fallbackRequests).to(allPass { extractURLQueryValue($0?.url, key: "request_id") == requestId })
+                }
+                
+                it("ErrorInfo should have `requestId` property") {
+                    let options = ARTClientOptions(key: "xxxx:xxxx")
+                    options.addRequestIds = true
+
+                    let rest = ARTRest(options: options)
+                    let mockHttpExecutor = MockHTTPExecutor()
+                    mockHttpExecutor.simulateIncomingErrorOnNextRequest(NSError(domain: "ably-test", code: 40013, userInfo: ["Message":"Ably test message"]))
+                    rest.internal.httpExecutor = mockHttpExecutor
+                    
+                    waitUntil(timeout: testTimeout) { done in
+                        rest.channels.get("foo").publish(nil, data: "something") { error in
+                            expect(error).toNot(beNil())
+                            expect(error?.requestId).toNot(beNil())
+                            done()
+                        }
+                    }
                 }
 
             }

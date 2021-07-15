@@ -22,6 +22,7 @@
 #import "ARTPushChannel+Private.h"
 #import "ARTCrypto+Private.h"
 #import "ARTClientOptions.h"
+#import "ARTNSError+ARTUtils.h"
 
 @implementation ARTRestChannel {
     ARTQueuedDealloc *_dealloc;
@@ -229,104 +230,94 @@ dispatch_sync(_queue, ^{
             });
         };
     }
-
-dispatch_async(_queue, ^{
-    NSData *encodedMessage = nil;
     
-    if ([data isKindOfClass:[ARTMessage class]]) {
-        ARTMessage *message = (ARTMessage *)data;
-
-        NSString *baseId = nil;
-        if (self.rest.options.idempotentRestPublishing && message.isIdEmpty) {
-            NSData *baseIdData = [ARTCrypto generateSecureRandomData:kIdempotentLibraryGeneratedIdLength];
-            baseId = [baseIdData base64EncodedStringWithOptions:0];
-            message.id = [NSString stringWithFormat:@"%@:0", baseId];
-        }
-
-        if (message.clientId && self.rest.auth.clientId_nosync && ![message.clientId isEqualToString:self.rest.auth.clientId_nosync]) {
-            callback([ARTErrorInfo createWithCode:ARTStateMismatchedClientId message:@"attempted to publish message with an invalid clientId"]);
-            return;
-        }
-
-        NSError *encodeError = nil;
-        encodedMessage = [self.rest.defaultEncoder encodeMessage:message error:&encodeError];
-        if (encodeError) {
-            callback([ARTErrorInfo createFromNSError:encodeError]);
-            return;
-        }
-    }
-    else if ([data isKindOfClass:[NSArray class]]) {
-        NSArray<ARTMessage *> *messages = (NSArray *)data;
-
-        NSString *baseId = nil;
-        if (self.rest.options.idempotentRestPublishing) {
-            BOOL messagesHaveEmptyId = [messages artFilter:^BOOL(ARTMessage *m) { return !m.isIdEmpty; }].count <= 0;
-            if (messagesHaveEmptyId) {
+    dispatch_async(_queue, ^{
+        NSData *encodedMessage = nil;
+        
+        if ([data isKindOfClass:[ARTMessage class]]) {
+            ARTMessage *message = (ARTMessage *)data;
+            
+            NSString *baseId = nil;
+            if (self.rest.options.idempotentRestPublishing && message.isIdEmpty) {
                 NSData *baseIdData = [ARTCrypto generateSecureRandomData:kIdempotentLibraryGeneratedIdLength];
                 baseId = [baseIdData base64EncodedStringWithOptions:0];
+                message.id = [NSString stringWithFormat:@"%@:0", baseId];
             }
-        }
-
-        NSInteger serial = 0;
-        for (ARTMessage *message in messages) {
+            
             if (message.clientId && self.rest.auth.clientId_nosync && ![message.clientId isEqualToString:self.rest.auth.clientId_nosync]) {
                 callback([ARTErrorInfo createWithCode:ARTStateMismatchedClientId message:@"attempted to publish message with an invalid clientId"]);
                 return;
             }
-            if (baseId) {
-                message.id = [NSString stringWithFormat:@"%@:%ld", baseId, (long)serial];
+            
+            NSError *encodeError = nil;
+            encodedMessage = [self.rest.defaultEncoder encodeMessage:message error:&encodeError];
+            if (encodeError) {
+                callback([ARTErrorInfo createFromNSError:encodeError]);
+                return;
             }
-            serial += 1;
         }
-
-        NSError *encodeError = nil;
-        encodedMessage = [self.rest.defaultEncoder encodeMessages:data error:&encodeError];
-        if (encodeError) {
-            callback([ARTErrorInfo createFromNSError:encodeError]);
-            return;
+        else if ([data isKindOfClass:[NSArray class]]) {
+            NSArray<ARTMessage *> *messages = (NSArray *)data;
+            
+            NSString *baseId = nil;
+            if (self.rest.options.idempotentRestPublishing) {
+                BOOL messagesHaveEmptyId = [messages artFilter:^BOOL(ARTMessage *m) { return !m.isIdEmpty; }].count <= 0;
+                if (messagesHaveEmptyId) {
+                    NSData *baseIdData = [ARTCrypto generateSecureRandomData:kIdempotentLibraryGeneratedIdLength];
+                    baseId = [baseIdData base64EncodedStringWithOptions:0];
+                }
+            }
+            
+            NSInteger serial = 0;
+            for (ARTMessage *message in messages) {
+                if (message.clientId && self.rest.auth.clientId_nosync && ![message.clientId isEqualToString:self.rest.auth.clientId_nosync]) {
+                    callback([ARTErrorInfo createWithCode:ARTStateMismatchedClientId message:@"attempted to publish message with an invalid clientId"]);
+                    return;
+                }
+                if (baseId) {
+                    message.id = [NSString stringWithFormat:@"%@:%ld", baseId, (long)serial];
+                }
+                serial += 1;
+            }
+            
+            NSError *encodeError = nil;
+            encodedMessage = [self.rest.defaultEncoder encodeMessages:data error:&encodeError];
+            if (encodeError) {
+                callback([ARTErrorInfo createFromNSError:encodeError]);
+                return;
+            }
         }
-    }
-
-    NSURLComponents *components = [[NSURLComponents alloc] initWithURL:[NSURL URLWithString:[self->_basePath stringByAppendingPathComponent:@"messages"]] resolvingAgainstBaseURL:YES];
-    NSMutableArray<NSURLQueryItem *> *queryItems = [NSMutableArray new];
-    NSString *requestId = nil;
-    if (self.rest.options.addRequestIds) {
-        NSString *randomId = [NSUUID new].UUIDString;
-        requestId = [[randomId dataUsingEncoding:NSUTF8StringEncoding] base64EncodedStringWithOptions:0];
-        [queryItems addObject:[NSURLQueryItem queryItemWithName:@"request_id" value:requestId]];
-    }
-    if (queryItems.count > 0) {
-        components.queryItems = queryItems;
-    }
-
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[components URL]];
-    request.HTTPMethod = @"POST";
-    request.HTTPBody = encodedMessage;
-
-    if (self.rest.defaultEncoding) {
-        [request setValue:self.rest.defaultEncoding forHTTPHeaderField:@"Content-Type"];
-    }
-
-    if (requestId) {
-        [self.logger debug:__FILE__ line:__LINE__ message:@"RS:%p C:%p (ID:%@) (%@) post message %@", self->_rest, self, requestId, self.name, [[NSString alloc] initWithData:encodedMessage encoding:NSUTF8StringEncoding]];
-    }
-    else {
+        
+        NSURLComponents *components = [[NSURLComponents alloc] initWithURL:[NSURL URLWithString:[self->_basePath stringByAppendingPathComponent:@"messages"]] resolvingAgainstBaseURL:YES];
+        NSMutableArray<NSURLQueryItem *> *queryItems = [NSMutableArray new];
+        
+        if (queryItems.count > 0) {
+            components.queryItems = queryItems;
+        }
+        
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[components URL]];
+        request.HTTPMethod = @"POST";
+        request.HTTPBody = encodedMessage;
+        
+        if (self.rest.defaultEncoding) {
+            [request setValue:self.rest.defaultEncoding forHTTPHeaderField:@"Content-Type"];
+        }
+        
         [self.logger debug:__FILE__ line:__LINE__ message:@"RS:%p C:%p (%@) post message %@", self->_rest, self, self.name, [[NSString alloc] initWithData:encodedMessage encoding:NSUTF8StringEncoding]];
-    }
-
-    [self->_rest executeRequest:request withAuthOption:ARTAuthenticationOn completion:^(NSHTTPURLResponse *response, NSData *data, NSError *error) {
-        if (callback) {
-            ARTErrorInfo *errorInfo;
-            if (self->_rest.options.addRequestIds) {
-                errorInfo = error ? [ARTErrorInfo wrap:[ARTErrorInfo createFromNSError:error] prepend:[NSString stringWithFormat:@"Request '%@' failed with ", request.URL]] : nil;
+        
+        [self->_rest executeRequest:request withAuthOption:ARTAuthenticationOn completion:^(NSHTTPURLResponse *response, NSData *data, NSError *error) {
+            if (callback) {
+                ARTErrorInfo *errorInfo;
+                if (self->_rest.options.addRequestIds) {
+                    errorInfo = error ? [ARTErrorInfo wrap:[ARTErrorInfo createFromNSError:error] prepend:[NSString stringWithFormat:@"Request '%@' failed with ", request.URL]] : nil;
+                } else {
+                    errorInfo = error ? [ARTErrorInfo createFromNSError:error] : nil;
+                }
+                
+                callback(errorInfo);
             }
-            else {
-                errorInfo = error ? [ARTErrorInfo createFromNSError:error] : nil;
-            }
-            callback(errorInfo);
-        }
-    }];
-});
+        }];
+    });
 }
 
 @end
