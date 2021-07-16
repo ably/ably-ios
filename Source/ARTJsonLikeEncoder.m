@@ -641,7 +641,6 @@
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
 
     dictionary[@"id"] = deviceDetails.id;
-    dictionary[@"deviceSecret"] = deviceDetails.secret;
     dictionary[@"platform"] = deviceDetails.platform;
     dictionary[@"formFactor"] = deviceDetails.formFactor;
 

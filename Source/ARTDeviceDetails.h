@@ -16,12 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ARTDeviceDetails : NSObject
 
 @property (nonatomic) ARTDeviceId *id;
-
-/**
- Device secret generated using random data with sufficient entropy. It's a sha256 digest encoded with base64.
- */
-@property (nullable, nonatomic) ARTDeviceSecret *secret;
-
 @property (nullable, nonatomic) NSString *clientId;
 @property (nonatomic) NSString *platform;
 @property (nonatomic) NSString *formFactor;
